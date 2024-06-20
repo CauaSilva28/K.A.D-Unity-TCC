@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - AreaPlayer
+  - Itens
   layers:
   - Default
   - TransparentFX

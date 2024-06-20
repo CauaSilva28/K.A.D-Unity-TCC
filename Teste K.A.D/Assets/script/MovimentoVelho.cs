@@ -5,13 +5,13 @@ using UnityEngine.AI;
 
 public class MovimentoVelho : MonoBehaviour
 {
+
     public float distanciaMinima;
 
     private Animator anim;
-
     public Transform personagem;
-
     private NavMeshAgent navMeshAgent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,29 +25,32 @@ public class MovimentoVelho : MonoBehaviour
     {
         navMeshAgent.SetDestination(personagem.position);
 
-        if (navMeshAgent.speed > 20)
+        float distancia = Vector3.Distance(transform.position, personagem.position);
+
+        if (distancia <= distanciaMinima)
         {
-            anim.SetInteger("transition", 1);
+            navMeshAgent.speed = 0;
+            anim.SetInteger("transition", 0);
         }
         else
         {
-            anim.SetInteger("transition", 0);
-        }
-    }
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift))
+            {
+                navMeshAgent.speed = 50;
+            }
+            else
+            {
+                navMeshAgent.speed = 30;
+            }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("AreaPlayer"))
-        {
-            navMeshAgent.speed = 0;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("AreaPlayer"))
-        {
-            navMeshAgent.speed = 30;
+            if (navMeshAgent.speed >= 30)
+            {
+                anim.SetInteger("transition", 1);
+            }
+            else
+            {
+                anim.SetInteger("transition", 0);
+            }
         }
     }
 }

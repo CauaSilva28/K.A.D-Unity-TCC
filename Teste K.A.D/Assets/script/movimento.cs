@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movimento : MonoBehaviour
+public class Movimento : MonoBehaviour
 {
     private float velocidade = 30f;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
 
-    float rotationSpeed = 120f;
+    private float rotationSpeed = 2f;
 
     private Animator anim;
 
@@ -26,22 +26,15 @@ public class movimento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetInteger("transition", 0);
-
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
-            anim.SetInteger("transition", 1);
-        }
-
         if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift)){
             velocidade = 60f;
-            anim.SetInteger("transition", 2);
         }
         else{
             velocidade = 30f;
         }
 
         //Movimentacao-------------------------------
-        moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical")) * velocidade;
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * velocidade;
         moveDirection = transform.TransformDirection(moveDirection);
 
         //Gravidade-----------------------------
@@ -61,16 +54,9 @@ public class movimento : MonoBehaviour
         //FIM Movimentacao-------------------------------
 
         //Rotacaoo-------------------------------
-        if (Input.GetKey(KeyCode.A))
-        {
-            Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, -rotationSpeed, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, rotationSpeed, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
-        }
+        float mouseXInput = Input.GetAxis("Mouse X");
+
+        transform.Rotate(0f, mouseXInput * rotationSpeed, 0f);
         //FIM Rotacaoo-------------------------------
     }
 }
