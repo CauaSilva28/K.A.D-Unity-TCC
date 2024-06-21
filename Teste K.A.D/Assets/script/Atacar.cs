@@ -4,33 +4,51 @@ using UnityEngine;
 
 public class Atacar : MonoBehaviour
 {
-    Vector3 point;
-    public Camera _camera;
-    Ray ray;
-
-    void Start()
-    {
-
-    }
+    private bool atacando = false;
+    private GameObject inimigo;
+    public float anguloDeVisao = 45f;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (atacando)
         {
-            point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
-            ray = _camera.ScreenPointToRay(point);
-
-            RaycastHit hit;
-
-            float maxDistance = 20f;
-
-            if (Physics.Raycast(ray, out hit, maxDistance))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.transform.gameObject.CompareTag("Inimigos"))
+                if (EstaOlhandoParaInimigo(inimigo))
                 {
-                    
+                    Destroy(inimigo);
+                    atacando = false;
                 }
             }
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("inimigo"))
+        {
+            atacando = true;
+            inimigo = collision.gameObject;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("inimigo"))
+        {
+            atacando = false;
+            inimigo = null;
+        }
+    }
+
+    bool EstaOlhandoParaInimigo(GameObject inimigo)
+    {
+        if (inimigo == null)
+            return false;
+
+        Vector3 direcaoParaInimigo = (inimigo.transform.position - transform.position).normalized;
+        float angulo = Vector3.Angle(transform.forward, direcaoParaInimigo);
+
+        return angulo < anguloDeVisao;
     }
 }
