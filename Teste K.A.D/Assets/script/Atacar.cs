@@ -8,6 +8,13 @@ public class Atacar : MonoBehaviour
     private GameObject inimigo;
     public float anguloDeVisao = 45f;
 
+    public AudioClip somSoco;
+    private AudioSource sonsPerso;
+
+    void Start(){
+        sonsPerso = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (atacando)
@@ -16,11 +23,19 @@ public class Atacar : MonoBehaviour
             {
                 if (EstaOlhandoParaInimigo(inimigo))
                 {
-                    Destroy(inimigo);
-                    atacando = false;
+                    StartCoroutine(tempoAtaque());
                 }
             }
         }
+    }
+
+    IEnumerator tempoAtaque(){
+        sonsPerso.PlayOneShot(somSoco);
+        Dino scriptDino = inimigo.GetComponent<Dino>(); // Obtém o script do inimigo que está sendo atacado
+        scriptDino.vidaDino--;
+        atacando = false;
+        yield return new WaitForSeconds(1f);
+        atacando = true;
     }
 
     void OnCollisionEnter(Collision collision)

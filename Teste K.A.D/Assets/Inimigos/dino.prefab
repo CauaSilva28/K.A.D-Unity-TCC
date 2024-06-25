@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &76127374286037082
+--- !u!1001 &3207421725609360095
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -77,6 +77,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4164675566864830254, guid: 67e00b0ea633db443add4eba34618762, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164675566864830254, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 0}
@@ -94,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_Name
-      value: PBR_Velociraptor_Orange Variant
+      value: dino
       objectReference: {fileID: 0}
     - target: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_TagString
@@ -130,15 +134,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8985053520044729400, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1088.4
+      value: -1090.568
       objectReference: {fileID: 0}
     - target: {fileID: 8985053520044729400, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.491432
+      value: 34.491444
       objectReference: {fileID: 0}
     - target: {fileID: 8985053520044729400, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 191.74718
+      value: 187.96754
       objectReference: {fileID: 0}
     - target: {fileID: 8985053520044729400, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_LocalRotation.w
@@ -176,47 +180,51 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 846626287128534248}
+      addedObject: {fileID: 93973738266707215}
     - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1569961313566883602}
+      addedObject: {fileID: 7501603866265302803}
     - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6023704070336926440}
+      addedObject: {fileID: 8193799745985161328}
   m_SourcePrefab: {fileID: 100100000, guid: 67e00b0ea633db443add4eba34618762, type: 3}
---- !u!4 &4431643065886273640 stripped
+--- !u!4 &1156619721104763629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4363476297720647730, guid: 67e00b0ea633db443add4eba34618762, type: 3}
-  m_PrefabInstance: {fileID: 76127374286037082}
+  m_PrefabInstance: {fileID: 3207421725609360095}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5468634640337466993 stripped
+--- !u!1 &7379436449892248820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
-  m_PrefabInstance: {fileID: 76127374286037082}
+  m_PrefabInstance: {fileID: 3207421725609360095}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &846626287128534248
+--- !u!114 &93973738266707215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5468634640337466993}
+  m_GameObject: {fileID: 7379436449892248820}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af089876a91ee6a4aa2f0697404434bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaMinima: 45
+  anguloDeVisao: 45
+  velocidadeRotacao: 2
   personagem: {fileID: 0}
-  rotacionarDino: {fileID: 4431643065886273640}
+  rotacionarDino: {fileID: 1156619721104763629}
   Rosnando: {fileID: 8300000, guid: 85e806ed8d23b7849ba2529a911fb786, type: 3}
---- !u!195 &1569961313566883602
+  vidaPerso: {fileID: 0}
+  vidaDino: 5
+--- !u!195 &7501603866265302803
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5468634640337466993}
+  m_GameObject: {fileID: 7379436449892248820}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.52
@@ -232,13 +240,13 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &6023704070336926440
+--- !u!65 &8193799745985161328
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5468634640337466993}
+  m_GameObject: {fileID: 7379436449892248820}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

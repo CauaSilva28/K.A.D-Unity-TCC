@@ -4,43 +4,53 @@ using UnityEngine;
 
 public class Movimento : MonoBehaviour
 {
-    private float velocidade = 30f;
-
+   private float velocidade = 30f;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
-
     private float rotationSpeed = 2f;
-
+    private float veloDash = 80f; // A velocidade do dash deve ser maior que a velocidade normal
+    private float tempoDash = 0.6f; // Duração do dash em segundos
     private Animator anim;
-
     private float gravidade = 9.8f;
     private float velocidadeVertical = 0f;
-    // Start is called before the first frame update
+    private bool isDashing = false;
+
+    private ParticleSystem DashEfeito;
+
+    private AudioSource sonsPerso;
+    public AudioClip somDash;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        DashEfeito = GetComponent<ParticleSystem>();
+        sonsPerso = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift)){
+        if (isDashing)
+            return; // Se o personagem estiver dashing, sai do método Update.
+
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift))
+        {
             velocidade = 60f;
         }
-        else{
+        else
+        {
             velocidade = 30f;
         }
 
-        //Movimentacao-------------------------------
+        // Movimentacao-------------------------------
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * velocidade;
         moveDirection = transform.TransformDirection(moveDirection);
 
-        //Gravidade-----------------------------
+        // Gravidade-----------------------------
         if (controller.isGrounded)
         {
-            velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no ch�o
+            velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no chao
         }
         else
         {
@@ -48,15 +58,37 @@ public class Movimento : MonoBehaviour
         }
 
         moveDirection.y = velocidadeVertical;
-        //FIM Gravidade-----------------------------
 
         controller.Move(moveDirection * Time.deltaTime);
-        //FIM Movimentacao-------------------------------
+        // FIM Movimentacao-------------------------------
 
-        //Rotacaoo-------------------------------
+        // Rotacaoo-------------------------------
         float mouseXInput = Input.GetAxis("Mouse X");
-
         transform.Rotate(0f, mouseXInput * rotationSpeed, 0f);
-        //FIM Rotacaoo-------------------------------
+        // FIM Rotacaoo-------------------------------
+
+        // Dash-------------------------------
+        if (Input.GetKeyDown(KeyCode.Q) && !isDashing)
+        {
+            sonsPerso.PlayOneShot(somDash);
+            DashEfeito.Play();
+            StartCoroutine(Dash());
+        }
+    }
+
+    IEnumerator Dash()
+    {
+        isDashing = true;
+        float tempoIniciar = Time.time;
+
+        while (Time.time < tempoIniciar + tempoDash)
+        {
+            Vector3 dashDirection = moveDirection.normalized * veloDash;
+            dashDirection.y = 0; // Opcional: pode-se desejar manter a direção de dash apenas no plano horizontal
+            controller.Move(dashDirection * Time.deltaTime);
+            yield return null;
+        }
+
+        isDashing = false;
     }
 }

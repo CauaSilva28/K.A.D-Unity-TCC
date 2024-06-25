@@ -6,7 +6,8 @@ public class AnimacoesPerso : MonoBehaviour
 {
     private Animator anim;
 
-    private bool atacando = false;
+    private bool emAcao = false;
+    private bool cooldownAtaque = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class AnimacoesPerso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!atacando){
+        if(!emAcao){
             anim.SetInteger("transition", 0);
 
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
@@ -31,18 +32,38 @@ public class AnimacoesPerso : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartCoroutine(PararAtaque());
+        if(!cooldownAtaque){
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(PararAtaque());
+            }
         }
 
-        IEnumerator PararAtaque(){
-            atacando = true;
-            anim.SetInteger("transition", 4);
-
-            yield return new WaitForSeconds(0.5f);
-
-            atacando = false;
+        if(Input.GetKeyDown(KeyCode.Q)){
+            StartCoroutine(PararDash());
         }
+    }
+
+    IEnumerator PararAtaque(){
+        emAcao = true;
+        anim.SetInteger("transition", 4);
+
+        yield return new WaitForSeconds(0.5f);
+
+        emAcao = false;
+        cooldownAtaque = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        cooldownAtaque = false;
+    }
+
+    IEnumerator PararDash(){
+        emAcao = true;
+        anim.SetInteger("transition", 5);
+
+        yield return new WaitForSeconds(0.6f);
+
+        emAcao = false;
     }
 }
