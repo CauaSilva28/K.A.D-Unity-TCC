@@ -13,7 +13,10 @@ public class ColetarItens : MonoBehaviour
 
     public Slider barraConserto;
     public GameObject barraConsertoObj;
+    public GameObject barraVidaKombi;
     private bool podeColetar = false; // Variável de controle
+
+    public GameObject spawnarInimigos;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +32,12 @@ public class ColetarItens : MonoBehaviour
 
         if(itensColetados >= 6){
             mensagemColetados.enabled = false;
+            barraVidaKombi.SetActive(true);
             barraConsertoObj.SetActive(true);
-            barraConserto.value += 0.00001f;
+            barraConserto.value += 0.00002f;
             textoCimaConserto.enabled = true;
             textoCimaConserto.text = "PROTEJA SEU ZÉ DOS INIMIGOS";
+            spawnarInimigos.SetActive(true);
         }
 
         if (podeColetar && Input.GetKey(KeyCode.F))

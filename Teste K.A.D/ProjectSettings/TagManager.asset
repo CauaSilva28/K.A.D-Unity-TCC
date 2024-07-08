@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Itens
   - inimigo
+  - DestruidorInimigo
+  - Cura
   layers:
   - Default
   - TransparentFX

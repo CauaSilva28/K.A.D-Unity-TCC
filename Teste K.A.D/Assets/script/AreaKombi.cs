@@ -15,11 +15,14 @@ public class AreaKombi : MonoBehaviour
 
     public ColetarItens coletarItens;
 
+    private AudioSource audioKombi;
+    public AudioClip somDanoKombi;
+
     private bool iniciarConserto = false;
     // Start is called before the first frame update
     void Start()
     {
-
+        audioKombi = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,11 @@ public class AreaKombi : MonoBehaviour
         {
             textoCima.text = "Aperte \"E\" para iniciar o conserto";
             textoCima.enabled = true;
+        }
+
+        if (other.gameObject.CompareTag("inimigo"))
+        {
+            audioKombi.PlayOneShot(somDanoKombi);
         }
     }
 

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class AnimacoesPerso : MonoBehaviour
 {
-    private Animator anim;
+    public Animator anim;
 
-    private bool emAcao = false;
+    public bool emAcao = false;
     private bool cooldownAtaque = false;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -33,37 +33,25 @@ public class AnimacoesPerso : MonoBehaviour
         }
 
         if(!cooldownAtaque){
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.W) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.D) && Input.GetMouseButtonDown(0))
             {
                 StartCoroutine(PararAtaque());
             }
-        }
-
-        if(Input.GetKeyDown(KeyCode.Q)){
-            StartCoroutine(PararDash());
         }
     }
 
     IEnumerator PararAtaque(){
         emAcao = true;
+        anim.SetTrigger("attack");
         anim.SetInteger("transition", 4);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         emAcao = false;
         cooldownAtaque = true;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
 
         cooldownAtaque = false;
-    }
-
-    IEnumerator PararDash(){
-        emAcao = true;
-        anim.SetInteger("transition", 5);
-
-        yield return new WaitForSeconds(0.6f);
-
-        emAcao = false;
     }
 }

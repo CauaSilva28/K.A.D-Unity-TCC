@@ -187,6 +187,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8193799745985161328}
+    - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1890105929744123463}
+    - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3500947130650973846}
   m_SourcePrefab: {fileID: 100100000, guid: 67e00b0ea633db443add4eba34618762, type: 3}
 --- !u!4 &1156619721104763629 stripped
 Transform:
@@ -210,14 +216,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af089876a91ee6a4aa2f0697404434bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanciaMinima: 45
+  distanciaMinima: 50
   anguloDeVisao: 45
-  velocidadeRotacao: 2
+  velocidadeRotacao: 1.3
+  recuoDistancia: 50
+  recuoTempo: 1.5
+  velocidadeDino: 60
   personagem: {fileID: 0}
+  notPersonagem: {fileID: 0}
   rotacionarDino: {fileID: 1156619721104763629}
   Rosnando: {fileID: 8300000, guid: 85e806ed8d23b7849ba2529a911fb786, type: 3}
   vidaPerso: {fileID: 0}
-  vidaDino: 5
+  vidaDino: 3
+  movePerso: {fileID: 0}
+  perseguindoPlayer: 0
+  curaPrefab: {fileID: 4953733685281442299, guid: cb56235babf91254a8fb7a2cf0f3a2ba, type: 3}
 --- !u!195 &7501603866265302803
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -228,7 +241,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.52
-  m_Speed: 50
+  m_Speed: 60
   m_Acceleration: 80
   avoidancePriority: 50
   m_AngularSpeed: 300
@@ -259,5 +272,45 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5001069, y: 1.7542791, z: 2.9210317}
-  m_Center: {x: 0.05705778, y: 0.8874069, z: -0.07844062}
+  m_Size: {x: 1.5, y: 1.412184, z: 2.9210317}
+  m_Center: {x: -0.03, y: 0.7721193, z: -0.07844062}
+--- !u!114 &1890105929744123463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379436449892248820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2fba81fdb15114aad67d9bf5c5933b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraVidaKombi: {fileID: 0}
+--- !u!54 &3500947130650973846
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379436449892248820}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
