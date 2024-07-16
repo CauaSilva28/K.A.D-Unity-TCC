@@ -77,6 +77,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4164675566864830254, guid: 67e00b0ea633db443add4eba34618762, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164675566864830254, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -180,7 +184,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 93973738266707215}
+      addedObject: {fileID: -4663989500425687695}
     - targetCorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7501603866265302803}
@@ -204,7 +208,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5398139518928115243, guid: 67e00b0ea633db443add4eba34618762, type: 3}
   m_PrefabInstance: {fileID: 3207421725609360095}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &93973738266707215
+--- !u!114 &-4663989500425687695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,24 +217,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 7379436449892248820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af089876a91ee6a4aa2f0697404434bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ec82d29e52a9a1458cdc5fbcbb0915f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaMinima: 50
   anguloDeVisao: 45
-  velocidadeRotacao: 1.3
+  velocidadeRotacao: 1.4
   recuoDistancia: 50
-  recuoTempo: 1.5
-  velocidadeDino: 60
+  recuoTempo: 0.5
+  dano: 0.1
+  velocidadeInimigo: 60
   personagem: {fileID: 0}
   notPersonagem: {fileID: 0}
-  rotacionarDino: {fileID: 1156619721104763629}
+  rotacionarInimigo: {fileID: 1156619721104763629}
   Rosnando: {fileID: 8300000, guid: 85e806ed8d23b7849ba2529a911fb786, type: 3}
   vidaPerso: {fileID: 0}
-  vidaDino: 3
-  movePerso: {fileID: 0}
+  vidaInimigo: 5
   perseguindoPlayer: 0
-  curaPrefab: {fileID: 4953733685281442299, guid: cb56235babf91254a8fb7a2cf0f3a2ba, type: 3}
+  curaPrefab:
+  - {fileID: 2854505158609805975, guid: 6b96b672e51034049b3dd53eb9055287, type: 3}
+  - {fileID: 2646881795446550057, guid: d992570517ad44341b4fa2f4e2adcbcd, type: 3}
+  - {fileID: 2651320843546407799, guid: 682d4bbff16ce9442b470324e0cb5436, type: 3}
+  materiais:
+  - {fileID: 2100000, guid: d7a89a8d75914b54888758772e6c3a96, type: 2}
+  - {fileID: 2100000, guid: 41781e3d021c6ea4aaaa2f623c66594d, type: 2}
+  - {fileID: 2100000, guid: ee022dab46a4b2c47acaebf6af334421, type: 2}
+  - {fileID: 2100000, guid: 16106db2626066345a7fd5339d91bde3, type: 2}
+  retopoInimigo: {fileID: 9041558578082663864}
 --- !u!195 &7501603866265302803
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -314,3 +327,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &9041558578082663864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5906783789082752871, guid: 67e00b0ea633db443add4eba34618762, type: 3}
+  m_PrefabInstance: {fileID: 3207421725609360095}
+  m_PrefabAsset: {fileID: 0}
