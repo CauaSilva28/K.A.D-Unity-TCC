@@ -27,6 +27,8 @@ public class Inimigos : MonoBehaviour
 
     private AudioSource SomInimigo;
 
+    public AudioSource SomDanoPlayer;
+
     public AudioClip Rosnando;
 
     public Slider vidaPerso;
@@ -126,7 +128,7 @@ public class Inimigos : MonoBehaviour
                 if (atacando && EstaOlhandoParaPersonagem())
                 {
                     if(navMeshAgent.speed > 0){
-                        StartCoroutine(TirarVidaPerso());
+                        anim.SetInteger("transition", 2);
                     }
                 }
 
@@ -139,20 +141,11 @@ public class Inimigos : MonoBehaviour
         }
     }
 
-    IEnumerator TirarVidaPerso()
-    {
-        anim.SetInteger("transition", 2);
-        yield return new WaitForSeconds(1.3f);
-        if (!tirouVidaPerso)
-        {
-            if(!recuando && !foraColisao){
-                vidaPerso.value -= dano;
-            }
-            tirouVidaPerso = true;
-            yield return new WaitForSeconds(2f);
-            tirouVidaPerso = false;
+    void AtacarPlayer(){
+        if(!recuando && !foraColisao && EstaOlhandoParaPersonagem()){
+            vidaPerso.value -= dano;
+            SomDanoPlayer.Play();
         }
-        yield return null; // Aguarda o próximo frame antes de continuar o loop
     }
 
     IEnumerator EliminarInimigo()

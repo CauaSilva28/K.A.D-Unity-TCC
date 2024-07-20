@@ -15,6 +15,8 @@ public class SpawnarInimigos : MonoBehaviour
     public Slider vidaPerso;
     public Slider barraVidaKombi;
 
+    public AudioSource SomDanoPlayer;
+
     private void Start() {
         InvokeRepeating("SpawnInimigo", 1, 10);
     }
@@ -33,6 +35,7 @@ public class SpawnarInimigos : MonoBehaviour
         scriptInimigo.personagem = persoPosicao;
         scriptInimigo.notPersonagem = notPersoPosicao;
         scriptInimigo.vidaPerso = vidaPerso;
+        scriptInimigo.SomDanoPlayer = SomDanoPlayer;
 
         InimigoColidiKombi scriptInimigo2 = inimigoInstance.GetComponent<InimigoColidiKombi>();
         scriptInimigo2.barraVidaKombi = barraVidaKombi;

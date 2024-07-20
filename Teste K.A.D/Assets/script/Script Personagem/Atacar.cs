@@ -6,14 +6,13 @@ public class Atacar : MonoBehaviour
 {
     public float danoPlayer;
     public bool atacando = false;
-    public float anguloDeVisao = 45f;
+    public float anguloDeVisao;
 
     public AudioSource sonsPerso;
     public AnimacoesPerso animPerso;
     public Movimento movePerso;
 
     private List<GameObject> inimigos = new List<GameObject>();
-    private bool emAtaque = false;
 
     void Start()
     {
@@ -22,7 +21,7 @@ public class Atacar : MonoBehaviour
 
     void Update()
     {
-        if (!emAtaque && atacando)
+        if (atacando)
         {
             GameObject inimigoAlvo = ProcurarInimigoAlvo();
             if (inimigoAlvo != null)
@@ -33,62 +32,38 @@ public class Atacar : MonoBehaviour
                 {
                     scriptInimigo.Recuar();
                 }
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    StartCoroutine(TempoAtaque(inimigoAlvo));
-                }
             }
         }
 
         LimparInimigosMortos();
     }
 
-    IEnumerator TempoAtaque(GameObject inimigo)
-    {
-        emAtaque = true;
-        animPerso.emAcao = true;
-        animPerso.anim.SetTrigger("attack");
-        animPerso.anim.SetInteger("transition", 4);
-
-        yield return new WaitForSeconds(0.3f);
-        sonsPerso.Play();
-
-        yield return new WaitForSeconds(0.2f);
-
-        Inimigos scriptInimigo = inimigo.GetComponent<Inimigos>();
-        if (scriptInimigo != null)
-        {
-            scriptInimigo.vidaInimigo -= danoPlayer;
-        }
-
-        yield return new WaitForSeconds(0.5f);
-
-        float tempoMaximoEspera = 0.7f;
-        float tempoDecorrido = 0f;
-        bool botaoPressionado = false;
-
-        while (tempoDecorrido < tempoMaximoEspera)
-        {
-            if (Input.GetMouseButtonDown(0) && atacando)
+    // Um evento foi criado na animação do ataque (simbolo de bandeira), e e nele foi adicionado esse método
+    void Ataque1(){
+        if(atacando){
+            GameObject inimigoAlvo = ProcurarInimigoAlvo();
+            if (inimigoAlvo != null)
             {
-                botaoPressionado = true;
-                break;
+                Inimigos scriptInimigo = inimigoAlvo.GetComponent<Inimigos>();
+
+                sonsPerso.Play();
+                scriptInimigo.vidaInimigo -= danoPlayer;
             }
-            tempoDecorrido += Time.deltaTime;
-            yield return null;
         }
+    }
 
-        if (botaoPressionado && scriptInimigo != null)
-        {
-            sonsPerso.Play();
-            scriptInimigo.vidaInimigo -= danoPlayer * 2;
-            scriptInimigo.Recuar();
+    void Ataque2(){
+        if(atacando){
+            GameObject inimigoAlvo = ProcurarInimigoAlvo();
+            if (inimigoAlvo != null)
+            {
+                Inimigos scriptInimigo = inimigoAlvo.GetComponent<Inimigos>();
+                
+                sonsPerso.Play();
+                scriptInimigo.vidaInimigo -= danoPlayer * 2;
+                scriptInimigo.Recuar();
+            }
         }
-
-        yield return new WaitForSeconds(0.5f);
-
-        emAtaque = false;
     }
 
     void OnCollisionEnter(Collision collision)

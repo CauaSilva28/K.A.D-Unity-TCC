@@ -13,10 +13,19 @@ public class MortePerso : MonoBehaviour
     
     public Slider vidaPerso;
 
+    public GameObject gritoMorte;
+    public GameObject somGameOver;
+
     private AnimacoesPerso animPerso;
 
     public GameObject telaTransicao;
     public GameObject telaGameOver;
+
+    public GameObject spawnInimigos;
+
+    public GameObject camera;
+
+    public GameObject SomLevanoDano;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +51,10 @@ public class MortePerso : MonoBehaviour
         }
 
         if(vidaPerso.value <= 0){
+            gritoMorte.SetActive(true);
             animPerso.morrendo = true;
             animPerso.anim.SetInteger("transition", 7);
+            SomLevanoDano.SetActive(false);
             StartCoroutine(Morrendo());
         }
     }
@@ -62,8 +73,14 @@ public class MortePerso : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
+        spawnInimigos.GetComponent<SpawnarInimigos>().enabled = false;
+        somGameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         telaGameOver.SetActive(true);
         telaGameOver.GetComponent<Animator>().SetBool("surgir", true);
+
+        yield return new WaitForSeconds(5f);
+
+        camera.GetComponent<AudioListener>().enabled = false;
     }
 }
