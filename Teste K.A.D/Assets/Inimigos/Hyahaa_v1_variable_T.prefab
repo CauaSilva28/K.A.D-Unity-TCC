@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaMinima: 25
-  anguloDeVisao: 45
+  anguloDeVisao: 40
   velocidadeRotacao: 1.2
   recuoDistancia: 50
   recuoTempo: 0.5
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   rotacionarInimigo: {fileID: 1713359192184771277}
   Rosnando: {fileID: 8300000, guid: 37d6bea438f96d8469568b924d921d3d, type: 3}
   vidaPerso: {fileID: 0}
-  vidaInimigo: 4
+  vidaInimigo: 5
   perseguindoPlayer: 0
   curaPrefab:
   - {fileID: 2854505158609805975, guid: 6b96b672e51034049b3dd53eb9055287, type: 3}

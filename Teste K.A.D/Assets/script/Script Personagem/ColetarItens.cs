@@ -6,17 +6,18 @@ using UnityEngine.UI;
 public class ColetarItens : MonoBehaviour
 {
     private int itensColetados = 0;
-    public Text mensagemColetados;
-    public Text textoCimaConserto;
 
     private GameObject itemParaColetar;
 
-    public Slider barraConserto;
-    public GameObject barraConsertoObj;
+    public GameObject barraConserto;
     public GameObject barraVidaKombi;
-    private bool podeColetar = false; // Variável de controle
+    private bool podeColetar = false;
 
     public GameObject spawnarInimigos;
+
+    public AparecerTextos textosObjetivo;
+
+    public AparecerTeclasTexto scriptAparecerTeclas;
 
     // Start is called before the first frame update
     void Start()
@@ -27,16 +28,16 @@ public class ColetarItens : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mensagemColetados.enabled = true;
-        mensagemColetados.text = "Procure os itens necessários para o conserto: " + itensColetados + "/6";
+        textosObjetivo.texto = "Procure os itens necessários para o conserto: " + itensColetados + "/6";
 
         if(itensColetados >= 6){
-            mensagemColetados.enabled = false;
             barraVidaKombi.SetActive(true);
-            barraConsertoObj.SetActive(true);
-            barraConserto.value += 0.00002f;
-            textoCimaConserto.enabled = true;
-            textoCimaConserto.text = "PROTEJA SEU ZÉ DOS INIMIGOS";
+            barraConserto.SetActive(true);
+
+            barraConserto.GetComponent<Slider>().value += 0.005f * Time.deltaTime;
+
+            textosObjetivo.texto = "Proteja Seu Zé dos inimigos";
+
             spawnarInimigos.SetActive(true);
         }
 
@@ -45,15 +46,14 @@ public class ColetarItens : MonoBehaviour
             itensColetados++;
             Destroy(itemParaColetar);
             podeColetar = false;
-            textoCimaConserto.enabled = false;
-            textoCimaConserto.text = "";
+            scriptAparecerTeclas.aparecer = false;
         }
     }
 
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Itens")){
-            textoCimaConserto.enabled = true;
-            textoCimaConserto.text = "Aperte \"F\" para coletar o item";
+            scriptAparecerTeclas.aparecer = true;
+            scriptAparecerTeclas.texto = "Aperte \"F\" para coletar o item";
             podeColetar = true;
             itemParaColetar = other.gameObject;
         }
@@ -61,8 +61,7 @@ public class ColetarItens : MonoBehaviour
 
     private void OnTriggerExit(Collider other){
         if(other.gameObject.CompareTag("Itens")){
-            textoCimaConserto.enabled = false;
-            textoCimaConserto.text = "";
+            scriptAparecerTeclas.aparecer = false;
             podeColetar = false;
             itemParaColetar = null;
         }

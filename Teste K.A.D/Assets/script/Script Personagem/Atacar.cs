@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Atacar : MonoBehaviour
 {
+    public float danoPlayer;
     public bool atacando = false;
     public float anguloDeVisao = 45f;
 
-    public AudioClip somSoco;
-    private AudioSource sonsPerso;
-
+    public AudioSource sonsPerso;
     public AnimacoesPerso animPerso;
     public Movimento movePerso;
 
@@ -18,7 +17,7 @@ public class Atacar : MonoBehaviour
 
     void Start()
     {
-        sonsPerso = GetComponent<AudioSource>();
+        
     }
 
     void Update()
@@ -26,18 +25,18 @@ public class Atacar : MonoBehaviour
         if (!emAtaque && atacando)
         {
             GameObject inimigoAlvo = ProcurarInimigoAlvo();
-            Inimigos scriptInimigo = inimigoAlvo.GetComponent<Inimigos>();
-            
-            if(movePerso.isDashing && Input.GetKey(KeyCode.W)){
-                scriptInimigo.Recuar();
-            }
-
-            if (Input.GetMouseButtonDown(0))
+            if (inimigoAlvo != null)
             {
-                
-                if (inimigoAlvo != null)
+                Inimigos scriptInimigo = inimigoAlvo.GetComponent<Inimigos>();
+
+                if (movePerso.isDashing && Input.GetKey(KeyCode.W))
                 {
-                    StartCoroutine(tempoAtaque(inimigoAlvo));
+                    scriptInimigo.Recuar();
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    StartCoroutine(TempoAtaque(inimigoAlvo));
                 }
             }
         }
@@ -45,7 +44,7 @@ public class Atacar : MonoBehaviour
         LimparInimigosMortos();
     }
 
-    IEnumerator tempoAtaque(GameObject inimigo)
+    IEnumerator TempoAtaque(GameObject inimigo)
     {
         emAtaque = true;
         animPerso.emAcao = true;
@@ -53,14 +52,14 @@ public class Atacar : MonoBehaviour
         animPerso.anim.SetInteger("transition", 4);
 
         yield return new WaitForSeconds(0.3f);
-        sonsPerso.PlayOneShot(somSoco);
+        sonsPerso.Play();
 
         yield return new WaitForSeconds(0.2f);
 
         Inimigos scriptInimigo = inimigo.GetComponent<Inimigos>();
         if (scriptInimigo != null)
         {
-            scriptInimigo.vidaInimigo--;
+            scriptInimigo.vidaInimigo -= danoPlayer;
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -71,7 +70,7 @@ public class Atacar : MonoBehaviour
 
         while (tempoDecorrido < tempoMaximoEspera)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && atacando)
             {
                 botaoPressionado = true;
                 break;
@@ -82,12 +81,12 @@ public class Atacar : MonoBehaviour
 
         if (botaoPressionado && scriptInimigo != null)
         {
-            sonsPerso.PlayOneShot(somSoco);
-            scriptInimigo.vidaInimigo-=2;
+            sonsPerso.Play();
+            scriptInimigo.vidaInimigo -= danoPlayer * 2;
             scriptInimigo.Recuar();
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         emAtaque = false;
     }
@@ -127,7 +126,7 @@ public class Atacar : MonoBehaviour
 
     void LimparInimigosMortos()
     {
-        inimigos.RemoveAll(inimigo => inimigo == null || inimigo.GetComponent<Inimigos>().vidaInimigo <= 0);
+        inimigos.RemoveAll(inimigo => inimigo == null || inimigo.GetComponent<Inimigos>() == null || inimigo.GetComponent<Inimigos>().vidaInimigo <= 0);
         if (inimigos.Count == 0)
         {
             atacando = false;

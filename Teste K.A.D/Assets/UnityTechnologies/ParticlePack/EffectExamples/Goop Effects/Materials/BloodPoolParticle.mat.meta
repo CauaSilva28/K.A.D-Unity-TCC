@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 95dc3b44ae1533c46a572bdfcf710a42
+timeCreated: 1473848207
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73777
+  packageName: Legacy Particle Pack
+  packageVersion: 1.8
+  assetPath: Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/BloodPoolParticle.mat
+  uploadId: 563305

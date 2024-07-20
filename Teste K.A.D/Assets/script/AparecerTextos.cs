@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class AparecerTextos : MonoBehaviour
 {
-    public Text textoCima;
+    public GameObject elementoObjetivos;
+    public Text textoObjetivo;
+
+    public string texto;
+
+    public bool aparecerTexto;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +20,18 @@ public class AparecerTextos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(aparecerTexto){
+            elementoObjetivos.SetActive(true);
+            elementoObjetivos.GetComponent<Animator>().SetInteger("transition", 1);
+            textoObjetivo.text = texto;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textoCima.text = "Leve o Seu Zé para consertar a Kombi";
-            textoCima.enabled = true;
+            aparecerTexto = true;
         }
     }
 }

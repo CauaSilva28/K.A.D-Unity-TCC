@@ -8,34 +8,44 @@ public class AnimacoesPerso : MonoBehaviour
 
     public bool emAcao = false;
     private bool cooldownAtaque = false;
+    public bool morrendo = false;
+
+    private Movimento movePerso;
     // Start is called before the first frame update
     void Start()
     {
-        
+        movePerso = GetComponent<Movimento>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!emAcao){
-            anim.SetInteger("transition", 0);
+        if(!morrendo){
+            if(!emAcao){
+                anim.SetInteger("transition", 0);
 
-            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
-                anim.SetInteger("transition", 1);
-            }
-            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)){
-                anim.SetInteger("transition", 3);
+                if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
+                    anim.SetInteger("transition", 1);
+                }
+                if(Input.GetKey(KeyCode.A)){
+                    anim.SetInteger("transition", 3);
+                }
+                if(Input.GetKey(KeyCode.D)){
+                    anim.SetInteger("transition", 6);
+                }
+
+                if(!movePerso.cansou){
+                    if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift)){
+                        anim.SetInteger("transition", 2);
+                    }
+                }
             }
 
-            if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift)){
-                anim.SetInteger("transition", 2);
-            }
-        }
-
-        if(!cooldownAtaque){
-            if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.W) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.D) && Input.GetMouseButtonDown(0))
-            {
-                StartCoroutine(PararAtaque());
+            if(!cooldownAtaque){
+                if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.W) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.D) && Input.GetMouseButtonDown(0))
+                {
+                    StartCoroutine(PararAtaque());
+                }
             }
         }
     }

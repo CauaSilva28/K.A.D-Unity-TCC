@@ -6,19 +6,24 @@ using UnityEngine.AI;
 
 public class AreaKombi : MonoBehaviour
 {
-    public Text textoCima;
-    public Text textoCimaConcerto;
-    public Transform posicaoVelho;
-    public NavMeshAgent nav;
-    public Animator anim;
-    public MovimentoVelho movimentoVelho;
+    public GameObject SeuZe;
 
     public ColetarItens coletarItens;
 
     private AudioSource audioKombi;
     public AudioClip somDanoKombi;
 
+    public AparecerTeclasTexto scriptAparecerTeclas;
+
     private bool iniciarConserto = false;
+
+    private Coroutine coroutine;
+
+    private bool iniciouConserto = false;
+
+    public GameObject itens;
+
+    public Transform posicaoVelho;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,20 +33,18 @@ public class AreaKombi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 velhoConsertando = new Vector3(110.9f, 36f, 97.9f);
+        Vector3 velhoConsertando = posicaoVelho.position;
         if (iniciarConserto)
         {
-            textoCimaConcerto.enabled = true;
+            scriptAparecerTeclas.aparecer = false;
+            itens.SetActive(true);
             coletarItens.enabled = true;
-            textoCima.text = "";
-            textoCima.enabled = false;
-            movimentoVelho.enabled = false;
-            nav.speed = 0;
-            anim.SetInteger("transition", 3);
-            posicaoVelho.transform.position = velhoConsertando;
-        }
-        else{
-            textoCimaConcerto.enabled = false;
+            SeuZe.GetComponent<MovimentoVelho>().enabled = false;
+            SeuZe.GetComponent<NavMeshAgent>().speed = 0;
+            SeuZe.GetComponent<Animator>().SetInteger("transition", 3);
+            SeuZe.GetComponent<Transform>().transform.position = velhoConsertando;
+            iniciarConserto = false;
+            iniciouConserto = true;
         }
     }
 
@@ -49,8 +52,10 @@ public class AreaKombi : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textoCima.text = "Aperte \"E\" para iniciar o conserto";
-            textoCima.enabled = true;
+            if(!iniciouConserto){
+                scriptAparecerTeclas.aparecer = true;
+                scriptAparecerTeclas.texto = "Aperte \"E\" para iniciar o conserto";
+            }
         }
 
         if (other.gameObject.CompareTag("inimigo"))
@@ -65,7 +70,9 @@ public class AreaKombi : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                iniciarConserto = true;
+                if(!iniciouConserto){
+                    iniciarConserto = true;
+                }
             }
         }
     }
@@ -74,7 +81,9 @@ public class AreaKombi : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textoCima.text = "Leve o Seu Zé para consertar a Kombi";
+            if(!iniciouConserto){
+                scriptAparecerTeclas.aparecer = false;
+            }
         }
     }
 }

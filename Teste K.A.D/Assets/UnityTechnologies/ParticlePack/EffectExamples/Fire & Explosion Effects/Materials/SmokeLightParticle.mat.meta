@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 231f5af9f3bc37d45a2d0a4ff9610493
+timeCreated: 1472824610
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73777
+  packageName: Legacy Particle Pack
+  packageVersion: 1.8
+  assetPath: Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire & Explosion
+    Effects/Materials/SmokeLightParticle.mat
+  uploadId: 563305

@@ -31,7 +31,7 @@ public class Inimigos : MonoBehaviour
 
     public Slider vidaPerso;
 
-    public int vidaInimigo;
+    public float vidaInimigo;
 
     private bool sofrendoAcao = false;
     private bool atacando = false;
@@ -125,7 +125,9 @@ public class Inimigos : MonoBehaviour
 
                 if (atacando && EstaOlhandoParaPersonagem())
                 {
-                    StartCoroutine(TirarVidaPerso());
+                    if(navMeshAgent.speed > 0){
+                        StartCoroutine(TirarVidaPerso());
+                    }
                 }
 
                 RotacionarParaPersonagem(); // Adiciona a rotação para o personagem no Update
@@ -140,7 +142,7 @@ public class Inimigos : MonoBehaviour
     IEnumerator TirarVidaPerso()
     {
         anim.SetInteger("transition", 2);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.3f);
         if (!tirouVidaPerso)
         {
             if(!recuando && !foraColisao){
@@ -239,13 +241,14 @@ public class Inimigos : MonoBehaviour
             yield return null;
         }
 
-        recuando = false;
+        anim.SetInteger("transition", 0);
         anim.SetBool("taRecuando", false);
 
         navMeshAgent.speed = 0;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
+        recuando = false;
         navMeshAgent.speed = velocidadeInimigo;
     }
 }

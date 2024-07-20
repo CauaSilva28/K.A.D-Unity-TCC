@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class CurarVida : MonoBehaviour
 {
     public float valorCura;
-    public Text teclaColeta;
+
     public Slider vidaPerso;
 
     private GameObject inimigo;
+
+    public AparecerTeclasTexto scriptAparecerTeclas;
 
     private bool podeCurar = false;
 
@@ -23,8 +25,7 @@ public class CurarVida : MonoBehaviour
         if (podeCurar && Input.GetKey(KeyCode.F))
         {
             vidaPerso.value += valorCura;
-            teclaColeta.enabled = false;
-            teclaColeta.text = "";
+            scriptAparecerTeclas.aparecer = false;
             Destroy(inimigo);
             podeCurar = false;
         }
@@ -34,8 +35,8 @@ public class CurarVida : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Cura"))
         {
-            teclaColeta.enabled = true;
-            teclaColeta.text = "Aperte \"F\" para utilizar a cura";
+            scriptAparecerTeclas.aparecer = true;
+            scriptAparecerTeclas.texto = "Aperte \"F\" para utilizar a cura";
             podeCurar = true;
             inimigo = other.gameObject;
         }
@@ -45,8 +46,7 @@ public class CurarVida : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Cura"))
         {
-            teclaColeta.enabled = false;
-            teclaColeta.text = "";
+            scriptAparecerTeclas.aparecer = false;
             podeCurar = false;
         }
     }
