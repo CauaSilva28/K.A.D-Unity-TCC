@@ -9,11 +9,15 @@ public class CurarVida : MonoBehaviour
 
     public Slider vidaPerso;
 
-    private GameObject inimigo;
+    private GameObject item;
+
+    public GameObject ferramenta;
+    public Slider vidaFerramenta;
 
     public AparecerTeclasTexto scriptAparecerTeclas;
 
     private bool podeCurar = false;
+    private bool podeColetar = false;
 
     void Start()
     {
@@ -26,8 +30,19 @@ public class CurarVida : MonoBehaviour
         {
             vidaPerso.value += valorCura;
             scriptAparecerTeclas.aparecer = false;
-            Destroy(inimigo);
+            Destroy(item);
             podeCurar = false;
+        }
+
+        if(!ferramenta.activeSelf){
+            if (podeColetar && Input.GetKey(KeyCode.F))
+            {
+                ferramenta.SetActive(true);
+                vidaFerramenta.value = 1;
+                scriptAparecerTeclas.aparecer = false;
+                Destroy(item);
+                podeColetar = false;
+            }
         }
     }
 
@@ -38,7 +53,15 @@ public class CurarVida : MonoBehaviour
             scriptAparecerTeclas.aparecer = true;
             scriptAparecerTeclas.texto = "Aperte \"F\" para utilizar a cura";
             podeCurar = true;
-            inimigo = other.gameObject;
+            item = other.gameObject;
+        }
+
+        if (other.gameObject.CompareTag("Ferramenta"))
+        {
+            scriptAparecerTeclas.aparecer = true;
+            scriptAparecerTeclas.texto = "Aperte \"F\" para coletar a ferramenta";
+            podeColetar = true;
+            item = other.gameObject;
         }
     }
 
@@ -48,6 +71,12 @@ public class CurarVida : MonoBehaviour
         {
             scriptAparecerTeclas.aparecer = false;
             podeCurar = false;
+        }
+
+        if (other.gameObject.CompareTag("Ferramenta"))
+        {
+            scriptAparecerTeclas.aparecer = false;
+            podeColetar = false;
         }
     }
 }

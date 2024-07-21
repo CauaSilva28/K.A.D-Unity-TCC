@@ -8,6 +8,7 @@ TagManager:
   - inimigo
   - DestruidorInimigo
   - Cura
+  - Ferramenta
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,8 @@ public class SpawnarInimigos : MonoBehaviour
     public GameObject dinoPrefab;
     public GameObject punkPrefab;
 
+    public GameObject ferramentaCena;
+
     public Transform persoPosicao;
     public Transform notPersoPosicao;
     public Slider vidaPerso;
@@ -18,7 +20,7 @@ public class SpawnarInimigos : MonoBehaviour
     public AudioSource SomDanoPlayer;
 
     private void Start() {
-        InvokeRepeating("SpawnInimigo", 1, 10);
+        InvokeRepeating("SpawnInimigo", 1, 7);
     }
 
     void SpawnInimigo() {
@@ -36,6 +38,7 @@ public class SpawnarInimigos : MonoBehaviour
         scriptInimigo.notPersonagem = notPersoPosicao;
         scriptInimigo.vidaPerso = vidaPerso;
         scriptInimigo.SomDanoPlayer = SomDanoPlayer;
+        scriptInimigo.ferramentaCena = ferramentaCena;
 
         InimigoColidiKombi scriptInimigo2 = inimigoInstance.GetComponent<InimigoColidiKombi>();
         scriptInimigo2.barraVidaKombi = barraVidaKombi;

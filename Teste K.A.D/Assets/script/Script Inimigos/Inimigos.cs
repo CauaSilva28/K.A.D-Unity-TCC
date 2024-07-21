@@ -48,6 +48,9 @@ public class Inimigos : MonoBehaviour
 
     public bool perseguindoPlayer;
 
+    public GameObject ferramentaCena;
+    public GameObject ferramentaObj;
+
     public GameObject[] curaPrefab;
 
     public Material[] materiais;
@@ -195,10 +198,23 @@ public class Inimigos : MonoBehaviour
             int numeroAleatorio = Random.Range(1, 11);
             int curaAleatoria = Random.Range(0, curaPrefab.Length);
 
-            if (numeroAleatorio > 7)
-            {
-                GameObject curaInstance = Instantiate(curaPrefab[curaAleatoria], transform.position, Quaternion.identity);
-                curaInstance.tag = "Cura";
+            if(ferramentaCena.activeSelf){
+                if (numeroAleatorio > 7)
+                {
+                    GameObject curaInstance = Instantiate(curaPrefab[curaAleatoria], transform.position, Quaternion.identity);
+                    curaInstance.tag = "Cura";
+                }
+            }
+            else{
+                if (numeroAleatorio > 5 && numeroAleatorio < 9)
+                {
+                    GameObject curaInstance = Instantiate(curaPrefab[curaAleatoria], transform.position, Quaternion.identity);
+                    curaInstance.tag = "Cura";
+                }
+                else if(numeroAleatorio >= 9){
+                    GameObject ferramentaInstance = Instantiate(ferramentaObj, transform.position, Quaternion.identity);
+                    ferramentaInstance.tag = "Ferramenta";
+                }
             }
             dropou = true;
         }

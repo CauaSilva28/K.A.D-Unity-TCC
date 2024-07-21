@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Atacar : MonoBehaviour
 {
-    public float danoPlayer;
+    public float danoSoco;
     public bool atacando = false;
     public float anguloDeVisao;
 
     public AudioSource sonsPerso;
-    public AnimacoesPerso animPerso;
+    public AudioSource somSoco;
     public Movimento movePerso;
+
+    public float danoFerramenta;
+    public Slider vidaFerramenta;
+    public GameObject ferramenta;
+    public GameObject quebrandoFerramenta;
 
     private List<GameObject> inimigos = new List<GameObject>();
 
@@ -35,6 +41,15 @@ public class Atacar : MonoBehaviour
             }
         }
 
+        if(vidaFerramenta.value <= 0){
+            quebrandoFerramenta.SetActive(true);
+            ferramenta.SetActive(false);
+        }
+        else{
+            quebrandoFerramenta.SetActive(false);
+            ferramenta.SetActive(true);
+        }
+
         LimparInimigosMortos();
     }
 
@@ -46,8 +61,15 @@ public class Atacar : MonoBehaviour
             {
                 Inimigos scriptInimigo = inimigoAlvo.GetComponent<Inimigos>();
 
-                sonsPerso.Play();
-                scriptInimigo.vidaInimigo -= danoPlayer;
+                if(ferramenta.activeSelf){
+                    scriptInimigo.vidaInimigo -= danoFerramenta;
+                    vidaFerramenta.value -= 0.05f;
+                    sonsPerso.Play();
+                }
+                else{
+                    scriptInimigo.vidaInimigo -= danoSoco;
+                    somSoco.Play();
+                }
             }
         }
     }
@@ -59,12 +81,21 @@ public class Atacar : MonoBehaviour
             {
                 Inimigos scriptInimigo = inimigoAlvo.GetComponent<Inimigos>();
                 
-                sonsPerso.Play();
-                scriptInimigo.vidaInimigo -= danoPlayer * 2;
                 scriptInimigo.Recuar();
+
+                if(ferramenta.activeSelf){
+                    scriptInimigo.vidaInimigo -= danoFerramenta * 2;
+                    vidaFerramenta.value -= 0.05f;
+                    sonsPerso.Play();
+                }
+                else{
+                    scriptInimigo.vidaInimigo -= danoSoco * 2;
+                    somSoco.Play();
+                }
             }
         }
     }
+    //---------------------------------------
 
     void OnCollisionEnter(Collision collision)
     {

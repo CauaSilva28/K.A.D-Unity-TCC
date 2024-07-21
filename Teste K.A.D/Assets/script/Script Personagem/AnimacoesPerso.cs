@@ -11,6 +11,8 @@ public class AnimacoesPerso : MonoBehaviour
     public bool morrendo = false;
 
     private Movimento movePerso;
+
+    public GameObject ferramenta;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,16 +46,38 @@ public class AnimacoesPerso : MonoBehaviour
             if(!cooldownAtaque){
                 if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.W) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.D) && Input.GetMouseButtonDown(0))
                 {
-                    StartCoroutine(PararAtaque());
+                    if(ferramenta.activeSelf){
+                        StartCoroutine(AtaqueFerramenta());
+                    }
+                    else{
+                        StartCoroutine(AtaqueSoco());
+                    }
                 }
             }
         }
     }
 
-    IEnumerator PararAtaque(){
+    IEnumerator AtaqueFerramenta(){
         emAcao = true;
         anim.SetTrigger("attack");
+        anim.SetBool("semArma", false);
         anim.SetInteger("transition", 4);
+
+        yield return new WaitForSeconds(1f);
+
+        emAcao = false;
+        cooldownAtaque = true;
+
+        yield return new WaitForSeconds(0.8f);
+
+        cooldownAtaque = false;
+    }
+
+    IEnumerator AtaqueSoco(){
+        emAcao = true;
+        anim.SetTrigger("attack");
+        anim.SetBool("semArma", true);
+        anim.SetInteger("transition", 8);
 
         yield return new WaitForSeconds(1f);
 
