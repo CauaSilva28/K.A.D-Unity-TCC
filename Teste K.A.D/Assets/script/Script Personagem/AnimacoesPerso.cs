@@ -7,7 +7,6 @@ public class AnimacoesPerso : MonoBehaviour
     public Animator anim;
 
     public bool emAcao = false;
-    private bool cooldownAtaque = false;
     public bool morrendo = false;
 
     private Movimento movePerso;
@@ -43,15 +42,14 @@ public class AnimacoesPerso : MonoBehaviour
                 }
             }
 
-            if(!cooldownAtaque){
-                if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.W) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.D) && Input.GetMouseButtonDown(0))
-                {
-                    if(ferramenta.activeSelf){
-                        StartCoroutine(AtaqueFerramenta());
-                    }
-                    else{
-                        StartCoroutine(AtaqueSoco());
-                    }
+            
+            if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.W) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.S) && Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.D) && Input.GetMouseButtonDown(0))
+            {
+                if(ferramenta.activeSelf){
+                    StartCoroutine(AtaqueFerramenta());
+                }
+                else{
+                    StartCoroutine(AtaqueSoco());
                 }
             }
         }
@@ -66,11 +64,6 @@ public class AnimacoesPerso : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         emAcao = false;
-        cooldownAtaque = true;
-
-        yield return new WaitForSeconds(0.8f);
-
-        cooldownAtaque = false;
     }
 
     IEnumerator AtaqueSoco(){
@@ -82,10 +75,5 @@ public class AnimacoesPerso : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         emAcao = false;
-        cooldownAtaque = true;
-
-        yield return new WaitForSeconds(0.8f);
-
-        cooldownAtaque = false;
     }
 }

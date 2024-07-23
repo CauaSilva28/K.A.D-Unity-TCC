@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.Playables;
 
 public class AreaKombi : MonoBehaviour
 {
@@ -20,10 +21,34 @@ public class AreaKombi : MonoBehaviour
     private Coroutine coroutine;
 
     private bool iniciouConserto = false;
+    private bool finalizouConserto = false;
+    private bool iniciarCutsceneFim = false;
 
     public GameObject itens;
 
     public Transform posicaoVelho;
+
+    public GameObject areaAparecerObjetivo;
+
+    public Slider barraVidaKombi;
+    public GameObject vidaKombi;
+    public GameObject player;
+    public GameObject velho;
+    public GameObject telaTransicao;
+    public GameObject spawnInimigos;
+    public GameObject somGameOver;
+    public GameObject telaGameOver;
+    public GameObject cameraKombi;
+    public GameObject cameraPlayer;
+    public GameObject fogoKombi;
+    public GameObject explosaoKombi;
+    public GameObject somExplosao;
+
+    public Slider barraConserto;
+    public GameObject cutsceneFim;
+    public AparecerTextos textoObjetivo;
+    public GameObject objetosCanvas;
+    public SpawnarInimigos spawnInimigo;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +61,7 @@ public class AreaKombi : MonoBehaviour
         Vector3 velhoConsertando = posicaoVelho.position;
         if (iniciarConserto)
         {
+            areaAparecerObjetivo.SetActive(false);
             scriptAparecerTeclas.aparecer = false;
             itens.SetActive(true);
             coletarItens.enabled = true;
@@ -46,6 +72,27 @@ public class AreaKombi : MonoBehaviour
             iniciarConserto = false;
             iniciouConserto = true;
         }
+
+        if(barraVidaKombi.value <= 0){
+            StartCoroutine(KombiDestruida());
+        }
+
+        if(barraConserto.value >= 1){
+            textoObjetivo.aparecerTexto = true;
+            textoObjetivo.texto = "Corra para a Kombi!";
+            finalizouConserto = true;
+        }
+
+        if(iniciarCutsceneFim){
+            spawnInimigo.DesabilitarScriptsInimigos();
+            objetosCanvas.SetActive(false);
+            vidaKombi.SetActive(false);
+            player.SetActive(false);
+            velho.SetActive(false);
+            gameObject.SetActive(false);
+            cutsceneFim.SetActive(true);
+            cutsceneFim.GetComponent<PlayableDirector>().Play();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,6 +102,11 @@ public class AreaKombi : MonoBehaviour
             if(!iniciouConserto){
                 scriptAparecerTeclas.aparecer = true;
                 scriptAparecerTeclas.texto = "Aperte \"E\" para iniciar o conserto";
+            }
+
+            if(finalizouConserto){
+                scriptAparecerTeclas.aparecer = true;
+                scriptAparecerTeclas.texto = "Aperte \"E\" para entrar na Kombi";
             }
         }
 
@@ -74,6 +126,13 @@ public class AreaKombi : MonoBehaviour
                     iniciarConserto = true;
                 }
             }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                if(finalizouConserto){
+                    iniciarCutsceneFim = true;
+                }
+            }
         }
     }
 
@@ -81,9 +140,47 @@ public class AreaKombi : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if(!iniciouConserto){
+            if(!iniciouConserto || finalizouConserto){
                 scriptAparecerTeclas.aparecer = false;
             }
         }
+    }
+
+    IEnumerator KombiDestruida(){
+        cameraKombi.SetActive(true);
+        cameraPlayer.SetActive(false);
+        velho.SetActive(false);
+        player.GetComponent<Movimento>().perdendo = true;
+        player.GetComponent<Atacar>().enabled = false;
+        player.GetComponent<AnimacoesPerso>().enabled = false;
+        player.GetComponent<CurarVida>().enabled = false;
+        player.GetComponent<Rigidbody>().isKinematic = true;
+        player.GetComponent<Animator>().SetInteger("transition", 0);
+
+        spawnInimigos.GetComponent<SpawnarInimigos>().enabled = false;
+
+        GetComponent<Collider>().enabled = true;
+
+        yield return new WaitForSeconds(3f);
+
+        fogoKombi.SetActive(true);
+        somExplosao.SetActive(true);
+        explosaoKombi.SetActive(true);
+
+        yield return new WaitForSeconds(5f);
+
+        telaTransicao.SetActive(true);
+        telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
+
+        yield return new WaitForSeconds(5f);
+
+        somGameOver.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        telaGameOver.SetActive(true);
+        telaGameOver.GetComponent<Animator>().SetBool("surgir", true);
+
+        yield return new WaitForSeconds(2f);
+
+        cameraKombi.GetComponent<AudioListener>().enabled = false;
     }
 }

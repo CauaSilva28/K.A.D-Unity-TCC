@@ -60,11 +60,13 @@ public class MortePerso : MonoBehaviour
     }
 
     IEnumerator Morrendo(){
-        GetComponent<Movimento>().enabled = true;
-        GetComponent<Movimento>().morrendo = true;
-        GetComponent<Atacar>().enabled = true;
-        GetComponent<AnimacoesPerso>().enabled = true;
-        GetComponent<CurarVida>().enabled = true;
+        GetComponent<Movimento>().perdendo = true;
+        GetComponent<Atacar>().enabled = false;
+        GetComponent<AnimacoesPerso>().enabled = false;
+        GetComponent<CurarVida>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        spawnInimigos.GetComponent<SpawnarInimigos>().enabled = false;
+        gameObject.tag = "Untagged";
 
         yield return new WaitForSeconds(4f);
 
@@ -73,7 +75,6 @@ public class MortePerso : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        spawnInimigos.GetComponent<SpawnarInimigos>().enabled = false;
         somGameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         telaGameOver.SetActive(true);

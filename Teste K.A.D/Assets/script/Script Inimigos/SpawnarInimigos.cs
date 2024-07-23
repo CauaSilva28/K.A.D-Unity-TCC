@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class SpawnarInimigos : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class SpawnarInimigos : MonoBehaviour
     public Slider barraVidaKombi;
 
     public AudioSource SomDanoPlayer;
+
+    public Movimento movePerso;
+
+    private List<GameObject> inimigos = new List<GameObject>();
 
     private void Start() {
         InvokeRepeating("SpawnInimigo", 1, 7);
@@ -39,8 +44,26 @@ public class SpawnarInimigos : MonoBehaviour
         scriptInimigo.vidaPerso = vidaPerso;
         scriptInimigo.SomDanoPlayer = SomDanoPlayer;
         scriptInimigo.ferramentaCena = ferramentaCena;
+        scriptInimigo.movePerso = movePerso;
 
         InimigoColidiKombi scriptInimigo2 = inimigoInstance.GetComponent<InimigoColidiKombi>();
         scriptInimigo2.barraVidaKombi = barraVidaKombi;
+
+        inimigos.Add(inimigoInstance);
+    }
+
+    public void DesabilitarScriptsInimigos() {
+        for (int i = inimigos.Count - 1; i >= 0; i--) {
+            if (inimigos[i] == null) {
+                inimigos.RemoveAt(i); // Remove objetos destruídos da lista
+                continue;
+            }
+
+            Inimigos scriptInimigo = inimigos[i].GetComponent<Inimigos>();
+            if (scriptInimigo != null) {
+                scriptInimigo.anim.SetInteger("transition", 0);
+                scriptInimigo.navMeshAgent.speed = 0;
+            }
+        }
     }
 }

@@ -1565,6 +1565,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f21b9bc14eb50754297c08f7e7495170, type: 2}
   - {fileID: 2100000, guid: 6cf744df8d5df444aab8ed6761ec0a79, type: 2}
   retopoInimigo: {fileID: 1713359192184934139}
+  movePerso: {fileID: 0}
 --- !u!114 &-4211655678372963870
 MonoBehaviour:
   m_ObjectHideFlags: 0

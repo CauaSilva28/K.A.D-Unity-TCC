@@ -16,12 +16,12 @@ public class Inimigos : MonoBehaviour
 
     public float velocidadeInimigo = 60f;
 
-    private Animator anim;
+    public Animator anim;
 
     public Transform personagem;
     public Transform notPersonagem;
 
-    private NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
 
     public Transform rotacionarInimigo;
 
@@ -56,6 +56,8 @@ public class Inimigos : MonoBehaviour
     public Material[] materiais;
     public GameObject retopoInimigo;
 
+    public Movimento movePerso;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,59 +90,61 @@ public class Inimigos : MonoBehaviour
     // Update é chamado uma vez por frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, personagem.transform.position) <= distanciaMinima){
-            if(!persoAtacado){
-                persoAtacado = true;
+        if(!movePerso.perdendo){
+            if(Vector3.Distance(transform.position, personagem.transform.position) <= distanciaMinima){
+                if(!persoAtacado){
+                    persoAtacado = true;
+                }
+                foraColisao = false;
+                sofrendoAcao = true;
+                atacando = true;
+                perseguindoPlayer = true;
             }
-            foraColisao = false;
-            sofrendoAcao = true;
-            atacando = true;
-            perseguindoPlayer = true;
-        }
-        else{
-            sofrendoAcao = false;
-            atacando = false;
-            foraColisao = true;
-        }
+            else{
+                sofrendoAcao = false;
+                atacando = false;
+                foraColisao = true;
+            }
 
-        if (vidaInimigo > 0)
-        {
-            if (!recuando)
+            if (vidaInimigo > 0)
             {
-                if(!perseguindoPlayer){
-                    navMeshAgent.SetDestination(notPersonagem.position);
-                }
-                else{
-                    navMeshAgent.SetDestination(personagem.position);
-                }
-
-                float distancia = Vector3.Distance(transform.position, personagem.position);
-
-                if (!sofrendoAcao)
+                if (!recuando)
                 {
-                    if (navMeshAgent.speed >= velocidadeInimigo-10)
-                    {
-                        anim.SetInteger("transition", 1);
+                    if(!perseguindoPlayer){
+                        navMeshAgent.SetDestination(notPersonagem.position);
                     }
-                    else if (navMeshAgent.speed <= 0)
-                    {
-                        anim.SetInteger("transition", 0);
+                    else{
+                        navMeshAgent.SetDestination(personagem.position);
                     }
-                }
 
-                if (atacando && EstaOlhandoParaPersonagem())
-                {
-                    if(navMeshAgent.speed > 0){
-                        anim.SetInteger("transition", 2);
-                    }
-                }
+                    float distancia = Vector3.Distance(transform.position, personagem.position);
 
-                RotacionarParaPersonagem(); // Adiciona a rotação para o personagem no Update
+                    if (!sofrendoAcao)
+                    {
+                        if (navMeshAgent.speed >= velocidadeInimigo-10)
+                        {
+                            anim.SetInteger("transition", 1);
+                        }
+                        else if (navMeshAgent.speed <= 0)
+                        {
+                            anim.SetInteger("transition", 0);
+                        }
+                    }
+
+                    if (atacando && EstaOlhandoParaPersonagem())
+                    {
+                        if(navMeshAgent.speed > 0){
+                            anim.SetInteger("transition", 2);
+                        }
+                    }
+
+                    RotacionarParaPersonagem(); // Adiciona a rotação para o personagem no Update
+                }
             }
-        }
-        else
-        {
-            StartCoroutine(EliminarInimigo());
+            else
+            {
+                StartCoroutine(EliminarInimigo());
+            }
         }
     }
 

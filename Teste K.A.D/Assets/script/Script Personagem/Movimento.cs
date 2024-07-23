@@ -31,7 +31,7 @@ public class Movimento : MonoBehaviour
 
     private AnimacoesPerso animPerso;
 
-    public bool morrendo;
+    public bool perdendo;
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class Movimento : MonoBehaviour
 
     void Update()
     {
-        if(!morrendo){
+        if(!perdendo){
             if (isDashing)
                 return; // Se o personagem estiver dashing, sai do método Update.
             

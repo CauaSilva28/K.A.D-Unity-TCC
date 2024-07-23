@@ -21,12 +21,27 @@ public class AparecerTextos : MonoBehaviour
     void Update()
     {
         if(aparecerTexto){
+            StopAllCoroutines();
             elementoObjetivos.SetActive(true);
             elementoObjetivos.GetComponent<Animator>().SetInteger("transition", 1);
             textoObjetivo.text = texto;
         }
+        else{
+            StartCoroutine(SairTextoObjetivo());
+        }
     }
 
+    IEnumerator SairTextoObjetivo(){
+        elementoObjetivos.GetComponent<Animator>().SetInteger("transition", 2);
+
+        yield return new WaitForSeconds(1f);
+
+        elementoObjetivos.GetComponent<Animator>().SetInteger("transition", 0);
+        elementoObjetivos.SetActive(false);
+        textoObjetivo.text = "";
+    }
+
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

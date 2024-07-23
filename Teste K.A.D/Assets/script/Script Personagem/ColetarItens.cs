@@ -12,6 +12,7 @@ public class ColetarItens : MonoBehaviour
     public GameObject barraConserto;
     public GameObject barraVidaKombi;
     private bool podeColetar = false;
+    private bool aconteceuEnumerator = false;
 
     public GameObject spawnarInimigos;
 
@@ -28,17 +29,20 @@ public class ColetarItens : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textosObjetivo.texto = "Procure os itens necessários para o conserto: " + itensColetados + "/6";
-
         if(itensColetados >= 6){
             barraVidaKombi.SetActive(true);
             barraConserto.SetActive(true);
 
             barraConserto.GetComponent<Slider>().value += 0.005f * Time.deltaTime;
 
-            textosObjetivo.texto = "Proteja Seu Zé dos inimigos";
+            if(!aconteceuEnumerator){
+                StartCoroutine(textoInimigos());
+            }
 
             spawnarInimigos.SetActive(true);
+        }
+        else{
+            textosObjetivo.texto = "Procure os itens necessários para o conserto: " + itensColetados + "/6";
         }
 
         if (podeColetar && Input.GetKey(KeyCode.F))
@@ -65,5 +69,14 @@ public class ColetarItens : MonoBehaviour
             podeColetar = false;
             itemParaColetar = null;
         }
+    }
+
+    IEnumerator textoInimigos(){
+        textosObjetivo.texto = "Proteja Seu Zé dos inimigos";
+
+        yield return new WaitForSeconds(10f);
+
+        textosObjetivo.aparecerTexto = false;
+        aconteceuEnumerator = true;
     }
 }

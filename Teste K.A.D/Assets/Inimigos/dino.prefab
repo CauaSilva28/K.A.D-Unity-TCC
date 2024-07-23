@@ -247,6 +247,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ee022dab46a4b2c47acaebf6af334421, type: 2}
   - {fileID: 2100000, guid: 16106db2626066345a7fd5339d91bde3, type: 2}
   retopoInimigo: {fileID: 9041558578082663864}
+  movePerso: {fileID: 0}
 --- !u!195 &7501603866265302803
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -265,7 +266,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.43
+  m_Height: 1.68
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -288,8 +289,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.412184, z: 2.9210317}
-  m_Center: {x: -0.03, y: 0.7721193, z: -0.07844062}
+  m_Size: {x: 1.5, y: 1.6092165, z: 2.7601266}
+  m_Center: {x: -0.029999979, y: 0.87063557, z: 0.002011893}
 --- !u!114 &1890105929744123463
 MonoBehaviour:
   m_ObjectHideFlags: 0
