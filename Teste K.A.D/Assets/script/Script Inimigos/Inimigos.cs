@@ -83,7 +83,7 @@ public class Inimigos : MonoBehaviour
         while (true)
         {
             SomInimigo.PlayOneShot(Rosnando);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(10f);
         }
     }
 
@@ -91,23 +91,23 @@ public class Inimigos : MonoBehaviour
     void Update()
     {
         if(!movePerso.perdendo){
-            if(Vector3.Distance(transform.position, personagem.transform.position) <= distanciaMinima){
-                if(!persoAtacado){
-                    persoAtacado = true;
-                }
-                foraColisao = false;
-                sofrendoAcao = true;
-                atacando = true;
-                perseguindoPlayer = true;
-            }
-            else{
-                sofrendoAcao = false;
-                atacando = false;
-                foraColisao = true;
-            }
-
             if (vidaInimigo > 0)
             {
+                if(Vector3.Distance(transform.position, personagem.transform.position) <= distanciaMinima){
+                    if(!persoAtacado){
+                        persoAtacado = true;
+                    }
+                    foraColisao = false;
+                    sofrendoAcao = true;
+                    atacando = true;
+                    perseguindoPlayer = true;
+                }
+                else{
+                    sofrendoAcao = false;
+                    atacando = false;
+                    foraColisao = true;
+                }
+                
                 if (!recuando)
                 {
                     if(!perseguindoPlayer){
@@ -159,13 +159,13 @@ public class Inimigos : MonoBehaviour
     {
         anim.SetInteger("transition", 3);
         anim.SetBool("taMorrendo", true);
-        colisorInimigo.enabled = false;
         SomInimigo.enabled = false;
         navMeshAgent.enabled = false;
 
         yield return new WaitForSeconds(1f);
 
         DropItem();
+        colisorInimigo.enabled = false;
 
         yield return new WaitForSeconds(4f);
 
@@ -254,7 +254,6 @@ public class Inimigos : MonoBehaviour
             yield return null;
         }
 
-        anim.SetInteger("transition", 0);
         anim.SetBool("taRecuando", false);
 
         navMeshAgent.speed = 0;

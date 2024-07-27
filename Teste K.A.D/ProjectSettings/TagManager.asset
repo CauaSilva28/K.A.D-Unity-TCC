@@ -9,6 +9,7 @@ TagManager:
   - DestruidorInimigo
   - Cura
   - Ferramenta
+  - estrada
   layers:
   - Default
   - TransparentFX

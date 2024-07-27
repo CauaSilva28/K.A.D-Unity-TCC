@@ -147,6 +147,7 @@ public class AreaKombi : MonoBehaviour
     }
 
     IEnumerator KombiDestruida(){
+        spawnInimigo.DesabilitarScriptsInimigos();
         cameraKombi.SetActive(true);
         cameraPlayer.SetActive(false);
         velho.SetActive(false);

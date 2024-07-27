@@ -221,14 +221,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaMinima: 50
-  anguloDeVisao: 40
+  anguloDeVisao: 45
   velocidadeRotacao: 1.4
   recuoDistancia: 50
   recuoTempo: 0.5
   dano: 0.1
   velocidadeInimigo: 60
+  anim: {fileID: 0}
   personagem: {fileID: 0}
   notPersonagem: {fileID: 0}
+  navMeshAgent: {fileID: 0}
   rotacionarInimigo: {fileID: 1156619721104763629}
   SomDanoPlayer: {fileID: 0}
   Rosnando: {fileID: 8300000, guid: 85e806ed8d23b7849ba2529a911fb786, type: 3}

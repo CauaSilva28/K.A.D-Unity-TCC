@@ -22,7 +22,7 @@ public class Movimento : MonoBehaviour
     private float rotationSpeed = 2f;
     private float veloDash = 80f; // A velocidade do dash deve ser maior que a velocidade normal
     private float tempoDash = 0.6f; // Duração do dash em segundos
-    private float gravidade = 16f;
+    private float gravidade = 25f;
     private float velocidadeVertical = 0f;
     public bool isDashing = false;
     public ParticleSystem DashEfeito;

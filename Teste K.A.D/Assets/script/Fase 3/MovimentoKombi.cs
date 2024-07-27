@@ -5,11 +5,13 @@ using UnityEngine;
 public class MovimentoKombi : MonoBehaviour
 {
     private float velocidade = 100f;
-    private float velodesvio = 0.2f;
+    private float velodesvio = 1f;
 
     private float veloGiroRoda = 100f;
 
     public GameObject[] rodas;
+
+    private bool dandoRe = false;
 
     void Start()
     {
@@ -27,8 +29,20 @@ public class MovimentoKombi : MonoBehaviour
         }
 
         Vector3 movement = transform.forward * velocidade * Time.deltaTime;
-        transform.position += movement;
 
+        if(Input.GetKeyDown(KeyCode.S)){
+            dandoRe = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.W)){
+            dandoRe = false;
+        }
+
+        if(dandoRe){
+            transform.position -= movement;
+        }
+        else{
+            transform.position += movement;
+        }
 
         // Ajusta a velocidade de desvio baseado na velocidade do carro
         if (velocidade == 0)
@@ -48,6 +62,18 @@ public class MovimentoKombi : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0f, -velodesvio, 0f);
+        }
+    }
+
+    void OnCollisionStay(Collision collider){
+        if(!collider.gameObject.CompareTag("estrada")){
+            velocidade = 5f;
+        }
+    }
+
+    void OnCollisionExit(Collision collider){
+        if(!collider.gameObject.CompareTag("estrada")){
+            velocidade = 100f;
         }
     }
 }
