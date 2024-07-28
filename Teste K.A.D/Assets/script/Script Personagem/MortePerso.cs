@@ -80,7 +80,7 @@ public class MortePerso : MonoBehaviour
         telaGameOver.SetActive(true);
         telaGameOver.GetComponent<Animator>().SetBool("surgir", true);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
 
         camera.GetComponent<AudioListener>().enabled = false;
     }

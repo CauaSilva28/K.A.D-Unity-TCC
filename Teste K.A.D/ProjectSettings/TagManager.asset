@@ -10,6 +10,9 @@ TagManager:
   - Cura
   - Ferramenta
   - estrada
+  - obstaculos
+  - explosivo
+  - frenteVeiculoInimigo
   layers:
   - Default
   - TransparentFX

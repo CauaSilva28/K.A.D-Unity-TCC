@@ -19,7 +19,7 @@ public class MovimentoKombi : MonoBehaviour
     public GameObject[] rodas;
     public GameObject turbo;
 
-    private bool dandoRe = false;
+    public bool dandoRe = false;
     private bool fimNitro = false;
     private bool colidiu = false;
 
