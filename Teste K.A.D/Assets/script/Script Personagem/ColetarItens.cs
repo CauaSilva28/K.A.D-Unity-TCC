@@ -20,6 +20,8 @@ public class ColetarItens : MonoBehaviour
 
     public AparecerTeclasTexto scriptAparecerTeclas;
 
+    public bool perdendo = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,9 @@ public class ColetarItens : MonoBehaviour
             barraVidaKombi.SetActive(true);
             barraConserto.SetActive(true);
 
-            barraConserto.GetComponent<Slider>().value += 0.005f * Time.deltaTime;
+            if(!perdendo){
+                barraConserto.GetComponent<Slider>().value += 0.005f * Time.deltaTime;
+            }
 
             if(!aconteceuEnumerator){
                 StartCoroutine(textoInimigos());

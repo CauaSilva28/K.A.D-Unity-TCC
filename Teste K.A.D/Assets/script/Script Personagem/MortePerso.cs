@@ -56,6 +56,7 @@ public class MortePerso : MonoBehaviour
             animPerso.anim.SetInteger("transition", 7);
             SomLevanoDano.SetActive(false);
             StartCoroutine(Morrendo());
+            spawnInimigos.GetComponent<SpawnarInimigos>().DesabilitarScriptsInimigos();
         }
     }
 
@@ -65,7 +66,6 @@ public class MortePerso : MonoBehaviour
         GetComponent<AnimacoesPerso>().enabled = false;
         GetComponent<CurarVida>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
-        spawnInimigos.GetComponent<SpawnarInimigos>().enabled = false;
         gameObject.tag = "Untagged";
 
         yield return new WaitForSeconds(4f);

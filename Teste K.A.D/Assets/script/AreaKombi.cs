@@ -35,7 +35,6 @@ public class AreaKombi : MonoBehaviour
     public GameObject player;
     public GameObject velho;
     public GameObject telaTransicao;
-    public GameObject spawnInimigos;
     public GameObject somGameOver;
     public GameObject telaGameOver;
     public GameObject cameraKombi;
@@ -49,6 +48,8 @@ public class AreaKombi : MonoBehaviour
     public AparecerTextos textoObjetivo;
     public GameObject objetosCanvas;
     public SpawnarInimigos spawnInimigo;
+
+    public ColetarItens scriptColeta;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +75,7 @@ public class AreaKombi : MonoBehaviour
         }
 
         if(barraVidaKombi.value <= 0){
+            spawnInimigo.DesabilitarScriptsInimigos();
             StartCoroutine(KombiDestruida());
         }
 
@@ -147,9 +149,9 @@ public class AreaKombi : MonoBehaviour
     }
 
     IEnumerator KombiDestruida(){
-        spawnInimigo.DesabilitarScriptsInimigos();
         cameraKombi.SetActive(true);
         cameraPlayer.SetActive(false);
+        scriptColeta.perdendo = true;
         velho.SetActive(false);
         player.GetComponent<Movimento>().perdendo = true;
         player.GetComponent<Atacar>().enabled = false;
@@ -157,8 +159,6 @@ public class AreaKombi : MonoBehaviour
         player.GetComponent<CurarVida>().enabled = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Animator>().SetInteger("transition", 0);
-
-        spawnInimigos.GetComponent<SpawnarInimigos>().enabled = false;
 
         GetComponent<Collider>().enabled = true;
 

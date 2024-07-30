@@ -21,5 +21,20 @@ public class RotacaoCamera : MonoBehaviour
         rotacaoY = Mathf.Clamp(rotacaoY, -30, 15);
 
         transform.localEulerAngles = new Vector3(-rotacaoY, 0f, 0f);
+
+        if(Input.GetMouseButton(1)){
+            GetComponent<Camera>().fieldOfView -= Time.deltaTime * 30;
+
+            if(GetComponent<Camera>().fieldOfView <= 50){
+                GetComponent<Camera>().fieldOfView = 50;
+            }
+        }
+        else{
+            GetComponent<Camera>().fieldOfView += Time.deltaTime * 30;
+
+            if(GetComponent<Camera>().fieldOfView >= 67){
+                GetComponent<Camera>().fieldOfView = 67;
+            }
+        }
     }
 }

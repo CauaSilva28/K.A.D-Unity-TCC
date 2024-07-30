@@ -238,7 +238,6 @@ public class Inimigos : MonoBehaviour
     IEnumerator RecuarCoroutine()
     {
         recuando = true;
-        anim.SetInteger("transition", 4);
         anim.SetBool("taRecuando", true);
 
         Vector3 direcaoRecuo = (transform.position - personagem.position).normalized;

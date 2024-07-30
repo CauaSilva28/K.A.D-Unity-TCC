@@ -116,8 +116,7 @@ public class Movimento : MonoBehaviour
 
     IEnumerator Dash()
     {
-        animPerso.emAcao = true;
-        animPerso.anim.SetInteger("transition", 5);
+        animPerso.anim.SetBool("Dashing", true);
         somDash.Play();
         DashEfeito.Play();
         isDashing = true;
@@ -133,10 +132,7 @@ public class Movimento : MonoBehaviour
         }
 
         isDashing = false;
-
-        yield return new WaitForSeconds(0.3f);
-
-        animPerso.emAcao = false;
+        animPerso.anim.SetBool("Dashing", false);
     }
 
     IEnumerator TempoDash()
