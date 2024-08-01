@@ -134,7 +134,7 @@ public class Inimigos : MonoBehaviour
                     if (atacando && EstaOlhandoParaPersonagem())
                     {
                         if(navMeshAgent.speed > 0){
-                            anim.SetInteger("transition", 2);
+                            anim.SetBool("taAtacando", true);
                         }
                     }
 
@@ -157,7 +157,7 @@ public class Inimigos : MonoBehaviour
 
     IEnumerator EliminarInimigo()
     {
-        anim.SetInteger("transition", 3);
+        anim.SetInteger("transition", 2);
         anim.SetBool("taMorrendo", true);
         SomInimigo.enabled = false;
         navMeshAgent.enabled = false;
@@ -239,6 +239,8 @@ public class Inimigos : MonoBehaviour
     {
         recuando = true;
         anim.SetBool("taRecuando", true);
+        anim.SetBool("taAtacando", false);
+        anim.SetInteger("transition", 0);
 
         Vector3 direcaoRecuo = (transform.position - personagem.position).normalized;
         Vector3 posicaoInicial = transform.position;
