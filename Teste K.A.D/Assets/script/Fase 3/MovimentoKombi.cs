@@ -44,10 +44,10 @@ public class MovimentoKombi : MonoBehaviour
 
         for (var i = 0; i < rodas.Length; i++)
         {
-            rodas[i].transform.Rotate(currentVeloGiroRoda, 0f, 0f);
+            rodas[i].transform.Rotate(0f, 0f, currentVeloGiroRoda);
         }
 
-        Vector3 movement = transform.forward * velocidade * Time.deltaTime;
+        Vector3 movement = transform.right * velocidade * Time.deltaTime;
 
         if(Input.GetKeyDown(KeyCode.S)){
             dandoRe = true;

@@ -29,6 +29,11 @@ public class VeiculoInimigo : MonoBehaviour
     void Update()
     {
         navMeshAgent.SetDestination(destino.position);
+
+        // Ajustar a rotação para a direção do movimento
+        Vector3 direction = navMeshAgent.velocity.normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(0, -90, 0); // Adicionar -90 graus à rotação
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMeshAgent.angularSpeed);
     }
 
     void SpawnarExplosivo(){

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotacaoCameraX : MonoBehaviour
 {
-    private float rotacaoX = 0f;
+    private float rotacaoX = -90f;
     // Start is called before the first frame update
     void Start()
     {
