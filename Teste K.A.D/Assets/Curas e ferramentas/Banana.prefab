@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3351255902764402147}
   - component: {fileID: 399664605698399645}
   - component: {fileID: 6747541723737262136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Banana
   m_TagString: Cura
   m_Icon: {fileID: 0}
@@ -105,5 +105,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.15755482
-  m_Center: {x: 0, y: 0.0007877844, z: -0.0018336179}
+  m_Radius: 0.16
+  m_Center: {x: 0, y: 0.04, z: -0.0018336179}

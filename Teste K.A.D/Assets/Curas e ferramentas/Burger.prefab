@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7756248339171990716}
   - component: {fileID: 2290942139498208939}
   - component: {fileID: 2251910607801823532}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Burger
   m_TagString: Cura
   m_Icon: {fileID: 0}
@@ -105,5 +105,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.12499402
-  m_Center: {x: 0, y: 0.012861456, z: 0.008148571}
+  m_Radius: 0.19
+  m_Center: {x: 0, y: 0.042348158, z: 0.008148571}

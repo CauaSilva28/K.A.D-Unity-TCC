@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1617322183555473350}
   - component: {fileID: 6925976954300907666}
   - component: {fileID: 3045270433505661746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drink_02
   m_TagString: Cura
   m_Icon: {fileID: 0}
@@ -105,5 +105,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.07784812
+  m_Radius: 0.1
   m_Center: {x: 0.0010229499, y: 0.048885953, z: 0}

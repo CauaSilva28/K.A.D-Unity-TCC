@@ -6,17 +6,23 @@ using UnityEngine.UI;
 public class Atacar : MonoBehaviour
 {
     public float danoSoco;
+    public float danoFerramenta;
+    public float danoEspecial;
+
     public bool atacando = false;
+    private bool EmAreaEspecial = false;
     public float anguloDeVisao;
 
     public AudioSource sonsPerso;
     public AudioSource somSoco;
     public Movimento movePerso;
 
-    public float danoFerramenta;
+    public Slider barraEspecial;
     public Slider vidaFerramenta;
     public GameObject ferramenta;
     public GameObject quebrandoFerramenta;
+
+    public GameObject areaEspecial;
 
     private List<GameObject> inimigos = new List<GameObject>();
 
@@ -27,6 +33,19 @@ public class Atacar : MonoBehaviour
 
     void Update()
     {
+        //Ataque especial
+        if(barraEspecial.value >= 1){     
+            if(Input.GetKeyDown(KeyCode.E)){
+                GetComponent<AnimacoesPerso>().anim.SetBool("Especial", true);
+                areaEspecial.SetActive(true);
+                barraEspecial.value = 0;
+            }
+        }
+        else{
+            barraEspecial.value += 0.02f * Time.deltaTime;
+        }
+
+        //Empurrao
         if (atacando)
         {
             GameObject inimigoAlvo = ProcurarInimigoAlvo();
@@ -41,6 +60,7 @@ public class Atacar : MonoBehaviour
             }
         }
 
+        //Verificacao vida ferramenta
         if(vidaFerramenta.value <= 0){
             quebrandoFerramenta.SetActive(true);
             ferramenta.SetActive(false);
@@ -95,7 +115,51 @@ public class Atacar : MonoBehaviour
             }
         }
     }
+
+    void Especial()
+    {
+        if (EmAreaEspecial)
+        {
+            foreach (GameObject inimigoEspecial in inimigos) //Estrutura de loop que permite manipular todos os elementos na lista
+            {
+                if (inimigoEspecial != null)
+                {
+                    Inimigos scriptInimigo = inimigoEspecial.GetComponent<Inimigos>();
+                    if(scriptInimigo != null){
+                        scriptInimigo.vidaInimigo -= danoEspecial;
+                        scriptInimigo.Recuar();
+                    }
+                }
+            }
+        }
+    }
+
+    void FimEspecial(){
+        GetComponent<AnimacoesPerso>().anim.SetBool("Especial", false);
+        areaEspecial.SetActive(false);
+    }
     //---------------------------------------
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("inimigo"))
+        {
+            inimigos.Add(other.gameObject);
+            EmAreaEspecial = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("inimigo"))
+        {
+            inimigos.Remove(other.gameObject);
+            if (inimigos.Count == 0)
+            {
+                EmAreaEspecial = false;
+            }
+        }
+    }
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -105,7 +169,6 @@ public class Atacar : MonoBehaviour
             atacando = true;
         }
     }
-
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("inimigo"))

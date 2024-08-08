@@ -11,6 +11,7 @@ public class Inimigos : MonoBehaviour
     public float velocidadeRotacao; // Velocidade de rotação
     public float recuoDistancia; // Distância do recuo
     public float recuoTempo; // Tempo do recuo
+    public float vidaInimigo;
 
     public float dano;
 
@@ -32,8 +33,6 @@ public class Inimigos : MonoBehaviour
     public AudioClip Rosnando;
 
     public Slider vidaPerso;
-
-    public float vidaInimigo;
 
     private bool sofrendoAcao = false;
     private bool atacando = false;
@@ -136,6 +135,9 @@ public class Inimigos : MonoBehaviour
                         if(navMeshAgent.speed > 0){
                             anim.SetBool("taAtacando", true);
                         }
+                    }
+                    else{
+                        anim.SetBool("taAtacando", false);
                     }
 
                     RotacionarParaPersonagem(); // Adiciona a rotação para o personagem no Update

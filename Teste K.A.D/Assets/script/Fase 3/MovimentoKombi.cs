@@ -44,7 +44,7 @@ public class MovimentoKombi : MonoBehaviour
 
         for (var i = 0; i < rodas.Length; i++)
         {
-            rodas[i].transform.Rotate(0f, 0f, currentVeloGiroRoda);
+            rodas[i].transform.Rotate(0f, 0f, -currentVeloGiroRoda);
         }
 
         Vector3 movement = transform.right * velocidade * Time.deltaTime;

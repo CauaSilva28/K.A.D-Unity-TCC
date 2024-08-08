@@ -10,7 +10,10 @@ public class VeiculoInimigo : MonoBehaviour
     public UnityEngine.AI.NavMeshAgent navMeshAgent;
     public Transform destino;
 
+    private float veloGiroRoda = 100f;
+
     public GameObject explosivo;
+    public GameObject[] rodas;
 
     public Slider vidaInimigo;
 
@@ -28,6 +31,13 @@ public class VeiculoInimigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float currentVeloGiroRoda = veloGiroRoda * Time.deltaTime+2;
+
+        for (var i = 0; i < rodas.Length; i++)
+        {
+            rodas[i].transform.Rotate(0f, 0f, -currentVeloGiroRoda);
+        }
+
         navMeshAgent.SetDestination(destino.position);
 
         // Ajustar a rotação para a direção do movimento
@@ -46,7 +56,7 @@ public class VeiculoInimigo : MonoBehaviour
     void OnCollisionStay(Collision collider){
         if(collider.gameObject.CompareTag("Player") && !collider.gameObject.CompareTag("frenteVeiculoInimigo")){
             if(!moveKombi.dandoRe){
-                vidaInimigo.value -= 0.15f * Time.deltaTime;
+                vidaInimigo.value -= 0.2f * Time.deltaTime;
             }
         }
     }
