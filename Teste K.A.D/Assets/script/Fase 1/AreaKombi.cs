@@ -103,12 +103,12 @@ public class AreaKombi : MonoBehaviour
         {
             if(!iniciouConserto){
                 scriptAparecerTeclas.aparecer = true;
-                scriptAparecerTeclas.texto = "Aperte \"E\" para iniciar o conserto";
+                scriptAparecerTeclas.texto = "Aperte \"F\" para iniciar o conserto";
             }
 
             if(finalizouConserto){
                 scriptAparecerTeclas.aparecer = true;
-                scriptAparecerTeclas.texto = "Aperte \"E\" para entrar na Kombi";
+                scriptAparecerTeclas.texto = "Aperte \"F\" para entrar na Kombi";
             }
         }
 
@@ -122,15 +122,12 @@ public class AreaKombi : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.F))
             {
                 if(!iniciouConserto){
                     iniciarConserto = true;
                 }
-            }
 
-            if (Input.GetKey(KeyCode.E))
-            {
                 if(finalizouConserto){
                     iniciarCutsceneFim = true;
                 }
