@@ -9,8 +9,6 @@ public class AreaKombi : MonoBehaviour
 {
     public GameObject SeuZe;
 
-    public ColetarItens coletarItens;
-
     private AudioSource audioKombi;
     public AudioClip somDanoKombi;
 
@@ -48,8 +46,6 @@ public class AreaKombi : MonoBehaviour
     public AparecerTextos textoObjetivo;
     public GameObject objetosCanvas;
     public SpawnarInimigos spawnInimigo;
-
-    public ColetarItens scriptColeta;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +61,7 @@ public class AreaKombi : MonoBehaviour
             areaAparecerObjetivo.SetActive(false);
             scriptAparecerTeclas.aparecer = false;
             itens.SetActive(true);
-            coletarItens.enabled = true;
+            player.GetComponent<ColetarItens>().enabled = true;
             SeuZe.GetComponent<MovimentoVelho>().enabled = false;
             SeuZe.GetComponent<NavMeshAgent>().speed = 0;
             SeuZe.GetComponent<Animator>().SetInteger("transition", 3);
@@ -148,7 +144,7 @@ public class AreaKombi : MonoBehaviour
     IEnumerator KombiDestruida(){
         cameraKombi.SetActive(true);
         cameraPlayer.SetActive(false);
-        scriptColeta.perdendo = true;
+        player.GetComponent<ColetarItens>().perdendo = true;
         velho.SetActive(false);
         player.GetComponent<Movimento>().perdendo = true;
         player.GetComponent<Atacar>().enabled = false;

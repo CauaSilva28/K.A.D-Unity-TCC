@@ -32,17 +32,17 @@ public class Movimento : MonoBehaviour
     private AnimacoesPerso animPerso;
 
     public bool perdendo;
+    public bool pausado;
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         animPerso = GetComponent<AnimacoesPerso>();
     }
 
     void Update()
     {
-        if(!perdendo){
+        if(!perdendo && !pausado){
             if (isDashing)
                 return; // Se o personagem estiver dashing, sai do método Update.
             

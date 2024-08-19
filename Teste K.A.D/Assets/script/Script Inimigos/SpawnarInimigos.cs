@@ -27,7 +27,7 @@ public class SpawnarInimigos : MonoBehaviour
     private bool perdendo = false;
 
     private void Start() {
-        InvokeRepeating("SpawnInimigo", 1, 7);
+        InvokeRepeating("SpawnInimigo", 1, 5);
     }
 
     void SpawnInimigo() {

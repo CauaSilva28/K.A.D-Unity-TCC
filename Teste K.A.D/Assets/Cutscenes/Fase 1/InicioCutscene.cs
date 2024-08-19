@@ -6,6 +6,9 @@ public class InicioCutscene : MonoBehaviour
 {
     public GameObject player;
     public GameObject ObjDesativado;
+    public AudioSource musicaFundo;
+
+    private bool ativou = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +19,12 @@ public class InicioCutscene : MonoBehaviour
     void Update()
     {
         if(ObjDesativado.activeSelf){
-            player.GetComponent<Movimento>().enabled = true;
-            player.GetComponent<AnimacoesPerso>().enabled = true;
+            if(!ativou){
+                ativou = true;
+                player.GetComponent<Movimento>().enabled = true;
+                player.GetComponent<AnimacoesPerso>().enabled = true;
+                musicaFundo.Play();
+            }
         }
     }
 }
