@@ -11,6 +11,8 @@ public class PausarJogo : MonoBehaviour
 
     public GameObject player;
 
+    private bool pausado = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +24,22 @@ public class PausarJogo : MonoBehaviour
     void Update()
     {
         if(!player.GetComponent<Movimento>().perdendo){
-            if(Input.GetKeyDown(KeyCode.Escape)){
-                PauseJogo();
+            if(pausado){
+                if(Input.GetKeyDown(KeyCode.Escape)){
+                    Despausar();
+                }
+            }
+            else{
+                if(Input.GetKeyDown(KeyCode.Escape)){
+                    PauseJogo();
+                }
             }
         }
     }
 
     void PauseJogo()
     {
+        pausado = true;
         player.GetComponent<Movimento>().pausado = true;
         pauseMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
@@ -47,6 +57,7 @@ public class PausarJogo : MonoBehaviour
 
     public void Despausar()
     {
+        pausado = false;
         player.GetComponent<Movimento>().pausado = false;
         pauseMenu.gameObject.SetActive(false);
         Time.timeScale = 1;
