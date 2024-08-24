@@ -46,39 +46,7 @@ public class Movimento : MonoBehaviour
             if (isDashing)
                 return; // Se o personagem estiver dashing, sai do método Update.
             
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift))
-            {
-                if(!cansou){
-                    tempoDescanco = 0f;
-                    staminaPerso.value -= valorDesgaste * Time.deltaTime;
-                    velocidade = velocidadeCorrida;
-                    correndo = true;
-                }
-                else{
-                    velocidade = velocidadeAndando;
-                }
-            }
-            else
-            {
-                velocidade = velocidadeAndando;
-                correndo = false;
-            }
-
-            //Stamina-------------------------------------
-            if(staminaPerso.value <= 0){
-                cansou = true;
-            }
-            else{
-                cansou = false;
-            }
-
-            if(!correndo && !isDashing){
-                RecuperarStamina();
-            }
-
-            // Movimentacao-------------------------------
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * velocidade;
-            moveDirection = transform.TransformDirection(moveDirection);
+            Movimentacao();
 
             // Gravidade-----------------------------
             if (controller.isGrounded)
@@ -93,7 +61,6 @@ public class Movimento : MonoBehaviour
             moveDirection.y = velocidadeVertical;
 
             controller.Move(moveDirection * Time.deltaTime);
-            // FIM Movimentacao-------------------------------
 
             // Rotacaoo-------------------------------
             float mouseXInput = Input.GetAxis("Mouse X");
@@ -152,5 +119,41 @@ public class Movimento : MonoBehaviour
                 staminaPerso.value += valorRecuperacao * Time.deltaTime;
             }
         }
+    }
+
+    private void Movimentacao(){
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift))
+        {
+            if(!cansou){
+                tempoDescanco = 0f;
+                staminaPerso.value -= valorDesgaste * Time.deltaTime;
+                velocidade = velocidadeCorrida;
+                correndo = true;
+            }
+            else{
+                velocidade = velocidadeAndando;
+            }
+        }
+        else
+        {
+            velocidade = velocidadeAndando;
+            correndo = false;
+        }
+
+        //Stamina-------------------------------------
+        if(staminaPerso.value <= 0){
+            cansou = true;
+        }
+        else{
+            cansou = false;
+        }
+
+        if(!correndo && !isDashing){
+            RecuperarStamina();
+        }
+
+        // Movimentacao-------------------------------
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * velocidade;
+        moveDirection = transform.TransformDirection(moveDirection);
     }
 }

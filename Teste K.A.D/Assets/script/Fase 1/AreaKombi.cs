@@ -82,14 +82,7 @@ public class AreaKombi : MonoBehaviour
         }
 
         if(iniciarCutsceneFim){
-            spawnInimigo.DesabilitarScriptsInimigos();
-            objetosCanvas.SetActive(false);
-            vidaKombi.SetActive(false);
-            player.SetActive(false);
-            velho.SetActive(false);
-            gameObject.SetActive(false);
-            cutsceneFim.SetActive(true);
-            cutsceneFim.GetComponent<PlayableDirector>().Play();
+            FimDeJogo();
         }
     }
 
@@ -176,5 +169,18 @@ public class AreaKombi : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         cameraKombi.GetComponent<AudioListener>().enabled = false;
+    }
+
+    private void FimDeJogo(){
+        spawnInimigo.DesabilitarScriptsInimigos();
+        objetosCanvas.SetActive(false);
+        vidaKombi.SetActive(false);
+        player.SetActive(false);
+        velho.SetActive(false);
+        gameObject.SetActive(false);
+        cutsceneFim.SetActive(true);
+        cutsceneFim.GetComponent<PlayableDirector>().Play();
+
+        PlayerPrefs.SetInt("Fase1Completa", 1); //Comando responsavel por realizar o salvamento da fase 1 (sendo 1 o valor que mostra q ela foi completa)
     }
 }

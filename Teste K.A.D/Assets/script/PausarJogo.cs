@@ -13,6 +13,8 @@ public class PausarJogo : MonoBehaviour
 
     private bool pausado = false;
 
+    public GameObject telaControles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class PausarJogo : MonoBehaviour
             if(pausado){
                 if(Input.GetKeyDown(KeyCode.Escape)){
                     Despausar();
+                    voltarPause();
                 }
             }
             else{
@@ -71,6 +74,16 @@ public class PausarJogo : MonoBehaviour
                 allAudioSources[i].UnPause();
             }
         }
+    }
+
+    public void abrirControles()
+    {
+        telaControles.SetActive(true);
+    }
+
+    public void voltarPause()
+    {
+        telaControles.SetActive(false);
     }
 
     public void voltarMenu()

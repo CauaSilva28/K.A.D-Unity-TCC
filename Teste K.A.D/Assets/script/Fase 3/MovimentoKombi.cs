@@ -38,30 +38,7 @@ public class MovimentoKombi : MonoBehaviour
         }
 
         RecuperarStamina();
-
-        // Movimento automatico
-        float currentVeloGiroRoda = veloGiroRoda * Time.deltaTime+2;
-
-        for (var i = 0; i < rodas.Length; i++)
-        {
-            rodas[i].transform.Rotate(0f, 0f, -currentVeloGiroRoda);
-        }
-
-        Vector3 movement = transform.right * velocidade * Time.deltaTime;
-
-        if(Input.GetKeyDown(KeyCode.S)){
-            dandoRe = true;
-        }
-        else if(Input.GetKeyDown(KeyCode.W)){
-            dandoRe = false;
-        }
-
-        if(dandoRe){
-            transform.position -= movement;
-        }
-        else{
-            transform.position += movement;
-        }
+        MovimentacaoKombi();
 
         // Rotaciona o carro baseado nas entradas horizontais
         if (Input.GetKey(KeyCode.D))
@@ -102,6 +79,31 @@ public class MovimentoKombi : MonoBehaviour
         else{
             turbo.SetActive(false);
             velocidade = valorVelocidade;
+        }
+    }
+
+    private void MovimentacaoKombi(){
+        float currentVeloGiroRoda = veloGiroRoda * Time.deltaTime+2;
+
+        for (var i = 0; i < rodas.Length; i++)
+        {
+            rodas[i].transform.Rotate(0f, 0f, -currentVeloGiroRoda);
+        }
+
+        Vector3 movement = transform.right * velocidade * Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.S)){
+            dandoRe = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.W)){
+            dandoRe = false;
+        }
+
+        if(dandoRe){
+            transform.position -= movement;
+        }
+        else{
+            transform.position += movement;
         }
     }
 

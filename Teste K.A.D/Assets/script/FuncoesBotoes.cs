@@ -12,11 +12,24 @@ public class FuncoesBotoes : MonoBehaviour
     public GameObject telaMenu;
     public GameObject telaFases;
 
+    private string textoFase;
+
     public void ReiniciarFase(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void IniciarJogo(){
+        textoFase = "Fase1";
+        somSelectMenu.Play();
+        StartCoroutine(inicioJogo());
+    }
+    public void IniciarFase2(){
+        textoFase = "Fase2";
+        somSelectMenu.Play();
+        StartCoroutine(inicioJogo());
+    }
+    public void IniciarFase3(){
+        textoFase = "Fase3";
         somSelectMenu.Play();
         StartCoroutine(inicioJogo());
     }
@@ -53,6 +66,6 @@ public class FuncoesBotoes : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        SceneManager.LoadScene("Fase1");
+        SceneManager.LoadScene(textoFase);
     }
 }
