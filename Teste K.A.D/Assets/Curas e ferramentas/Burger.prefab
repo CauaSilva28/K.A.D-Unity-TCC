@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7756248339171990716}
   - component: {fileID: 2290942139498208939}
   - component: {fileID: 2251910607801823532}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Burger
   m_TagString: Cura
   m_Icon: {fileID: 0}

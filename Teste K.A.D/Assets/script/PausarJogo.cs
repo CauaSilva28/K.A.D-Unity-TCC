@@ -9,11 +9,10 @@ public class PausarJogo : MonoBehaviour
 
     private AudioSource[] allAudioSources;
 
-    public GameObject player;
-
-    private bool pausado = false;
-
     public GameObject telaControles;
+
+    public bool pausado = false;
+    public bool perdendo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +24,7 @@ public class PausarJogo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!player.GetComponent<Movimento>().perdendo){
+        if(!perdendo){
             if(pausado){
                 if(Input.GetKeyDown(KeyCode.Escape)){
                     Despausar();
@@ -43,7 +42,6 @@ public class PausarJogo : MonoBehaviour
     void PauseJogo()
     {
         pausado = true;
-        player.GetComponent<Movimento>().pausado = true;
         pauseMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
@@ -61,7 +59,6 @@ public class PausarJogo : MonoBehaviour
     public void Despausar()
     {
         pausado = false;
-        player.GetComponent<Movimento>().pausado = false;
         pauseMenu.gameObject.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;

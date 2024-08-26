@@ -26,6 +26,8 @@ public class PerderVidaKombi : MonoBehaviour
     public Slider vidaKombi;
     private bool explodiu = false;
 
+    public PausarJogo pauseJogo;
+
     void Start(){
         if (postProcessVolume.profile.TryGetSettings(out chromaticAberration) && postProcessVolume.profile.TryGetSettings(out colorGrading))
         {
@@ -79,6 +81,7 @@ public class PerderVidaKombi : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
         gameObject.tag = "Untagged";
         GetComponent<MovimentoKombi>().turbo.SetActive(false);
+        pauseJogo.perdendo = true;
 
         yield return new WaitForSeconds(2f);
 

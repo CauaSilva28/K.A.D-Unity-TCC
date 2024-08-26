@@ -46,6 +46,8 @@ public class AreaKombi : MonoBehaviour
     public AparecerTextos textoObjetivo;
     public GameObject objetosCanvas;
     public SpawnarInimigos spawnInimigo;
+
+    public PausarJogo pauseJogo;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,19 +57,9 @@ public class AreaKombi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 velhoConsertando = posicaoVelho.position;
         if (iniciarConserto)
         {
-            areaAparecerObjetivo.SetActive(false);
-            scriptAparecerTeclas.aparecer = false;
-            itens.SetActive(true);
-            player.GetComponent<ColetarItens>().enabled = true;
-            SeuZe.GetComponent<MovimentoVelho>().enabled = false;
-            SeuZe.GetComponent<NavMeshAgent>().speed = 0;
-            SeuZe.GetComponent<Animator>().SetInteger("transition", 3);
-            SeuZe.GetComponent<Transform>().transform.position = velhoConsertando;
-            iniciarConserto = false;
-            iniciouConserto = true;
+            ConsertoKombi();
         }
 
         if(barraVidaKombi.value <= 0){
@@ -135,6 +127,7 @@ public class AreaKombi : MonoBehaviour
     }
 
     IEnumerator KombiDestruida(){
+        pauseJogo.perdendo = true;
         cameraKombi.SetActive(true);
         cameraPlayer.SetActive(false);
         player.GetComponent<ColetarItens>().perdendo = true;
@@ -172,6 +165,7 @@ public class AreaKombi : MonoBehaviour
     }
 
     private void FimDeJogo(){
+        pauseJogo.perdendo = true;
         spawnInimigo.DesabilitarScriptsInimigos();
         objetosCanvas.SetActive(false);
         vidaKombi.SetActive(false);
@@ -182,5 +176,20 @@ public class AreaKombi : MonoBehaviour
         cutsceneFim.GetComponent<PlayableDirector>().Play();
 
         PlayerPrefs.SetInt("Fase1Completa", 1); //Comando responsavel por realizar o salvamento da fase 1 (sendo 1 o valor que mostra q ela foi completa)
+    }
+
+    private void ConsertoKombi(){
+        Vector3 velhoConsertando = posicaoVelho.position;
+        
+        areaAparecerObjetivo.SetActive(false);
+        scriptAparecerTeclas.aparecer = false;
+        itens.SetActive(true);
+        player.GetComponent<ColetarItens>().enabled = true;
+        SeuZe.GetComponent<MovimentoVelho>().enabled = false;
+        SeuZe.GetComponent<NavMeshAgent>().speed = 0;
+        SeuZe.GetComponent<Animator>().SetInteger("transition", 3);
+        SeuZe.GetComponent<Transform>().transform.position = velhoConsertando;
+        iniciarConserto = false;
+        iniciouConserto = true;
     }
 }

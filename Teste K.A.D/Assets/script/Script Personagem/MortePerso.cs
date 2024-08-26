@@ -26,6 +26,8 @@ public class MortePerso : MonoBehaviour
     public GameObject camera;
 
     public GameObject SomLevanoDano;
+
+    public PausarJogo pauseJogo;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,7 @@ public class MortePerso : MonoBehaviour
     }
 
     IEnumerator Morrendo(){
+        pauseJogo.perdendo = true;
         GetComponent<Movimento>().perdendo = true;
         GetComponent<Atacar>().enabled = false;
         GetComponent<AnimacoesPerso>().enabled = false;

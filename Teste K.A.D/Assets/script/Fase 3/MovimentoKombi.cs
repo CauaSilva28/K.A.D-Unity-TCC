@@ -23,31 +23,35 @@ public class MovimentoKombi : MonoBehaviour
     private bool fimNitro = false;
     private bool colidiu = false;
 
+    public PausarJogo pauseJogo;
+
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Update()
     {
-        if(!colidiu && !dandoRe){
-            utilizarTurbo();
-        }
-        else{
-            turbo.SetActive(false);
-        }
+        if(!pauseJogo.pausado){
+            if(!colidiu && !dandoRe){
+                utilizarTurbo();
+            }
+            else{
+                turbo.SetActive(false);
+            }
 
-        RecuperarStamina();
-        MovimentacaoKombi();
+            RecuperarStamina();
+            MovimentacaoKombi();
 
-        // Rotaciona o carro baseado nas entradas horizontais
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0f, velodesvio, 0f);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0f, -velodesvio, 0f);
+            // Rotaciona o carro baseado nas entradas horizontais
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Rotate(0f, velodesvio, 0f);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Rotate(0f, -velodesvio, 0f);
+            }
         }
     }
 

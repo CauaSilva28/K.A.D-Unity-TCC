@@ -30,6 +30,7 @@ public class Movimento : MonoBehaviour
     private bool podeDash = true;
 
     private AnimacoesPerso animPerso;
+    public PausarJogo pauseJogo;
 
     public bool perdendo;
     public bool pausado;
@@ -42,7 +43,7 @@ public class Movimento : MonoBehaviour
 
     void Update()
     {
-        if(!perdendo && !pausado){
+        if(!perdendo && !pauseJogo.pausado){
             if (isDashing)
                 return; // Se o personagem estiver dashing, sai do método Update.
             

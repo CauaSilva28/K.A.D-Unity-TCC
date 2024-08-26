@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotacaoCamera : MonoBehaviour
 {
     float rotacaoY = 0f;
-    public Movimento movePerso;
+    public PausarJogo pauseJogo;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class RotacaoCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!movePerso.pausado){
+        if(!pauseJogo.pausado){
             float mouseYInput = Input.GetAxis("Mouse Y");
 
             rotacaoY += mouseYInput;
