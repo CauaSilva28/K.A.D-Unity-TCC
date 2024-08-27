@@ -187,7 +187,7 @@ public class AreaKombi : MonoBehaviour
         player.GetComponent<ColetarItens>().enabled = true;
         SeuZe.GetComponent<MovimentoVelho>().enabled = false;
         SeuZe.GetComponent<NavMeshAgent>().speed = 0;
-        SeuZe.GetComponent<Animator>().SetInteger("transition", 3);
+        SeuZe.GetComponent<Animator>().SetInteger("transition", 2);
         SeuZe.GetComponent<Transform>().transform.position = velhoConsertando;
         iniciarConserto = false;
         iniciouConserto = true;
