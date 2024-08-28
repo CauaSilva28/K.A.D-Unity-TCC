@@ -42,7 +42,7 @@ public class PausarJogo : MonoBehaviour
     void PauseJogo()
     {
         pausado = true;
-        pauseMenu.gameObject.SetActive(true);
+        pauseMenu.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
 
@@ -59,7 +59,7 @@ public class PausarJogo : MonoBehaviour
     public void Despausar()
     {
         pausado = false;
-        pauseMenu.gameObject.SetActive(false);
+        pauseMenu.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
 
