@@ -10,9 +10,19 @@ public class TelaSelecionarPerso : MonoBehaviour
 
     public AudioSource somSelect;
     public GameObject telaTransicao;
+
+    private int numPerso;
     
     public void SelecionarJeronimo()
     {
+        numPerso = 0;
+        somSelect.Play();
+        StartCoroutine(SelecionarPersonagem());
+    }
+
+    public void SelecionarSeuZe()
+    {
+        numPerso = 1;
         somSelect.Play();
         StartCoroutine(SelecionarPersonagem());
     }
@@ -23,7 +33,7 @@ public class TelaSelecionarPerso : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
-        PersonagensSelecao[0].SetActive(true);
+        PersonagensSelecao[numPerso].SetActive(true);
         jogo.SetActive(true);
         telaSelecao.SetActive(false);
 
