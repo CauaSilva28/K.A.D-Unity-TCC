@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TelaSelecionarPerso : MonoBehaviour
 {
     public GameObject[] PersonagensSelecao;
+    public Sprite[] PersoImg;
+    public string[] PersoNome;
+
+    public Text[] localNomePerso;
+    public Image localImgPerso;
+
     public GameObject telaSelecao;
     public GameObject jogo;
 
@@ -33,7 +40,13 @@ public class TelaSelecionarPerso : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
+        for(int i = 0;i<localNomePerso.Length;i++){
+            localNomePerso[i].text = PersoNome[numPerso];
+        }
+
         PersonagensSelecao[numPerso].SetActive(true);
+        localImgPerso.sprite = PersoImg[numPerso];
+        
         jogo.SetActive(true);
         telaSelecao.SetActive(false);
 

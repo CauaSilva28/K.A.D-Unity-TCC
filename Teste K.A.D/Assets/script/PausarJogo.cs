@@ -73,6 +73,11 @@ public class PausarJogo : MonoBehaviour
         }
     }
 
+    public void ReiniciarFase(){
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void abrirControles()
     {
         telaControles.SetActive(true);
