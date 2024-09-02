@@ -11,20 +11,22 @@ public class SpawnarInimigos : MonoBehaviour
     public GameObject dinoPrefab;
     public GameObject punkPrefab;
 
-    public GameObject ferramentaCena;
+    public GameObject[] ferramentaCena;
 
-    public Transform persoPosicao;
+    public GameObject[] personagem;
     public Transform notPersoPosicao;
     public Slider vidaPerso;
     public Slider barraVidaKombi;
 
-    public AudioSource SomDanoPlayer;
+    public AudioSource[] SomDanoPlayer;
 
     public Movimento movePerso;
 
     private List<GameObject> inimigos = new List<GameObject>();
 
     private bool perdendo = false;
+
+    public TelaSelecionarPerso persoSelecionado;
 
     private void Start() {
         InvokeRepeating("SpawnInimigo", 1, 7);
@@ -42,12 +44,12 @@ public class SpawnarInimigos : MonoBehaviour
             inimigoInstance.tag = "inimigo";
             
             Inimigos scriptInimigo = inimigoInstance.GetComponent<Inimigos>();
-            scriptInimigo.personagem = persoPosicao;
+            scriptInimigo.personagem = personagem;
             scriptInimigo.notPersonagem = notPersoPosicao;
             scriptInimigo.vidaPerso = vidaPerso;
             scriptInimigo.SomDanoPlayer = SomDanoPlayer;
             scriptInimigo.ferramentaCena = ferramentaCena;
-            scriptInimigo.movePerso = movePerso;
+            scriptInimigo.persoSelecionado = persoSelecionado;
 
             InimigoColidiKombi scriptInimigo2 = inimigoInstance.GetComponent<InimigoColidiKombi>();
             scriptInimigo2.barraVidaKombi = barraVidaKombi;

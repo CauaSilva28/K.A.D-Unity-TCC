@@ -7,10 +7,12 @@ public class TelaSelecionarPerso : MonoBehaviour
 {
     public GameObject[] PersonagensSelecao;
     public Sprite[] PersoImg;
+    public Sprite[] FerramentaPersoImg;
     public string[] PersoNome;
 
     public Text[] localNomePerso;
     public Image localImgPerso;
+    public Image localImgFerramenta;
 
     public GameObject telaSelecao;
     public GameObject jogo;
@@ -18,7 +20,7 @@ public class TelaSelecionarPerso : MonoBehaviour
     public AudioSource somSelect;
     public GameObject telaTransicao;
 
-    private int numPerso;
+    public int numPerso;
     
     public void SelecionarJeronimo()
     {
@@ -46,6 +48,7 @@ public class TelaSelecionarPerso : MonoBehaviour
 
         PersonagensSelecao[numPerso].SetActive(true);
         localImgPerso.sprite = PersoImg[numPerso];
+        localImgFerramenta.sprite = FerramentaPersoImg[numPerso];
         
         jogo.SetActive(true);
         telaSelecao.SetActive(false);

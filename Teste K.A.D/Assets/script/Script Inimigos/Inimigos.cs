@@ -19,7 +19,7 @@ public class Inimigos : MonoBehaviour
 
     public Animator anim;
 
-    public Transform personagem;
+    public GameObject[] personagem;
     public Transform notPersonagem;
 
     public NavMeshAgent navMeshAgent;
@@ -28,7 +28,7 @@ public class Inimigos : MonoBehaviour
 
     private AudioSource SomInimigo;
 
-    public AudioSource SomDanoPlayer;
+    public AudioSource[] SomDanoPlayer;
 
     public AudioClip Rosnando;
 
@@ -46,16 +46,17 @@ public class Inimigos : MonoBehaviour
     private bool dropou = false;
 
     public bool perseguindoPlayer;
+    public bool parado;
 
-    public GameObject ferramentaCena;
-    public GameObject ferramentaObj;
+    public GameObject[] ferramentaCena;
+    public GameObject[] ferramentaObj;
 
     public GameObject[] curaPrefab;
 
     public Material[] materiais;
     public GameObject retopoInimigo;
 
-    public Movimento movePerso;
+    public TelaSelecionarPerso persoSelecionado;
 
     // Start is called before the first frame update
     void Start()
@@ -89,46 +90,21 @@ public class Inimigos : MonoBehaviour
     // Update é chamado uma vez por frame
     void Update()
     {
-        if(!movePerso.perdendo){
+        if(!personagem[persoSelecionado.numPerso].GetComponent<Movimento>().perdendo){
             if (vidaInimigo > 0)
             {
-                if(Vector3.Distance(transform.position, personagem.transform.position) <= distanciaMinima){
-                    if(!persoAtacado){
-                        persoAtacado = true;
-                    }
-                    foraColisao = false;
-                    sofrendoAcao = true;
-                    atacando = true;
-                    perseguindoPlayer = true;
-                }
-                else{
-                    sofrendoAcao = false;
-                    atacando = false;
-                    foraColisao = true;
-                }
+                DistanciaInimigoPerso();
                 
                 if (!recuando)
                 {
-                    if(!perseguindoPlayer){
-                        navMeshAgent.SetDestination(notPersonagem.position);
+                    if(parado){
+                        navMeshAgent.speed = 0;
                     }
                     else{
-                        navMeshAgent.SetDestination(personagem.position);
+                        navMeshAgent.speed = velocidadeInimigo;
                     }
 
-                    float distancia = Vector3.Distance(transform.position, personagem.position);
-
-                    if (!sofrendoAcao)
-                    {
-                        if (navMeshAgent.speed >= velocidadeInimigo-10)
-                        {
-                            anim.SetInteger("transition", 1);
-                        }
-                        else if (navMeshAgent.speed <= 0)
-                        {
-                            anim.SetInteger("transition", 0);
-                        }
-                    }
+                    MovimentoInimigo();
 
                     if (atacando && EstaOlhandoParaPersonagem())
                     {
@@ -153,7 +129,46 @@ public class Inimigos : MonoBehaviour
     void AtacarPlayer(){
         if(!recuando && !foraColisao && EstaOlhandoParaPersonagem()){
             vidaPerso.value -= dano;
-            SomDanoPlayer.Play();
+            SomDanoPlayer[persoSelecionado.numPerso].Play();
+        }
+    }
+
+    private void DistanciaInimigoPerso(){
+        if(Vector3.Distance(transform.position, personagem[persoSelecionado.numPerso].GetComponent<Transform>().transform.position) <= distanciaMinima){
+            if(!persoAtacado){
+                persoAtacado = true;
+            }
+            foraColisao = false;
+            sofrendoAcao = true;
+            atacando = true;
+            perseguindoPlayer = true;
+            parado = false;
+        }
+        else{
+            sofrendoAcao = false;
+            atacando = false;
+            foraColisao = true;
+        }
+    }
+
+    private void MovimentoInimigo(){
+        if(!perseguindoPlayer){
+            navMeshAgent.SetDestination(notPersonagem.position);
+        }
+        else{
+            navMeshAgent.SetDestination(personagem[persoSelecionado.numPerso].GetComponent<Transform>().position);
+        }
+
+        if (!sofrendoAcao)
+        {
+            if (navMeshAgent.speed >= velocidadeInimigo-10)
+            {
+                anim.SetInteger("transition", 1);
+            }
+            else if (navMeshAgent.speed <= 0)
+            {
+                anim.SetInteger("transition", 0);
+            }
         }
     }
 
@@ -176,10 +191,10 @@ public class Inimigos : MonoBehaviour
 
     bool EstaOlhandoParaPersonagem()
     {
-        if (personagem == null)
+        if (personagem[persoSelecionado.numPerso].GetComponent<Transform>() == null)
             return false;
 
-        Vector3 direcaoParaPersonagem = (personagem.position - transform.position).normalized;
+        Vector3 direcaoParaPersonagem = (personagem[persoSelecionado.numPerso].GetComponent<Transform>().position - transform.position).normalized;
         float angulo = Vector3.Angle(transform.forward, direcaoParaPersonagem);
 
         return angulo < anguloDeVisao;
@@ -188,10 +203,10 @@ public class Inimigos : MonoBehaviour
     void RotacionarParaPersonagem()
     {
         if(perseguindoPlayer){
-            if (personagem == null)
+            if (personagem[persoSelecionado.numPerso].GetComponent<Transform>() == null)
                 return;
 
-            Vector3 direcaoParaPersonagem = (personagem.position - transform.position).normalized;
+            Vector3 direcaoParaPersonagem = (personagem[persoSelecionado.numPerso].GetComponent<Transform>().position - transform.position).normalized;
             Quaternion rotacaoParaPersonagem = Quaternion.LookRotation(direcaoParaPersonagem);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotacaoParaPersonagem, velocidadeRotacao * Time.deltaTime);
         }
@@ -204,7 +219,7 @@ public class Inimigos : MonoBehaviour
             int numeroAleatorio = Random.Range(1, 11);
             int curaAleatoria = Random.Range(0, curaPrefab.Length);
 
-            if(ferramentaCena.activeSelf){
+            if(ferramentaCena[persoSelecionado.numPerso].activeSelf){
                 if (numeroAleatorio > 7)
                 {
                     GameObject curaInstance = Instantiate(curaPrefab[curaAleatoria], transform.position, Quaternion.identity);
@@ -218,7 +233,7 @@ public class Inimigos : MonoBehaviour
                     curaInstance.tag = "Cura";
                 }
                 else if(numeroAleatorio >= 9){
-                    GameObject ferramentaInstance = Instantiate(ferramentaObj, transform.position, Quaternion.identity);
+                    GameObject ferramentaInstance = Instantiate(ferramentaObj[persoSelecionado.numPerso], transform.position, Quaternion.identity);
                     ferramentaInstance.tag = "Ferramenta";
                 }
             }
@@ -244,7 +259,7 @@ public class Inimigos : MonoBehaviour
         anim.SetBool("taAtacando", false);
         anim.SetInteger("transition", 0);
 
-        Vector3 direcaoRecuo = (transform.position - personagem.position).normalized;
+        Vector3 direcaoRecuo = (transform.position - personagem[persoSelecionado.numPerso].GetComponent<Transform>().position).normalized;
         Vector3 posicaoInicial = transform.position;
         Vector3 posicaoFinalRecuo = posicaoInicial + direcaoRecuo * recuoDistancia;
 
