@@ -121,13 +121,14 @@ public class Inimigos : MonoBehaviour
             }
             else
             {
+                anim.SetBool("taAtacando", false);
                 StartCoroutine(EliminarInimigo());
             }
         }
     }
 
     void AtacarPlayer(){
-        if(!recuando && !foraColisao && EstaOlhandoParaPersonagem()){
+        if(vidaInimigo > 0 && !recuando && !foraColisao && EstaOlhandoParaPersonagem()){
             vidaPerso.value -= dano;
             SomDanoPlayer[persoSelecionado.numPerso].Play();
         }

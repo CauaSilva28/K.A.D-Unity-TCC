@@ -11300,7 +11300,6 @@ GameObject:
   m_Component:
   - component: {fileID: 756493984}
   - component: {fileID: 756493983}
-  - component: {fileID: 756493982}
   - component: {fileID: 756493978}
   - component: {fileID: 756493981}
   - component: {fileID: 756493980}
@@ -11441,14 +11440,6 @@ MonoBehaviour:
   waveform: 0
   vectorscope: 0
   debugOverlay: 0
---- !u!81 &756493982
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756493977}
-  m_Enabled: 1
 --- !u!20 &756493983
 Camera:
   m_ObjectHideFlags: 0
@@ -23326,7 +23317,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1816393527}
   - component: {fileID: 1816393532}
-  - component: {fileID: 1816393531}
   - component: {fileID: 1816393530}
   - component: {fileID: 1816393529}
   - component: {fileID: 1816393528}
@@ -23447,14 +23437,6 @@ MonoBehaviour:
   waveform: 0
   vectorscope: 0
   debugOverlay: 0
---- !u!81 &1816393531
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816393526}
-  m_Enabled: 1
 --- !u!20 &1816393532
 Camera:
   m_ObjectHideFlags: 0
@@ -24287,7 +24269,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1883459368}
   - component: {fileID: 1883459367}
-  - component: {fileID: 1883459366}
   - component: {fileID: 1883459362}
   - component: {fileID: 1883459365}
   - component: {fileID: 1883459364}
@@ -24399,14 +24380,6 @@ MonoBehaviour:
   waveform: 0
   vectorscope: 0
   debugOverlay: 0
---- !u!81 &1883459366
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883459361}
-  m_Enabled: 1
 --- !u!20 &1883459367
 Camera:
   m_ObjectHideFlags: 0
