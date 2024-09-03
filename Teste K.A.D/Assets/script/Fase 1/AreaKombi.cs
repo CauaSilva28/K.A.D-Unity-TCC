@@ -165,6 +165,7 @@ public class AreaKombi : MonoBehaviour
     }
 
     private void FimDeJogo(){
+        player.GetComponent<Movimento>().perdendo = true;
         pauseJogo.perdendo = true;
         spawnInimigo.DesabilitarScriptsInimigos();
         objetosCanvas.SetActive(false);
