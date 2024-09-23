@@ -105,8 +105,8 @@ public class PerderVidaKombi : MonoBehaviour
         telaGameOver.SetActive(true);
         telaGameOver.GetComponent<Animator>().SetBool("surgir", true);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        camera.GetComponent<AudioListener>().enabled = false;
+        AudioListener.volume = 0;
     }
 }

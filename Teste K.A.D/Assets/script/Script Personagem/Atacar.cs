@@ -137,6 +137,8 @@ public class Atacar : MonoBehaviour
     void FimEspecial(){
         GetComponent<AnimacoesPerso>().anim.SetBool("Especial", false);
         areaEspecial.SetActive(false);
+        inimigos.Clear();
+        EmAreaEspecial = false;
     }
     //---------------------------------------
 

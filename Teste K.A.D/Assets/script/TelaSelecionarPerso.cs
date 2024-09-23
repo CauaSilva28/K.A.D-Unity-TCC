@@ -14,7 +14,7 @@ public class TelaSelecionarPerso : MonoBehaviour
     public Image localImgPerso;
     public Image localImgFerramenta;
 
-    public GameObject telaSelecao;
+    public GameObject naoJogo;
     public GameObject jogo;
 
     public AudioSource somSelect;
@@ -51,12 +51,6 @@ public class TelaSelecionarPerso : MonoBehaviour
         localImgFerramenta.sprite = FerramentaPersoImg[numPerso];
         
         jogo.SetActive(true);
-        telaSelecao.SetActive(false);
-
-        telaTransicao.GetComponent<Animator>().SetInteger("transition", 1);
-
-        yield return new WaitForSeconds(3f);
-
-        telaTransicao.SetActive(false);
+        naoJogo.SetActive(false);
     }
 }

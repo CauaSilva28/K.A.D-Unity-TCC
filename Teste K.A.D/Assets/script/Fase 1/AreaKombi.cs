@@ -7,28 +7,8 @@ using UnityEngine.Playables;
 
 public class AreaKombi : MonoBehaviour
 {
+    [Header("Objetos")]
     public GameObject SeuZe;
-
-    private AudioSource audioKombi;
-    public AudioClip somDanoKombi;
-
-    public AparecerTeclasTexto scriptAparecerTeclas;
-
-    private bool iniciarConserto = false;
-
-    private Coroutine coroutine;
-
-    private bool iniciouConserto = false;
-    private bool finalizouConserto = false;
-    private bool iniciarCutsceneFim = false;
-
-    public GameObject itens;
-
-    public Transform posicaoVelho;
-
-    public GameObject areaAparecerObjetivo;
-
-    public Slider barraVidaKombi;
     public GameObject vidaKombi;
     public GameObject player;
     public GameObject velho;
@@ -40,14 +20,32 @@ public class AreaKombi : MonoBehaviour
     public GameObject fogoKombi;
     public GameObject explosaoKombi;
     public GameObject somExplosao;
-
-    public Slider barraConserto;
-    public GameObject cutsceneFim;
-    public AparecerTextos textoObjetivo;
     public GameObject objetosCanvas;
-    public SpawnarInimigos spawnInimigo;
+    public GameObject cutsceneFim;
+    public GameObject areaAparecerObjetivo;
+    public GameObject itens;
+    public Transform posicaoVelho;
 
+    [Header("Scripts")]
+    public AparecerTeclasTexto scriptAparecerTeclas;
+    public AparecerTextos textoObjetivo;
+    public SpawnarInimigos spawnInimigo;
     public PausarJogo pauseJogo;
+
+    [Header("Booleans")]
+    private bool iniciouConserto = false;
+    private bool finalizouConserto = false;
+    private bool iniciarCutsceneFim = false;
+    private bool iniciarConserto = false;
+
+    [Header("Canvas")]
+    public Slider barraVidaKombi;
+    public Slider barraConserto;
+    
+    [Header("Audios")]
+    private AudioSource audioKombi;
+    public AudioClip somDanoKombi;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -159,9 +157,9 @@ public class AreaKombi : MonoBehaviour
         telaGameOver.SetActive(true);
         telaGameOver.GetComponent<Animator>().SetBool("surgir", true);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        cameraKombi.GetComponent<AudioListener>().enabled = false;
+        AudioListener.volume = 0;
     }
 
     private void FimDeJogo(){
@@ -190,6 +188,7 @@ public class AreaKombi : MonoBehaviour
         SeuZe.GetComponent<NavMeshAgent>().speed = 0;
         SeuZe.GetComponent<Animator>().SetInteger("transition", 2);
         SeuZe.GetComponent<Transform>().transform.position = velhoConsertando;
+        SeuZe.GetComponent<Transform>().transform.rotation = posicaoVelho.rotation;
         iniciarConserto = false;
         iniciouConserto = true;
     }

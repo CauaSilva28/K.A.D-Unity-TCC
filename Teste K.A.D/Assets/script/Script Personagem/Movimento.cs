@@ -5,35 +5,44 @@ using UnityEngine.UI;
 
 public class Movimento : MonoBehaviour
 {
-    private float velocidade;
+    [Header("Valores float")]  
     public float velocidadeCorrida;
     public float velocidadeAndando;
-
-    public Slider staminaPerso;
     public float valorDesgaste;
     public float valorDesgasteDash;
     public float valorRecuperacao;
-    public bool cansou;
-    private float tempoDescanco;
-    private bool correndo;
+    public float valorPulo;
 
-    private Vector3 moveDirection = Vector3.zero;
-    private CharacterController controller;
+    private float velocidade;
+    private float tempoDescanco;
     private float rotationSpeed = 2f;
     private float veloDash = 80f; // A velocidade do dash deve ser maior que a velocidade normal
     private float tempoDash = 0.6f; // Duração do dash em segundos
-    private float gravidade = 25f;
+    private float gravidade = 60f;
     private float velocidadeVertical = 0f;
-    public bool isDashing = false;
-    public ParticleSystem DashEfeito;
-    public AudioSource somDash;
-    private bool podeDash = true;
 
+    [Header("Elementos canvas")]
+    public Slider staminaPerso;  
+
+    [Header("Scripts")]
     private AnimacoesPerso animPerso;
     public PausarJogo pauseJogo;
 
+
+    [Header("Objetos")]
+    private Vector3 moveDirection = Vector3.zero;
+    private CharacterController controller; 
+    public ParticleSystem DashEfeito;
+    public AudioSource somDash;
+
+    [Header("Booleans")]
+    public bool cansou;
+    private bool correndo;
+    public bool isDashing = false;
+    private bool podeDash = true;
     public bool perdendo;
     public bool pausado;
+    public bool pulando = false;
 
     void Start()
     {
@@ -48,25 +57,8 @@ public class Movimento : MonoBehaviour
                 return; // Se o personagem estiver dashing, sai do método Update.
             
             Movimentacao();
-
-            // Gravidade-----------------------------
-            if (controller.isGrounded)
-            {
-                velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no chao
-            }
-            else
-            {
-                velocidadeVertical -= gravidade * Time.deltaTime; // Aplica a gravidade
-            }
-
-            moveDirection.y = velocidadeVertical;
-
-            controller.Move(moveDirection * Time.deltaTime);
-
-            // Rotacaoo-------------------------------
-            float mouseXInput = Input.GetAxis("Mouse X");
-            transform.Rotate(0f, mouseXInput * rotationSpeed, 0f);
-            // FIM Rotacaoo-------------------------------
+            Gravidade();
+            Rotacao();
 
             // Dash-------------------------------
             if (Input.GetKeyDown(KeyCode.Q) && !isDashing && Input.GetKey(KeyCode.W) || 
@@ -156,5 +148,38 @@ public class Movimento : MonoBehaviour
         // Movimentacao-------------------------------
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * velocidade;
         moveDirection = transform.TransformDirection(moveDirection);
+    }
+
+    private void Gravidade(){
+        if (controller.isGrounded)
+        {
+            velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no chao
+
+            if(!pulando && Input.GetKey(KeyCode.Space)){
+                StartCoroutine(Pulo());
+                pulando = true;
+            }
+        }
+        else
+        {
+            velocidadeVertical -= gravidade * Time.deltaTime; // Aplica a gravidade
+        }
+
+        moveDirection.y = velocidadeVertical;
+
+        controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    IEnumerator Pulo(){
+        velocidadeVertical = valorPulo;
+
+        yield return new WaitForSeconds(1f);
+
+        pulando = false;
+    }
+
+    private void Rotacao(){
+        float mouseXInput = Input.GetAxis("Mouse X");
+        transform.Rotate(0f, mouseXInput * rotationSpeed, 0f);
     }
 }

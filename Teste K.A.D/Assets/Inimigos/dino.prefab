@@ -89,6 +89,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4164675566864830254, guid: 67e00b0ea633db443add4eba34618762, type: 3}
+      propertyPath: MaxDistance
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164675566864830254, guid: 67e00b0ea633db443add4eba34618762, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164675566864830254, guid: 67e00b0ea633db443add4eba34618762, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
@@ -228,16 +236,6 @@ MonoBehaviour:
   vidaInimigo: 9
   dano: 0.1
   velocidadeInimigo: 60
-  anim: {fileID: 0}
-  personagem:
-  - {fileID: 0}
-  notPersonagem: {fileID: 0}
-  navMeshAgent: {fileID: 0}
-  rotacionarInimigo: {fileID: 1156619721104763629}
-  SomDanoPlayer:
-  - {fileID: 0}
-  Rosnando: {fileID: 8300000, guid: 85e806ed8d23b7849ba2529a911fb786, type: 3}
-  vidaPerso: {fileID: 0}
   perseguindoPlayer: 0
   parado: 0
   ferramentaCena:
@@ -248,13 +246,23 @@ MonoBehaviour:
   - {fileID: 2854505158609805975, guid: 6b96b672e51034049b3dd53eb9055287, type: 3}
   - {fileID: 2646881795446550057, guid: d992570517ad44341b4fa2f4e2adcbcd, type: 3}
   - {fileID: 2651320843546407799, guid: 682d4bbff16ce9442b470324e0cb5436, type: 3}
+  personagem:
+  - {fileID: 0}
+  retopoInimigo: {fileID: 9041558578082663864}
+  notPersonagem: {fileID: 0}
+  rotacionarInimigo: {fileID: 1156619721104763629}
+  anim: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  vidaPerso: {fileID: 0}
   materiais:
   - {fileID: 2100000, guid: d7a89a8d75914b54888758772e6c3a96, type: 2}
   - {fileID: 2100000, guid: 41781e3d021c6ea4aaaa2f623c66594d, type: 2}
   - {fileID: 2100000, guid: ee022dab46a4b2c47acaebf6af334421, type: 2}
   - {fileID: 2100000, guid: 16106db2626066345a7fd5339d91bde3, type: 2}
-  retopoInimigo: {fileID: 9041558578082663864}
   persoSelecionado: {fileID: 0}
+  SomDanoPlayer:
+  - {fileID: 0}
+  Rosnando: {fileID: 8300000, guid: 85e806ed8d23b7849ba2529a911fb786, type: 3}
 --- !u!195 &7501603866265302803
 NavMeshAgent:
   m_ObjectHideFlags: 0

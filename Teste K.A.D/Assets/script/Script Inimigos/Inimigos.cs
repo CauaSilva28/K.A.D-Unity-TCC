@@ -6,57 +6,54 @@ using UnityEngine.UI;
 
 public class Inimigos : MonoBehaviour
 {
+    [Header("Valores float")]
     public float distanciaMinima;
     public float anguloDeVisao = 45f; // Ajuste este valor conforme necessário
     public float velocidadeRotacao; // Velocidade de rotação
     public float recuoDistancia; // Distância do recuo
     public float recuoTempo; // Tempo do recuo
     public float vidaInimigo;
-
     public float dano;
-
     public float velocidadeInimigo = 60f;
 
-    public Animator anim;
-
-    public GameObject[] personagem;
-    public Transform notPersonagem;
-
-    public NavMeshAgent navMeshAgent;
-
-    public Transform rotacionarInimigo;
-
-    private AudioSource SomInimigo;
-
-    public AudioSource[] SomDanoPlayer;
-
-    public AudioClip Rosnando;
-
-    public Slider vidaPerso;
-
-    private bool sofrendoAcao = false;
-    private bool atacando = false;
-    private bool tirouVidaPerso = false;
-
-    private Collider colisorInimigo;
-
+    [Header("Booleans")]
     private bool recuando = false;
     private bool foraColisao = true;
     private bool persoAtacado = false;
     private bool dropou = false;
-
     public bool perseguindoPlayer;
     public bool parado;
+    private bool sofrendoAcao = false;
+    private bool atacando = false;
+    private bool tirouVidaPerso = false;
 
+    [Header("Objetos")]
     public GameObject[] ferramentaCena;
     public GameObject[] ferramentaObj;
-
     public GameObject[] curaPrefab;
-
-    public Material[] materiais;
+    public GameObject[] personagem;
     public GameObject retopoInimigo;
 
+    [Header("Elementos objetos")]
+    public Transform notPersonagem;
+    public Transform rotacionarInimigo;
+
+    public Animator anim;
+
+    public NavMeshAgent navMeshAgent;
+
+    public Slider vidaPerso;
+
+    private Collider colisorInimigo;
+
+    public Material[] materiais;
+
     public TelaSelecionarPerso persoSelecionado;
+
+    [Header("Audios")]
+    private AudioSource SomInimigo;
+    public AudioSource[] SomDanoPlayer;
+    public AudioClip Rosnando;
 
     // Start is called before the first frame update
     void Start()

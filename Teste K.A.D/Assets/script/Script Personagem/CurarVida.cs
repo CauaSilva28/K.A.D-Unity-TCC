@@ -46,8 +46,7 @@ public class CurarVida : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerStay(Collider other){
         if (other.gameObject.CompareTag("Cura"))
         {
             scriptAparecerTeclas.aparecer = true;
@@ -55,8 +54,7 @@ public class CurarVida : MonoBehaviour
             podeCurar = true;
             item = other.gameObject;
         }
-
-        if (other.gameObject.CompareTag("Ferramenta"))
+        else if (other.gameObject.CompareTag("Ferramenta"))
         {
             scriptAparecerTeclas.aparecer = true;
             scriptAparecerTeclas.texto = "Aperte \"F\" para coletar a ferramenta";

@@ -2016,7 +2016,7 @@ PrefabInstance:
     - target: {fileID: 652561361738087839, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 2ec9a54a9fb0d4b40840521c945b5017, type: 2}
+      objectReference: {fileID: 9100000, guid: 46816a7c998ad23479cc16a1b7cf887c, type: 2}
     - target: {fileID: 6099458712609930591, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Name
       value: Stegasaurus_20K (1)
@@ -3172,7 +3172,7 @@ PrefabInstance:
     - target: {fileID: 2659525053879235380, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a9fe76cc55d917e4c89bd06c275454ff, type: 2}
+      objectReference: {fileID: 9100000, guid: 79f122a81cbf51249b5386792447827d, type: 2}
     - target: {fileID: 5359991864150564430, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6970913
@@ -4506,7 +4506,7 @@ PrefabInstance:
     - target: {fileID: 652561361738087839, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 2ec9a54a9fb0d4b40840521c945b5017, type: 2}
+      objectReference: {fileID: 9100000, guid: 46816a7c998ad23479cc16a1b7cf887c, type: 2}
     - target: {fileID: 6099458712609930591, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Name
       value: Stegasaurus_20K (4)
@@ -5521,6 +5521,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144434
@@ -9517,7 +9521,7 @@ PrefabInstance:
     - target: {fileID: 2659525053879235380, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a9fe76cc55d917e4c89bd06c275454ff, type: 2}
+      objectReference: {fileID: 9100000, guid: 79f122a81cbf51249b5386792447827d, type: 2}
     - target: {fileID: 5359991864150564430, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6970913
@@ -9897,7 +9901,7 @@ PrefabInstance:
     - target: {fileID: 2659525053879235380, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c12d23a726a4c6143ae71b37f39b6439, type: 2}
+      objectReference: {fileID: 9100000, guid: 79f122a81cbf51249b5386792447827d, type: 2}
     - target: {fileID: 5359991864150564430, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.697091
@@ -10027,7 +10031,7 @@ PrefabInstance:
     - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5424edbf499b1e642a57c38c2f616f5a, type: 2}
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144439
@@ -14688,7 +14692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ea8cb9afca3f945bb0281e4a937055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseJogo: {fileID: 0}
+  pauseJogo: {fileID: 443778848}
 --- !u!114 &1026888403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14799,7 +14803,7 @@ PrefabInstance:
     - target: {fileID: 652561361738087839, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 39dddd1d55c2e984aba2b7ef7de18346, type: 2}
+      objectReference: {fileID: 9100000, guid: 46816a7c998ad23479cc16a1b7cf887c, type: 2}
     - target: {fileID: 6099458712609930591, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Name
       value: Stegasaurus_20K (2)
@@ -15956,6 +15960,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144436
@@ -20779,6 +20787,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144446
@@ -23875,6 +23887,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144439
@@ -24073,7 +24089,7 @@ PrefabInstance:
     - target: {fileID: 2659525053879235380, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c12d23a726a4c6143ae71b37f39b6439, type: 2}
+      objectReference: {fileID: 9100000, guid: 79f122a81cbf51249b5386792447827d, type: 2}
     - target: {fileID: 5359991864150564430, guid: b4281f7b16533374cbb8e4ce856709bf, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6970916
@@ -26896,7 +26912,7 @@ PrefabInstance:
     - target: {fileID: 652561361738087839, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 2ec9a54a9fb0d4b40840521c945b5017, type: 2}
+      objectReference: {fileID: 9100000, guid: 46816a7c998ad23479cc16a1b7cf887c, type: 2}
     - target: {fileID: 6099458712609930591, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Name
       value: Stegasaurus_20K (3)
@@ -27029,7 +27045,7 @@ PrefabInstance:
     - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5a431accb4b916044ab4bab27c7324e2, type: 2}
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144436
@@ -27953,6 +27969,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144436
@@ -28666,7 +28686,7 @@ PrefabInstance:
     - target: {fileID: 206588500711679255, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5424edbf499b1e642a57c38c2f616f5a, type: 2}
+      objectReference: {fileID: 9100000, guid: f5a3a264044579f438e00b2f89d9af96, type: 2}
     - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0144436
@@ -30971,6 +30991,10 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 652561361738087839, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 46816a7c998ad23479cc16a1b7cf887c, type: 2}
     - target: {fileID: 6099458712609930591, guid: 974e2c0d606dfa34abf5073583eaa820, type: 3}
       propertyPath: m_Name
       value: Stegasaurus_20K

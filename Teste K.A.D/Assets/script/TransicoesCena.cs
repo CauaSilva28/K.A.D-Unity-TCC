@@ -6,20 +6,11 @@ public class TransicoesCena : MonoBehaviour
 {
     public GameObject telaTransicao;
 
-    private bool aconteceu = false;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!aconteceu){
-            StartCoroutine(tempoTransicaoDaTela());
-            aconteceu = true;
-        }
+        StartCoroutine(tempoTransicaoDaTela());
+        AudioListener.volume = 1;
     }
 
     IEnumerator tempoTransicaoDaTela(){

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EntrarMercado : MonoBehaviour
 {
     public GameObject[] player;
+    public List<GameObject> dinosRua;
     public Transform posicaoMercadoEntrada;
     public TelaSelecionarPerso selecaoPerso;
 
@@ -23,12 +24,21 @@ public class EntrarMercado : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (entrarMercado)
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                StartCoroutine(teleporteMercado());
-                entrarMercado = false;
+            if(dinosRua.Count == 0){
+                scriptAparecerTeclas.aparecer = true;
+                scriptAparecerTeclas.texto = "Aperte \"F\" para entrar no mercado";
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    StartCoroutine(teleporteMercado());
+                    entrarMercado = false;
+                }
+            }
+            else{
+                scriptAparecerTeclas.aparecer = true;
+                scriptAparecerTeclas.texto = "Derrote todos os dinossauros!";
             }
         }
     }
@@ -38,8 +48,6 @@ public class EntrarMercado : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             entrarMercado = true;
-            scriptAparecerTeclas.aparecer = true;
-            scriptAparecerTeclas.texto = "Aperte \"F\" para entrar no mercado";
         }
     }
 
