@@ -19601,6 +19601,7 @@ MonoBehaviour:
   valorDesgaste: 0.06
   valorDesgasteDash: 0.2
   valorRecuperacao: 0.2
+  valorPulo: 40
   staminaPerso: {fileID: 217672280}
   pauseJogo: {fileID: 866459365}
   DashEfeito: {fileID: 1196302720}

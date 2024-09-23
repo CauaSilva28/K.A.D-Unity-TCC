@@ -5,13 +5,13 @@ using UnityEngine;
 public class InimigosMovimentoAuto : MonoBehaviour
 {
     public Transform[] pontosCaminho;
-    public float speed = 3f;
+    public float speed;
     private int pontoAtual = 0;
-    public bool podeMover = false;
+    private bool podeMover = true;
 
     private Animator anim;
 
-    private bool andandoFrente;
+    private bool andandoFrente = true;
 
     void Start()
     {
@@ -24,51 +24,46 @@ public class InimigosMovimentoAuto : MonoBehaviour
         {
             moveAtePonto(pontosCaminho[pontoAtual]);
 
-            if (Vector3.Distance(transform.position, pontosCaminho[pontoAtual].position) < 0.2f)
+            if (Vector3.Distance(transform.position, pontosCaminho[pontoAtual].position) < 1f)
             {
-                if (andandoFrente)
-                {
+                if(andandoFrente){
                     pontoAtual++;
                 }
-                else
-                {
+                else{
                     pontoAtual--;
                 }
                 
-                if (pontoAtual >= pontosCaminho.Length)
+                if (pontoAtual == pontosCaminho.Length)
                 {
-                    StartCoroutine(IntervaloEntrePontos());
+                    andandoFrente = false;
+                    pontoAtual--;
+                    StartCoroutine(IntervaloParado());
                 }
 
-                if(pontoAtual <= 0)
-                {
-                    StartCoroutine(IntervaloEntrePontos());
+                if(pontoAtual == -1){
+                    andandoFrente = true;
+                    pontoAtual++;
+                    StartCoroutine(IntervaloParado());
                 }
             }
         }
     }
 
-    IEnumerator IntervaloEntrePontos()
-    {
-        anim.SetBool("andando", false);
+    IEnumerator IntervaloParado(){
+        anim.SetInteger("transition", 0);
+        podeMover = false;
 
         yield return new WaitForSeconds(5f);
 
-        if (pontoAtual >= pontosCaminho.Length)
-        {
-            andandoFrente = false;
-        }
-        if (pontoAtual <= 0)
-        {
-            andandoFrente = true;
-        }
+        podeMover = true;
     }
 
     private void moveAtePonto(Transform targetPoint)
     {
         Vector3 direction = (targetPoint.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
-        transform.LookAt(targetPoint);
-        anim.SetBool("andando", true);
+        var rotation = Quaternion.LookRotation (targetPoint.position - transform.position);
+        transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * 2);
+        anim.SetInteger("transition", 1);
     }
 }
