@@ -8,58 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 15.453001
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 15.452999
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 15.453001
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1007
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 275.74594
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 385.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1016857990580705344, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_Name
-      value: Dino3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1016857990580705344, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
-      propertyPath: m_TagString
-      value: inimigo
-      objectReference: {fileID: 0}
     - target: {fileID: -4663989500425687695, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
       propertyPath: persoSelecionado
       value: 
@@ -119,6 +67,58 @@ PrefabInstance:
     - target: {fileID: 7501603866265302803, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
       propertyPath: m_AgentTypeID
       value: 1479372276
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15.453001
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15.452999
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15.453001
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1007
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 275.74594
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 385.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 384858038892544762, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016857990580705344, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_Name
+      value: Dino3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016857990580705344, guid: 7dd31636c6b446842a29a909d4707742, type: 3}
+      propertyPath: m_TagString
+      value: inimigo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -285,15 +285,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaMinima: 40
-  anguloDeVisao: 45
+  anguloDeVisao: 55
   velocidadeRotacao: 2
   recuoDistancia: 50
   recuoTempo: 0.5
   vidaInimigo: 7
   dano: 0.15
   velocidadeInimigo: 70
+  tempoRosnar: 10
   perseguindoPlayer: 1
   parado: 1
+  andandoDeCostas: 0
   ferramentaCena:
   - {fileID: 0}
   - {fileID: 0}

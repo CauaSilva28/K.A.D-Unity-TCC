@@ -13,6 +13,7 @@ TagManager:
   - obstaculos
   - explosivo
   - frenteVeiculoInimigo
+  - costasInimigo
   layers:
   - Default
   - TransparentFX

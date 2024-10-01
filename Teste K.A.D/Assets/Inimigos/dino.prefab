@@ -229,15 +229,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaMinima: 50
-  anguloDeVisao: 45
+  anguloDeVisao: 55
   velocidadeRotacao: 1.4
   recuoDistancia: 50
   recuoTempo: 0.5
   vidaInimigo: 9
   dano: 0.1
   velocidadeInimigo: 60
+  tempoRosnar: 12
   perseguindoPlayer: 0
   parado: 0
+  andandoDeCostas: 1
   ferramentaCena:
   - {fileID: 0}
   ferramentaObj:

@@ -15,6 +15,7 @@ public class Inimigos : MonoBehaviour
     public float vidaInimigo;
     public float dano;
     public float velocidadeInimigo = 60f;
+    public float tempoRosnar;
 
     [Header("Booleans")]
     private bool recuando = false;
@@ -23,6 +24,7 @@ public class Inimigos : MonoBehaviour
     private bool dropou = false;
     public bool perseguindoPlayer;
     public bool parado;
+    public bool andandoDeCostas;
     private bool sofrendoAcao = false;
     private bool atacando = false;
     private bool tirouVidaPerso = false;
@@ -66,8 +68,10 @@ public class Inimigos : MonoBehaviour
 
         SomInimigo = GetComponent<AudioSource>();
 
-        // Personagem está andando de costas, esse código faz ele andar corretamente
-        rotacionarInimigo.transform.Rotate(-180f, 180f, 0f);
+        if(andandoDeCostas){
+            // Personagem está andando de costas, esse código faz ele andar corretamente
+            rotacionarInimigo.transform.Rotate(-180f, 180f, 0f);
+        }
 
         // Inicia som
         StartCoroutine(TocarSomDepoisDeUmTempo());
@@ -80,7 +84,7 @@ public class Inimigos : MonoBehaviour
         while (true)
         {
             SomInimigo.PlayOneShot(Rosnando);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(tempoRosnar);
         }
     }
 
@@ -121,6 +125,11 @@ public class Inimigos : MonoBehaviour
                 anim.SetBool("taAtacando", false);
                 StartCoroutine(EliminarInimigo());
             }
+        }
+        else{
+            anim.SetBool("taRecuando", false);
+            anim.SetBool("taAtacando", false);
+            anim.SetInteger("transition", 0);
         }
     }
 

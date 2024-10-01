@@ -18,7 +18,7 @@ public class Movimento : MonoBehaviour
     private float rotationSpeed = 2f;
     private float veloDash = 80f; // A velocidade do dash deve ser maior que a velocidade normal
     private float tempoDash = 0.6f; // Duração do dash em segundos
-    private float gravidade = 60f;
+    private float gravidade = 100f;
     private float velocidadeVertical = 0f;
 
     [Header("Elementos canvas")]

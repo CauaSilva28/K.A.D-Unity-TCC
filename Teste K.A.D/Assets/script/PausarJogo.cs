@@ -9,6 +9,8 @@ public class PausarJogo : MonoBehaviour
 
     private AudioSource[] allAudioSources;
 
+    public AudioSource somClick;
+
     public GameObject telaControles;
 
     public bool pausado = false;
@@ -58,6 +60,7 @@ public class PausarJogo : MonoBehaviour
 
     public void Despausar()
     {
+        somClick.Play();
         pausado = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
@@ -74,22 +77,26 @@ public class PausarJogo : MonoBehaviour
     }
 
     public void ReiniciarFase(){
+        somClick.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void abrirControles()
     {
+        somClick.Play();
         telaControles.SetActive(true);
     }
 
     public void voltarPause()
     {
+        somClick.Play();
         telaControles.SetActive(false);
     }
 
     public void voltarMenu()
     {
+        somClick.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }

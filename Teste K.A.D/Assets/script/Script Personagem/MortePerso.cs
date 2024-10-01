@@ -21,8 +21,6 @@ public class MortePerso : MonoBehaviour
     public GameObject telaTransicao;
     public GameObject telaGameOver;
 
-    public GameObject spawnInimigos;
-
     public GameObject camera;
 
     public GameObject SomLevanoDano;
@@ -55,10 +53,9 @@ public class MortePerso : MonoBehaviour
         if(vidaPerso.value <= 0){
             gritoMorte.SetActive(true);
             animPerso.morrendo = true;
-            animPerso.anim.SetInteger("transition", 7);
+            animPerso.anim.SetBool("Morrendo", true);
             SomLevanoDano.SetActive(false);
             StartCoroutine(Morrendo());
-            spawnInimigos.GetComponent<SpawnarInimigos>().DesabilitarScriptsInimigos();
         }
     }
 

@@ -32,6 +32,12 @@ public class SpawnarInimigos : MonoBehaviour
         InvokeRepeating("SpawnInimigo", 1, 7);
     }
 
+    void Update(){
+        if(vidaPerso.value <= 0){
+            DesabilitarScriptsInimigos();
+        }
+    }
+
     void SpawnInimigo() {
         if(!perdendo){
             Quaternion valorRotacao = Quaternion.Euler(0f, 90f, 0f);

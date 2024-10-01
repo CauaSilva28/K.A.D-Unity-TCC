@@ -44,12 +44,10 @@ public class AnimacoesPerso : MonoBehaviour
             {
                 if(ferramenta.activeSelf){
                     anim.SetTrigger("attack");
-                    anim.SetBool("semArma", false);
                     anim.SetInteger("transition", 4);
                 }
                 else{
                     anim.SetTrigger("attack");
-                    anim.SetBool("semArma", true);
                     anim.SetInteger("transition", 5);
                 }
             }

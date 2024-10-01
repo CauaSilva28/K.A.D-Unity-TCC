@@ -104,6 +104,7 @@ public class MovimentoKombi : MonoBehaviour
         }
 
         if(dandoRe){
+            velocidade = valorVelocidade;
             transform.position -= movement;
         }
         else{
