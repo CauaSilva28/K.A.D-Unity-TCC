@@ -21,6 +21,10 @@ public class TelaSelecionarPerso : MonoBehaviour
     public GameObject telaTransicao;
 
     public int numPerso;
+
+    void Start(){
+        Cursor.lockState = CursorLockMode.None;
+    }
     
     public void SelecionarJeronimo()
     {

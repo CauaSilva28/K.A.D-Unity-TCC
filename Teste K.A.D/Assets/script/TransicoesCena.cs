@@ -16,7 +16,7 @@ public class TransicoesCena : MonoBehaviour
     IEnumerator tempoTransicaoDaTela(){
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 1);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         telaTransicao.SetActive(false);
     }

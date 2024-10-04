@@ -24,6 +24,7 @@ public class AreaKombi : MonoBehaviour
     public GameObject cutsceneFim;
     public GameObject areaAparecerObjetivo;
     public GameObject itens;
+    public GameObject areaFalaSeuZe;
     public Transform posicaoVelho;
 
     [Header("Scripts")]
@@ -179,7 +180,8 @@ public class AreaKombi : MonoBehaviour
 
     private void ConsertoKombi(){
         Vector3 velhoConsertando = posicaoVelho.position;
-        
+
+        areaFalaSeuZe.SetActive(true);
         areaAparecerObjetivo.SetActive(false);
         scriptAparecerTeclas.aparecer = false;
         itens.SetActive(true);

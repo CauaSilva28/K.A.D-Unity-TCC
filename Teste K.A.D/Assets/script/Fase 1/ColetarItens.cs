@@ -11,6 +11,7 @@ public class ColetarItens : MonoBehaviour
 
     public GameObject barraConserto;
     public GameObject barraVidaKombi;
+    public GameObject areaFalaColetaItens;
     private bool podeColetar = false;
     private bool aconteceuEnumerator = false;
 
@@ -20,7 +21,11 @@ public class ColetarItens : MonoBehaviour
 
     public AparecerTeclasTexto scriptAparecerTeclas;
 
+    public AudioSource somColetouItem;
+
     public bool perdendo = false;
+
+    private bool ativouFala = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +37,10 @@ public class ColetarItens : MonoBehaviour
     void Update()
     {
         if(itensColetados >= 6){
+            if(!ativouFala){
+                areaFalaColetaItens.SetActive(true);
+                ativouFala = true;
+            }
             barraVidaKombi.SetActive(true);
             barraConserto.SetActive(true);
 
@@ -51,6 +60,7 @@ public class ColetarItens : MonoBehaviour
 
         if (podeColetar && Input.GetKey(KeyCode.F))
         {
+            somColetouItem.Play();
             itensColetados++;
             Destroy(itemParaColetar);
             podeColetar = false;

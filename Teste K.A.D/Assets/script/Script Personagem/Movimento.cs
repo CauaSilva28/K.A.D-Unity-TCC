@@ -13,7 +13,7 @@ public class Movimento : MonoBehaviour
     public float valorRecuperacao;
     public float valorPulo;
 
-    private float velocidade;
+    public float velocidade;
     private float tempoDescanco;
     private float rotationSpeed = 2f;
     private float veloDash = 80f; // A velocidade do dash deve ser maior que a velocidade normal
@@ -30,7 +30,7 @@ public class Movimento : MonoBehaviour
 
 
     [Header("Objetos")]
-    private Vector3 moveDirection = Vector3.zero;
+    public Vector3 moveDirection = Vector3.zero;
     private CharacterController controller; 
     public ParticleSystem DashEfeito;
     public AudioSource somDash;

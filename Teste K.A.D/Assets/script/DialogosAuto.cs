@@ -63,11 +63,11 @@ public class DialogosAuto : MonoBehaviour
 
             yield return dialogoTexto.text == dialogo[i];
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
             elementosDialogo.GetComponent<Animator>().SetInteger("transicao", 2);
 
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(1f);
 
             dialogoTexto.text = ""; 
 
@@ -80,7 +80,7 @@ public class DialogosAuto : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         telaDialogo.SetActive(false);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

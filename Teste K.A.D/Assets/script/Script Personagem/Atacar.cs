@@ -15,6 +15,7 @@ public class Atacar : MonoBehaviour
 
     public AudioSource sonsPerso;
     public AudioSource somSoco;
+    public AudioSource somVulto;
     public Movimento movePerso;
 
     public Slider barraEspecial;
@@ -92,6 +93,9 @@ public class Atacar : MonoBehaviour
                 }
             }
         }
+        else{
+            somVulto.Play();
+        }
     }
 
     void Ataque2(){
@@ -113,6 +117,9 @@ public class Atacar : MonoBehaviour
                     somSoco.Play();
                 }
             }
+        }
+        else{
+            somVulto.Play();
         }
     }
 

@@ -18,6 +18,8 @@ public class VisaoInimigos : MonoBehaviour
 
     public GameObject barraVisao;
 
+    public AparecerTeclasTexto scriptAparecerTeclas;
+
     private bool pegou;
 
     void Start()
@@ -54,6 +56,8 @@ public class VisaoInimigos : MonoBehaviour
 
     IEnumerator perseguirPlayer(){  
         gameObject.tag = "inimigo";
+        scriptAparecerTeclas.aparecer = false;
+        scriptAparecerTeclas.texto = "";
         Destroy(costasInimigo);
         Destroy(GetComponent<InimigosMovimentoAuto>());  
         GetComponent<NavMeshAgent>().enabled = true;

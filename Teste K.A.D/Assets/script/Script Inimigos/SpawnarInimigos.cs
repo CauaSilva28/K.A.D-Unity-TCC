@@ -29,7 +29,7 @@ public class SpawnarInimigos : MonoBehaviour
     public TelaSelecionarPerso persoSelecionado;
 
     private void Start() {
-        InvokeRepeating("SpawnInimigo", 1, 7);
+        InvokeRepeating("SpawnInimigo", 1, 6);
     }
 
     void Update(){

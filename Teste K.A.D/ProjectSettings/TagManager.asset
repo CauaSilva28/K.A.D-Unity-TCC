@@ -14,6 +14,8 @@ TagManager:
   - explosivo
   - frenteVeiculoInimigo
   - costasInimigo
+  - concreto
+  - grama
   layers:
   - Default
   - TransparentFX
