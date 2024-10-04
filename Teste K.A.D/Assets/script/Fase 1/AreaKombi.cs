@@ -25,6 +25,7 @@ public class AreaKombi : MonoBehaviour
     public GameObject areaAparecerObjetivo;
     public GameObject itens;
     public GameObject areaFalaSeuZe;
+    public GameObject areaFalaSeuZeFim;
     public Transform posicaoVelho;
 
     [Header("Scripts")]
@@ -38,6 +39,7 @@ public class AreaKombi : MonoBehaviour
     private bool finalizouConserto = false;
     private bool iniciarCutsceneFim = false;
     private bool iniciarConserto = false;
+    private bool apareceuFalaFim = false;
 
     [Header("Canvas")]
     public Slider barraVidaKombi;
@@ -67,8 +69,13 @@ public class AreaKombi : MonoBehaviour
         }
 
         if(barraConserto.value >= 1){
+            if(!apareceuFalaFim){
+                areaFalaSeuZeFim.SetActive(true);
+                apareceuFalaFim = true;
+            }
             textoObjetivo.aparecerTexto = true;
             textoObjetivo.texto = "Corra para a Kombi!";
+
             finalizouConserto = true;
         }
 
