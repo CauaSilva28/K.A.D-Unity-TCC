@@ -103,6 +103,7 @@ public class Inimigos : MonoBehaviour
                     }
                     else{
                         navMeshAgent.speed = velocidadeInimigo;
+                        RotacionarParaPersonagem(); // Adiciona a rotação para o personagem no Update
                     }
 
                     MovimentoInimigo();
@@ -116,8 +117,6 @@ public class Inimigos : MonoBehaviour
                     else{
                         anim.SetBool("taAtacando", false);
                     }
-
-                    RotacionarParaPersonagem(); // Adiciona a rotação para o personagem no Update
                 }
             }
             else

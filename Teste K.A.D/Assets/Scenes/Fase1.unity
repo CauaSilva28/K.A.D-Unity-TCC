@@ -15276,7 +15276,7 @@ MonoBehaviour:
   - {fileID: 1479103860}
   - {fileID: 1158593474}
   dinoPrefab: {fileID: 7379436449892248820, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
-  punkPrefab: {fileID: 1713359192184934125, guid: 841b994b6a500ca49aee17f58f6e9e73, type: 3}
+  punkPrefab: {fileID: 6965392386661985781, guid: d8e2fb68cea3b4040bd4e942849f8301, type: 3}
   ferramentaCena:
   - {fileID: 1046733079}
   personagem:
