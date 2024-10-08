@@ -20,9 +20,12 @@ public class DialogosAuto : MonoBehaviour
     public bool aparecerFalas; 
 
     public float segundosletras;
+    public float segundosPassarFala;
 
     public string[] nomePersonagemStr;
     public Sprite[] imgPersonagens;
+
+    public AudioSource[] audiosInicioDialogo;
 
     void Start(){ 
 
@@ -54,6 +57,8 @@ public class DialogosAuto : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
 
+            audiosInicioDialogo[i].Play();
+
             dialogoTexto.text = ""; 
             foreach (char letter in dialogo[i])
             {
@@ -63,7 +68,7 @@ public class DialogosAuto : MonoBehaviour
 
             yield return dialogoTexto.text == dialogo[i];
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(segundosPassarFala);
 
             elementosDialogo.GetComponent<Animator>().SetInteger("transicao", 2);
 

@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec82d29e52a9a1458cdc5fbcbb0915f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanciaMinima: 25
+  distanciaMinima: 30
   anguloDeVisao: 55
   velocidadeRotacao: 1.2
   recuoDistancia: 50

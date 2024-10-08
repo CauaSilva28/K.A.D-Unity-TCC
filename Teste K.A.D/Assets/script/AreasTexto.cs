@@ -17,4 +17,12 @@ public class AreasTexto : MonoBehaviour
             textoObjetivo.texto = texto;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -22,7 +22,6 @@ public class AreaKombi : MonoBehaviour
     public GameObject somExplosao;
     public GameObject objetosCanvas;
     public GameObject cutsceneFim;
-    public GameObject areaAparecerObjetivo;
     public GameObject itens;
     public GameObject areaFalaSeuZe;
     public GameObject areaFalaSeuZeFim;
@@ -189,7 +188,6 @@ public class AreaKombi : MonoBehaviour
         Vector3 velhoConsertando = posicaoVelho.position;
 
         areaFalaSeuZe.SetActive(true);
-        areaAparecerObjetivo.SetActive(false);
         scriptAparecerTeclas.aparecer = false;
         itens.SetActive(true);
         player.GetComponent<ColetarItens>().enabled = true;
