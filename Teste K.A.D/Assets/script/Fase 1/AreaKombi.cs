@@ -25,6 +25,7 @@ public class AreaKombi : MonoBehaviour
     public GameObject itens;
     public GameObject areaFalaSeuZe;
     public GameObject areaFalaSeuZeFim;
+    public GameObject SeuZeDirigindo;
     public Transform posicaoVelho;
 
     [Header("Scripts")]
@@ -170,6 +171,7 @@ public class AreaKombi : MonoBehaviour
     }
 
     private void FimDeJogo(){
+        SeuZeDirigindo.SetActive(true);
         player.GetComponent<Movimento>().perdendo = true;
         pauseJogo.perdendo = true;
         spawnInimigo.DesabilitarScriptsInimigos();

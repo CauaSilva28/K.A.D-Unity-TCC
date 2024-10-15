@@ -7,6 +7,8 @@ public class AreasTexto : MonoBehaviour
 {
     public AparecerTextos textoObjetivo;
     public string texto;
+
+    public bool temporario;
     // Start is called before the first frame update
     
     private void OnTriggerEnter(Collider other)
@@ -15,6 +17,10 @@ public class AreasTexto : MonoBehaviour
         {
             textoObjetivo.aparecerTexto = true;
             textoObjetivo.texto = texto;
+
+            if(temporario){
+                Invoke("sumirObjetivo", 10);
+            }
         }
     }
 
@@ -22,7 +28,15 @@ public class AreasTexto : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            if(!temporario){
+                Destroy(gameObject);
+            }
         }
+    }
+
+    void sumirObjetivo(){
+        textoObjetivo.aparecerTexto = false;
+        textoObjetivo.texto = "";
+        Destroy(gameObject);
     }
 }

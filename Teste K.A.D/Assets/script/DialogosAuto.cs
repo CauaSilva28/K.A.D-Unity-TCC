@@ -18,6 +18,7 @@ public class DialogosAuto : MonoBehaviour
    [Header("Controle de Diálogo")]
     private bool iniciarDialogo = false;
     public bool aparecerFalas; 
+    private bool apareceu = false;
 
     public float segundosletras;
     public float segundosPassarFala;
@@ -92,7 +93,10 @@ public class DialogosAuto : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            aparecerFalas = true; 
+            if(!apareceu){
+                aparecerFalas = true; 
+                apareceu = true;
+            }
         }
     }
 }

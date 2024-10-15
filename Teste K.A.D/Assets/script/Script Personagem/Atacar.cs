@@ -135,6 +135,7 @@ public class Atacar : MonoBehaviour
                     if(scriptInimigo != null){
                         scriptInimigo.vidaInimigo -= danoEspecial;
                         scriptInimigo.Recuar();
+                        scriptInimigo.parado = false;
                     }
                 }
             }
