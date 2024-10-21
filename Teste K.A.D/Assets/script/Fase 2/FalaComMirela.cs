@@ -12,10 +12,13 @@ public class FalaComMirela : MonoBehaviour
 
     public GameObject Mirela;
     public GameObject[] Player;
+    public GameObject[] PlayerConversa;
 
     public TelaSelecionarPerso selecaoPerso;
 
-    private bool conversar;
+    public DialogosControlados dialogoMirela;
+
+    private bool conversar = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +38,11 @@ public class FalaComMirela : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     cameraConversa.SetActive(true);
-                    Player[selecaoPerso.numPerso].SetActive(true);
+                    PlayerConversa[selecaoPerso.numPerso].SetActive(true);
+                    Player[selecaoPerso.numPerso].SetActive(false);
+                    scriptAparecerTeclas.aparecer = false;
+                    scriptAparecerTeclas.texto = "";
+                    dialogoMirela.iniciarDialogo = true;
                 }
             }
             else
@@ -48,13 +55,17 @@ public class FalaComMirela : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        conversar = true;
+        if(other.gameObject.CompareTag("Player")){
+            conversar = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        conversar = false;
-        scriptAparecerTeclas.aparecer = false;
-        scriptAparecerTeclas.texto = "";
+        if(other.gameObject.CompareTag("Player")){
+            conversar = false;
+            scriptAparecerTeclas.aparecer = false;
+            scriptAparecerTeclas.texto = "";
+        }
     }
 }

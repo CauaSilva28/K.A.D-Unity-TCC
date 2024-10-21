@@ -243,7 +243,7 @@ MonoBehaviour:
   ferramentaCena:
   - {fileID: 0}
   ferramentaObj:
-  - {fileID: 148536171271399456, guid: 8bbbc3be88d69e44d83b514579bd63c2, type: 3}
+  - {fileID: 8739216110512992721, guid: e14e244baa1aad34985bec37a838ff36, type: 3}
   curaPrefab:
   - {fileID: 2854505158609805975, guid: 6b96b672e51034049b3dd53eb9055287, type: 3}
   - {fileID: 2646881795446550057, guid: d992570517ad44341b4fa2f4e2adcbcd, type: 3}

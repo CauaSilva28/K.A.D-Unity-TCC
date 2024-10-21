@@ -541,7 +541,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1881847362}
         m_TargetAssemblyTypeName: FuncoesBotoes, Assembly-CSharp
-        m_MethodName: IniciarFase3
+        m_MethodName: IniciarFase4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

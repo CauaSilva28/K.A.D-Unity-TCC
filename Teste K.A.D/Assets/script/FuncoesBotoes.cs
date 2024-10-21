@@ -33,6 +33,16 @@ public class FuncoesBotoes : MonoBehaviour
         somSelectMenu.Play();
         StartCoroutine(inicioJogo());
     }
+    public void IniciarFase4(){
+        textoFase = "Fase4";
+        somSelectMenu.Play();
+        StartCoroutine(inicioJogo());
+    }
+    public void IniciarFase5(){
+        textoFase = "Fase5";
+        somSelectMenu.Play();
+        StartCoroutine(inicioJogo());
+    }
 
     public void AbrirTelaControles()
     {
