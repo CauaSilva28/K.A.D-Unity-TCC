@@ -11,7 +11,6 @@ public class Movimento : MonoBehaviour
     public float valorDesgaste;
     public float valorDesgasteDash;
     public float valorRecuperacao;
-    public float valorPulo;
 
     public float velocidade;
     private float tempoDescanco;
@@ -154,11 +153,6 @@ public class Movimento : MonoBehaviour
         if (controller.isGrounded)
         {
             velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no chao
-
-            if(!pulando && Input.GetKey(KeyCode.Space)){
-                StartCoroutine(Pulo());
-                pulando = true;
-            }
         }
         else
         {
@@ -168,14 +162,6 @@ public class Movimento : MonoBehaviour
         moveDirection.y = velocidadeVertical;
 
         controller.Move(moveDirection * Time.deltaTime);
-    }
-
-    IEnumerator Pulo(){
-        velocidadeVertical = valorPulo;
-
-        yield return new WaitForSeconds(1f);
-
-        pulando = false;
     }
 
     private void Rotacao(){
