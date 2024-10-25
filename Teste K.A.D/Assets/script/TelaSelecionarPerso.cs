@@ -40,6 +40,20 @@ public class TelaSelecionarPerso : MonoBehaviour
         StartCoroutine(SelecionarPersonagem());
     }
 
+    public void SelecionarMirela()
+    {
+        numPerso = 2;
+        somSelect.Play();
+        StartCoroutine(SelecionarPersonagem());
+    }
+
+    public void SelecionarEnzo()
+    {
+        numPerso = 3;
+        somSelect.Play();
+        StartCoroutine(SelecionarPersonagem());
+    }
+
     IEnumerator SelecionarPersonagem(){
         telaTransicao.SetActive(true);
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);

@@ -16,7 +16,7 @@ public class FalaComMirela : MonoBehaviour
 
     public TelaSelecionarPerso selecaoPerso;
 
-    public DialogosControlados dialogoMirela;
+    public GameObject dialogoMirela;
 
     private bool conversar = false;
 
@@ -29,41 +29,27 @@ public class FalaComMirela : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (conversar)
-        {
+        if(dialogoMirela.GetComponent<DialogosControlados>().aparecerFalas){
             if (inimigosMercado.Count == 0)
             {
-                scriptAparecerTeclas.aparecer = true;
-                scriptAparecerTeclas.texto = "Aperte \"F\" para falar com a garota";
-                if (Input.GetKeyDown(KeyCode.F))
-                {
+                dialogoMirela.SetActive(true);
+
+                if(dialogoMirela.GetComponent<DialogosControlados>().iniciarDialogo){
                     cameraConversa.SetActive(true);
                     PlayerConversa[selecaoPerso.numPerso].SetActive(true);
                     Player[selecaoPerso.numPerso].SetActive(false);
                     scriptAparecerTeclas.aparecer = false;
                     scriptAparecerTeclas.texto = "";
-                    dialogoMirela.iniciarDialogo = true;
                 }
             }
             else
             {
                 scriptAparecerTeclas.aparecer = true;
                 scriptAparecerTeclas.texto = "Derrote todos os inimigos!";
+                dialogoMirela.SetActive(false);
             }
         }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player")){
-            conversar = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player")){
-            conversar = false;
+        else{
             scriptAparecerTeclas.aparecer = false;
             scriptAparecerTeclas.texto = "";
         }

@@ -27,6 +27,14 @@ public class DialogosAuto : MonoBehaviour
     public Sprite[] imgPersonagens;
 
     public AudioSource[] audiosInicioDialogo;
+    public GameObject audioTexto;
+
+    [Header("Elementos personagens jogaveis")]
+    public TelaSelecionarPerso selecaoPerso;
+    
+    public Sprite[] imgPersoJogaveis;
+    public AudioSource[] audioPersoJogaveis;
+    public string[] nomePersoJogaveis;
 
     void Start(){ 
 
@@ -34,6 +42,8 @@ public class DialogosAuto : MonoBehaviour
 
     void Update()
     {
+        adicionandoElementosPersosJogaveis();
+
         if (aparecerFalas)
         {
             telaDialogo.SetActive(true);
@@ -63,11 +73,14 @@ public class DialogosAuto : MonoBehaviour
             dialogoTexto.text = ""; 
             foreach (char letter in dialogo[i])
             {
-                dialogoTexto.text += letter; 
+                dialogoTexto.text += letter;
+                audioTexto.SetActive(true);
                 yield return new WaitForSeconds(segundosletras);
             }
 
             yield return dialogoTexto.text == dialogo[i];
+
+            audioTexto.SetActive(false);
 
             yield return new WaitForSeconds(segundosPassarFala);
 
@@ -87,6 +100,24 @@ public class DialogosAuto : MonoBehaviour
 
         telaDialogo.SetActive(false);
         Destroy(gameObject);
+    }
+
+    private void adicionandoElementosPersosJogaveis(){
+        for(int i = 0 ; i < dialogo.Length ; i++){
+            
+            if(nomePersonagemStr[i] == "Personagem"){
+                nomePersonagemStr[i] = nomePersoJogaveis[selecaoPerso.numPerso];
+            }
+
+            if(imgPersonagens[i] == null){
+                imgPersonagens[i] = imgPersoJogaveis[selecaoPerso.numPerso];
+            }
+
+            if(audiosInicioDialogo[i] == null){
+                audiosInicioDialogo[i] = audioPersoJogaveis[selecaoPerso.numPerso];
+            }
+            
+        }
     }
 
     private void OnTriggerEnter(Collider other)

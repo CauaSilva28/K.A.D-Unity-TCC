@@ -30,8 +30,16 @@ public class DialogosControlados : MonoBehaviour
 
     public AudioSource[] audiosInicioDialogo;
 
+    public GameObject audioTexto;
+
     [Header("Elementos adicionais")]
     public AparecerTeclasTexto scriptAparecerTeclas;
+    public TelaSelecionarPerso selecaoPerso;
+
+    [Header("Elementos personagens jogaveis")]
+    public Sprite[] imgPersoJogaveis;
+    public AudioSource[] audioPersoJogaveis;
+    public string[] nomePersoJogaveis;
 
     void Start(){ 
 
@@ -39,6 +47,8 @@ public class DialogosControlados : MonoBehaviour
 
     void Update()
     {
+        adicionandoElementosPersosJogaveis();
+
         if (aparecerFalas)
         {
             if(Input.GetKeyDown(KeyCode.F)){
@@ -74,11 +84,21 @@ public class DialogosControlados : MonoBehaviour
             dialogoTexto.text = ""; 
             foreach (char letter in dialogo[i])
             {
-                dialogoTexto.text += letter; 
-                yield return new WaitForSeconds(segundosletras);
+                audioTexto.SetActive(true);
+                dialogoTexto.text += letter;
+
+                if(Input.GetKeyDown(KeyCode.Space)){
+                    dialogoTexto.text = dialogo[i];
+                    audioTexto.SetActive(false);
+                }
+                else{
+                    yield return new WaitForSeconds(segundosletras);
+                }
             }
 
             yield return dialogoTexto.text == dialogo[i];
+
+            audioTexto.SetActive(false);
 
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space)); // Espera até que o jogador pressione a tecla Espaço
 
@@ -98,6 +118,24 @@ public class DialogosControlados : MonoBehaviour
 
         telaDialogo.SetActive(false);
         Destroy(gameObject);
+    }
+
+    private void adicionandoElementosPersosJogaveis(){
+        for(int i = 0 ; i < dialogo.Length ; i++){
+            
+            if(nomePersonagemStr[i] == "Personagem"){
+                nomePersonagemStr[i] = nomePersoJogaveis[selecaoPerso.numPerso];
+            }
+
+            if(imgPersonagens[i] == null){
+                imgPersonagens[i] = imgPersoJogaveis[selecaoPerso.numPerso];
+            }
+
+            if(audiosInicioDialogo[i] == null){
+                audiosInicioDialogo[i] = audioPersoJogaveis[selecaoPerso.numPerso];
+            }
+            
+        }
     }
 
     private void OnTriggerStay(Collider other)
