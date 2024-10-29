@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MovimentoVelho : MonoBehaviour
+public class MovimentoNpcs : MonoBehaviour
 {
-
+    public float velocidadeAndando;
+    public float velocidadeCorrendo;
     public float distanciaMinima;
 
     private Animator anim;
-    public Transform personagem;
+    public Transform[] personagem;
     private NavMeshAgent navMeshAgent;
+
+    public TelaSelecionarPerso selecaoPerso;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +26,9 @@ public class MovimentoVelho : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navMeshAgent.SetDestination(personagem.position);
+        navMeshAgent.SetDestination(personagem[selecaoPerso.numPerso].position);
 
-        float distancia = Vector3.Distance(transform.position, personagem.position);
+        float distancia = Vector3.Distance(transform.position, personagem[selecaoPerso.numPerso].position);
 
         if (distancia <= distanciaMinima)
         {
@@ -36,14 +39,14 @@ public class MovimentoVelho : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift))
             {
-                navMeshAgent.speed = 50;
+                navMeshAgent.speed = velocidadeCorrendo;
             }
             else
             {
-                navMeshAgent.speed = 30;
+                navMeshAgent.speed = velocidadeAndando;
             }
 
-            if (navMeshAgent.speed >= 30)
+            if (navMeshAgent.speed >= velocidadeAndando)
             {
                 anim.SetInteger("transition", 1);
             }

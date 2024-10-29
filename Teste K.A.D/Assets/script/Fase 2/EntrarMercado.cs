@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EntrarMercado : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class EntrarMercado : MonoBehaviour
     public AparecerTextos textoObjetivo;
 
     public GameObject transicao;
+    public GameObject Mirela;
+    public Transform posicaoMirelaForaMercado;
 
     private bool entrarMercado = false;
+
+    public bool entrandoNoMercado;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,18 +32,30 @@ public class EntrarMercado : MonoBehaviour
         
         if (entrarMercado)
         {
-            if(dinosRua.Count == 0){
+            if(entrandoNoMercado){
+                if(dinosRua.Count == 0){
+                    scriptAparecerTeclas.aparecer = true;
+                    scriptAparecerTeclas.texto = "Aperte \"F\" para entrar no mercado";
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        StartCoroutine(teleporteMercado());
+                        entrarMercado = false;
+                    }
+                }
+                else{
+                    scriptAparecerTeclas.aparecer = true;
+                    scriptAparecerTeclas.texto = "Derrote todos os dinossauros!";
+                }
+            }
+            else{      
                 scriptAparecerTeclas.aparecer = true;
-                scriptAparecerTeclas.texto = "Aperte \"F\" para entrar no mercado";
+                scriptAparecerTeclas.texto = "Aperte \"F\" para sair do mercado";
+
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     StartCoroutine(teleporteMercado());
                     entrarMercado = false;
                 }
-            }
-            else{
-                scriptAparecerTeclas.aparecer = true;
-                scriptAparecerTeclas.texto = "Derrote todos os dinossauros!";
             }
         }
     }
@@ -76,6 +93,12 @@ public class EntrarMercado : MonoBehaviour
         scriptAparecerTeclas.aparecer = false;
         scriptAparecerTeclas.texto = "";
 
+        if(!entrandoNoMercado){
+            Mirela.GetComponent<Transform>().transform.position = posicaoMirelaForaMercado.position;
+            Mirela.GetComponent<MovimentoNpcs>().enabled = false;
+            Mirela.GetComponent<NavMeshAgent>().enabled = false;
+        }
+
         yield return new WaitForSeconds(1f);
 
         player[selecaoPerso.numPerso].GetComponent<Movimento>().enabled = true;
@@ -85,6 +108,11 @@ public class EntrarMercado : MonoBehaviour
 
         transicao.GetComponent<Animator>().SetInteger("transition", 0);
         transicao.SetActive(false);
+
+        if(!entrandoNoMercado){
+            Mirela.GetComponent<MovimentoNpcs>().enabled = true;
+            Mirela.GetComponent<NavMeshAgent>().enabled = true;
+        }
 
         yield return new WaitForSeconds(0.5f);
 

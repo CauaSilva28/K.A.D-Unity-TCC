@@ -2968,7 +2968,7 @@ AudioSource:
   m_GameObject: {fileID: 147507725}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 91c397f21461b3a4ba0e4f04c33a8f7a, type: 3}
   m_Resource: {fileID: 8300000, guid: 91c397f21461b3a4ba0e4f04c33a8f7a, type: 3}
   m_PlayOnAwake: 1
@@ -13609,7 +13609,7 @@ AudioSource:
   m_GameObject: {fileID: 602316988}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5432928783546206912, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: d2083e3a1897d264285b7d77d16a2555, type: 3}
   m_Resource: {fileID: 8300000, guid: d2083e3a1897d264285b7d77d16a2555, type: 3}
   m_PlayOnAwake: 1
@@ -46351,6 +46351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1115527949}
+  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   somClick: {fileID: 11655293}
   telaControles: {fileID: 1242502818}
   pausado: 0

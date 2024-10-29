@@ -24,19 +24,25 @@ public class AnimacoesPerso : MonoBehaviour
         if(!morrendo){
             anim.SetInteger("transition", 0);
 
-            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
+            if(Input.GetKey(KeyCode.W)){
                 anim.SetInteger("transition", 1);
             }
             if(Input.GetKey(KeyCode.A)){
                 anim.SetInteger("transition", 3);
             }
             if(Input.GetKey(KeyCode.D)){
-                anim.SetInteger("transition", 6);
+                anim.SetInteger("transition", 4);
+            }
+            if(Input.GetKey(KeyCode.S)){
+                anim.SetInteger("transition", 5);
             }
 
             if(!movePerso.cansou){
-                if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift)){
+                if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift)){
                     anim.SetInteger("transition", 2);
+                }
+                if(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift)){
+                    anim.SetInteger("transition", 6);
                 }
             }
             
@@ -44,11 +50,11 @@ public class AnimacoesPerso : MonoBehaviour
             {
                 if(ferramenta.activeSelf){
                     anim.SetTrigger("attack");
-                    anim.SetInteger("transition", 4);
+                    anim.SetInteger("transition", 7);
                 }
                 else{
                     anim.SetTrigger("attack");
-                    anim.SetInteger("transition", 5);
+                    anim.SetInteger("transition", 8);
                 }
             }
         }

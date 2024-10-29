@@ -3881,7 +3881,7 @@ AudioSource:
   m_GameObject: {fileID: 272386133}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4e66487fd8b0880499b30dcee3a27cc7, type: 3}
   m_Resource: {fileID: 8300000, guid: 4e66487fd8b0880499b30dcee3a27cc7, type: 3}
   m_PlayOnAwake: 1
@@ -10690,7 +10690,7 @@ AudioSource:
   m_GameObject: {fileID: 524168714}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: b7e428237430d724a86883a1b765b4a0, type: 3}
   m_Resource: {fileID: 8300000, guid: b7e428237430d724a86883a1b765b4a0, type: 3}
   m_PlayOnAwake: 0
@@ -11123,8 +11123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6dd7ba46f351d4f9920efe0fe9dab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidadeAndando: 30
+  velocidadeCorrendo: 50
   distanciaMinima: 35
-  personagem: {fileID: 1443295084}
+  personagem:
+  - {fileID: 1443295084}
+  selecaoPerso: {fileID: 1751190707}
 --- !u!195 &587762642
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12211,7 +12215,7 @@ AudioSource:
   m_GameObject: {fileID: 654447193}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 58d753a123738cf4dbaa310b4bdb4879, type: 3}
   m_Resource: {fileID: 8300000, guid: 58d753a123738cf4dbaa310b4bdb4879, type: 3}
   m_PlayOnAwake: 1
@@ -13943,7 +13947,7 @@ AudioSource:
   m_GameObject: {fileID: 776887473}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9a7afde135bd9a84db9837019f7ee066, type: 3}
   m_Resource: {fileID: 8300000, guid: 9a7afde135bd9a84db9837019f7ee066, type: 3}
   m_PlayOnAwake: 0
@@ -15647,6 +15651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1344772457}
+  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   somClick: {fileID: 1865272426}
   telaControles: {fileID: 108247743}
   pausado: 0
@@ -17503,7 +17508,7 @@ AudioSource:
   m_GameObject: {fileID: 981298129}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 92c69b37ed729e947abdaf3704cf3b1f, type: 3}
   m_Resource: {fileID: 8300000, guid: 92c69b37ed729e947abdaf3704cf3b1f, type: 3}
   m_PlayOnAwake: 1
@@ -18708,6 +18713,10 @@ MonoBehaviour:
   - {fileID: 524168716}
   - {fileID: 776887475}
   audioTexto: {fileID: 981298129}
+  selecaoPerso: {fileID: 0}
+  imgPersoJogaveis: []
+  audioPersoJogaveis: []
+  nomePersoJogaveis: []
 --- !u!65 &1007353526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18770,7 +18779,7 @@ AudioSource:
   m_GameObject: {fileID: 1024936624}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5432928783546206912, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 77c217a48cf9d9b4c8e018317c1b451b, type: 3}
   m_Resource: {fileID: 8300000, guid: 77c217a48cf9d9b4c8e018317c1b451b, type: 3}
   m_PlayOnAwake: 0
@@ -27098,6 +27107,10 @@ MonoBehaviour:
   audiosInicioDialogo:
   - {fileID: 776887475}
   audioTexto: {fileID: 981298129}
+  selecaoPerso: {fileID: 0}
+  imgPersoJogaveis: []
+  audioPersoJogaveis: []
+  nomePersoJogaveis: []
 --- !u!65 &1417841882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31883,6 +31896,10 @@ MonoBehaviour:
   audiosInicioDialogo:
   - {fileID: 776887475}
   audioTexto: {fileID: 981298129}
+  selecaoPerso: {fileID: 0}
+  imgPersoJogaveis: []
+  audioPersoJogaveis: []
+  nomePersoJogaveis: []
 --- !u!65 &1710868886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32562,6 +32579,10 @@ MonoBehaviour:
   - {fileID: 776887475}
   - {fileID: 524168716}
   audioTexto: {fileID: 981298129}
+  selecaoPerso: {fileID: 0}
+  imgPersoJogaveis: []
+  audioPersoJogaveis: []
+  nomePersoJogaveis: []
 --- !u!65 &1761723851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37067,7 +37088,7 @@ AudioSource:
   m_GameObject: {fileID: 2026951211}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9f7786398bcfbbe4581d9114cb9d7ae3, type: 3}
   m_Resource: {fileID: 8300000, guid: 9f7786398bcfbbe4581d9114cb9d7ae3, type: 3}
   m_PlayOnAwake: 1
@@ -37351,7 +37372,7 @@ AudioSource:
   m_GameObject: {fileID: 2037080693}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3677894680662166977, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 411b53c1ae4b4d54582a0ed80e80a577, type: 3}
   m_Resource: {fileID: 8300000, guid: 411b53c1ae4b4d54582a0ed80e80a577, type: 3}
   m_PlayOnAwake: 1

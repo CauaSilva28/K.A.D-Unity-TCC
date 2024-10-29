@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PausarJogo : MonoBehaviour
 {
     public GameObject pauseMenu;
+
+    public AudioMixer mixer;
 
     private AudioSource[] allAudioSources;
 
@@ -43,6 +46,7 @@ public class PausarJogo : MonoBehaviour
 
     void PauseJogo()
     {
+        mixer.SetFloat("efeitoSonoro", -80);
         pausado = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
@@ -60,6 +64,7 @@ public class PausarJogo : MonoBehaviour
 
     public void Despausar()
     {
+        mixer.SetFloat("efeitoSonoro", 0);
         somClick.Play();
         pausado = false;
         pauseMenu.SetActive(false);

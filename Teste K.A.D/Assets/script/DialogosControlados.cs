@@ -29,6 +29,7 @@ public class DialogosControlados : MonoBehaviour
     public Sprite[] imgPersonagens;
 
     public AudioSource[] audiosInicioDialogo;
+    public Animator[] animacoesPerso;
 
     public GameObject audioTexto;
 
@@ -36,10 +37,13 @@ public class DialogosControlados : MonoBehaviour
     public AparecerTeclasTexto scriptAparecerTeclas;
     public TelaSelecionarPerso selecaoPerso;
 
+    public bool tirarAnimacoes;
+
     [Header("Elementos personagens jogaveis")]
     public Sprite[] imgPersoJogaveis;
     public AudioSource[] audioPersoJogaveis;
     public string[] nomePersoJogaveis;
+    public Animator[] animacoesPersoJogaveis;
 
     void Start(){ 
 
@@ -81,6 +85,10 @@ public class DialogosControlados : MonoBehaviour
 
             audiosInicioDialogo[i].Play();
 
+            if(!tirarAnimacoes){
+                animacoesPerso[i].SetBool("falando", true);
+            }
+
             dialogoTexto.text = ""; 
             foreach (char letter in dialogo[i])
             {
@@ -100,6 +108,10 @@ public class DialogosControlados : MonoBehaviour
 
             audioTexto.SetActive(false);
 
+            if(!tirarAnimacoes){
+                animacoesPerso[i].SetBool("falando", false);
+            }
+
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space)); // Espera até que o jogador pressione a tecla Espaço
 
             elementosDialogo.GetComponent<Animator>().SetInteger("transicao", 2);
@@ -113,6 +125,7 @@ public class DialogosControlados : MonoBehaviour
 
         telaDialogo.GetComponent<Animator>().SetInteger("transicao", 2);
         aparecerFalas = false;
+        fimDoDialogo = true;
 
         yield return new WaitForSeconds(1f);
 
@@ -134,7 +147,12 @@ public class DialogosControlados : MonoBehaviour
             if(audiosInicioDialogo[i] == null){
                 audiosInicioDialogo[i] = audioPersoJogaveis[selecaoPerso.numPerso];
             }
-            
+
+            if(!tirarAnimacoes){
+                if(animacoesPerso[i] == null){
+                    animacoesPerso[i] = animacoesPersoJogaveis[selecaoPerso.numPerso];
+                }
+            }
         }
     }
 

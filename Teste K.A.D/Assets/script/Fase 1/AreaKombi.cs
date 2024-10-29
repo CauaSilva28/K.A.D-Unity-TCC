@@ -193,7 +193,7 @@ public class AreaKombi : MonoBehaviour
         scriptAparecerTeclas.aparecer = false;
         itens.SetActive(true);
         player.GetComponent<ColetarItens>().enabled = true;
-        SeuZe.GetComponent<MovimentoVelho>().enabled = false;
+        SeuZe.GetComponent<MovimentoNpcs>().enabled = false;
         SeuZe.GetComponent<NavMeshAgent>().speed = 0;
         SeuZe.GetComponent<Animator>().SetInteger("transition", 2);
         SeuZe.GetComponent<Transform>().transform.position = velhoConsertando;
