@@ -36,6 +36,7 @@ public class FalaComMirela : MonoBehaviour
         if(dialogoMirela.GetComponent<DialogosControlados>().aparecerFalas){
             if (inimigosMercado.Count == 0)
             {
+                MirelaConversa.GetComponent<Animator>().SetBool("atacando", false);
                 dialogoMirela.SetActive(true);
 
                 if(dialogoMirela.GetComponent<DialogosControlados>().iniciarDialogo){
@@ -44,7 +45,6 @@ public class FalaComMirela : MonoBehaviour
                     Player[selecaoPerso.numPerso].SetActive(false);
                     scriptAparecerTeclas.aparecer = false;
                     scriptAparecerTeclas.texto = "";
-                    MirelaConversa.GetComponent<Animator>().SetBool("atacando", false);
                 }
             }
             else

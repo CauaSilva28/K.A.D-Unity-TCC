@@ -2396,6 +2396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telaTransicao: {fileID: 2098875704}
+  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
 --- !u!1 &169425518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4375,6 +4376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telaTransicao: {fileID: 194203636}
+  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
 --- !u!4 &296265300
 Transform:
   m_ObjectHideFlags: 0
@@ -13121,52 +13123,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2582600252679314848, guid: c7b848c718335f546b4d03e8c2ab73f4, type: 3}
---- !u!1 &722627357
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 722627359}
-  - component: {fileID: 722627358}
-  m_Layer: 0
-  m_Name: FimTelaTransicao
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &722627358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722627357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23ecf60d15d90cc49879baf2e24fa157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telaTransicao: {fileID: 2098875704}
-  cameraKombi: {fileID: 756493977}
---- !u!4 &722627359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722627357}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1779030433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &726471923
 GameObject:
   m_ObjectHideFlags: 0
@@ -27881,8 +27837,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2.71
   m_Radius: 0.8
-  m_SlopeLimit: 50
-  m_StepOffset: 1.2
+  m_SlopeLimit: 45
+  m_StepOffset: 1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.36, z: 0.13}
@@ -32870,6 +32826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1779030433}
   - component: {fileID: 1779030432}
+  - component: {fileID: 1779030434}
   m_Layer: 0
   m_Name: Cutscene fim
   m_TagString: Untagged
@@ -32898,8 +32855,10 @@ PlayableDirector:
     value: {fileID: 942793923}
   - key: {fileID: 587991394224868013, guid: 23c098ce3b6dfbb4e8e01d36aa9a649a, type: 2}
     value: {fileID: 900651241}
-  - key: {fileID: -781901790622817519, guid: 23c098ce3b6dfbb4e8e01d36aa9a649a, type: 2}
-    value: {fileID: 722627357}
+  - key: {fileID: 7262807817563079347, guid: 23c098ce3b6dfbb4e8e01d36aa9a649a, type: 2}
+    value: {fileID: 2098875704}
+  - key: {fileID: -7125706811727888297, guid: 23c098ce3b6dfbb4e8e01d36aa9a649a, type: 2}
+    value: {fileID: 2098875705}
   m_ExposedReferences:
     m_References:
     - 9bce54033c134ab49a46e1dadac48b8f: {fileID: 1909984320}
@@ -32920,9 +32879,38 @@ Transform:
   - {fileID: 942793924}
   - {fileID: 756493984}
   - {fileID: 1356040713}
-  - {fileID: 722627359}
   m_Father: {fileID: 879171805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1779030434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779030431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: fabc6ebbf605e6b46adf07f2108002fb, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 840356884}
+          m_TargetAssemblyTypeName: AreaKombi, Assembly-CSharp
+          m_MethodName: IrFase2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1780173786
 GameObject:
   m_ObjectHideFlags: 0

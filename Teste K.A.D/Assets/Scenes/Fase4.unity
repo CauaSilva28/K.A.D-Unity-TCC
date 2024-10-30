@@ -8252,8 +8252,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2.71
   m_Radius: 0.8
-  m_SlopeLimit: 50
-  m_StepOffset: 1.2
+  m_SlopeLimit: 45
+  m_StepOffset: 1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.36, z: 0.13}
@@ -11241,6 +11241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telaTransicao: {fileID: 822336021}
+  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
 --- !u!1 &474138774
 GameObject:
   m_ObjectHideFlags: 0
@@ -20232,6 +20233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telaTransicao: {fileID: 607651662}
+  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
 --- !u!1 &880117702
 GameObject:
   m_ObjectHideFlags: 0
@@ -22044,8 +22046,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2.71
   m_Radius: 0.8
-  m_SlopeLimit: 50
-  m_StepOffset: 1.2
+  m_SlopeLimit: 45
+  m_StepOffset: 1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.36, z: 0.13}
@@ -45969,8 +45971,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2.5
   m_Radius: 0.8
-  m_SlopeLimit: 50
-  m_StepOffset: 1.2
+  m_SlopeLimit: 45
+  m_StepOffset: 1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.23, z: 0.13}

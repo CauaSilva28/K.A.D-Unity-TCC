@@ -129,6 +129,7 @@ public class DialogosControlados : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        textoPassarTeclas.enabled = false;
         telaDialogo.SetActive(false);
         Destroy(gameObject);
     }

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TransicoesCena : MonoBehaviour
 {
     public GameObject telaTransicao;
+    public AudioMixer mixer;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(tempoTransicaoDaTela());
         AudioListener.volume = 1;
+        mixer.SetFloat("efeitoSonoro", 0);
     }
 
     IEnumerator tempoTransicaoDaTela(){

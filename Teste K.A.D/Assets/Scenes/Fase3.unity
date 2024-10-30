@@ -51838,6 +51838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telaTransicao: {fileID: 1643765283}
+  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
 --- !u!4 &2081566812
 Transform:
   m_ObjectHideFlags: 0

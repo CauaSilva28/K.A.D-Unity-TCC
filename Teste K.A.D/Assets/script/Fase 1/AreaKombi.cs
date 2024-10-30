@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 
 public class AreaKombi : MonoBehaviour
@@ -184,6 +185,10 @@ public class AreaKombi : MonoBehaviour
         cutsceneFim.GetComponent<PlayableDirector>().Play();
 
         PlayerPrefs.SetInt("Fase1Completa", 1); //Comando responsavel por realizar o salvamento da fase 1 (sendo 1 o valor que mostra q ela foi completa)
+    }
+
+    public void IrFase2(){
+        SceneManager.LoadScene("Fase2");
     }
 
     private void ConsertoKombi(){
