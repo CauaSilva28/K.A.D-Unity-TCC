@@ -18,6 +18,7 @@ public class PerderVidaKombi : MonoBehaviour
     public GameObject explosaoKombi;
     public GameObject somExplosaoKombi;
     public GameObject fogoKombi;
+    public GameObject somVeiculo;
 
     public GameObject camera;
 
@@ -77,6 +78,7 @@ public class PerderVidaKombi : MonoBehaviour
     }
 
     IEnumerator Perdendo(){
+        somVeiculo.SetActive(false);
         GetComponent<MovimentoKombi>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         gameObject.tag = "Untagged";

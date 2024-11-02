@@ -13,7 +13,7 @@ public class MovimentoKombi : MonoBehaviour
 
     public Slider staminaKombi;
 
-    private float veloGiroRoda = 100f;
+    public float veloGiroRoda = 100f;
     private float tempoDescanco = 0f;
 
     public GameObject[] rodas;
@@ -115,7 +115,7 @@ public class MovimentoKombi : MonoBehaviour
         if(fimNitro){
             tempoDescanco += Time.deltaTime * 1;
             if(tempoDescanco > 2){
-                staminaKombi.value += 0.08f * Time.deltaTime;
+                staminaKombi.value += 0.09f * Time.deltaTime;
                 if(staminaKombi.value >= 1){
                     fimNitro = false;
                 }
