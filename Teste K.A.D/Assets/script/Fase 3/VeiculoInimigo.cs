@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VeiculoInimigo : MonoBehaviour
 {
+    [Header("Elementos inimigo")]
     public float distanciaMinima;
     public float velocidadeInimigo;
     public UnityEngine.AI.NavMeshAgent navMeshAgent;
@@ -14,22 +16,27 @@ public class VeiculoInimigo : MonoBehaviour
 
     private float veloGiroRoda = 100f;
 
-    public GameObject kombi;
-
-    public GameObject[] objDialogos;
-
-    public GameObject explosivo;
     public GameObject[] rodas;
-
-    public GameObject telaTransicao;
-    public GameObject telaGameOver;
-    public GameObject somGameOver;
-
-    public GameObject somVeiculo;
+    public GameObject explosivo;
 
     public Slider vidaInimigo;
 
     private bool spawnExplosivo = false;
+
+    [Header("Objetos finais")]
+
+    public GameObject kombi;
+
+    public GameObject[] objDialogos;
+
+    public GameObject telaTransicao;
+    public GameObject telaGameOver;
+    public GameObject somGameOver;
+    public GameObject cutsceneFinal;
+    public GameObject musicaFundo;
+
+    public GameObject somVeiculo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,17 +116,24 @@ public class VeiculoInimigo : MonoBehaviour
         kombi.GetComponent<Rigidbody>().isKinematic = true;
         kombi.tag = "Untagged";
         kombi.GetComponent<MovimentoKombi>().turbo.SetActive(false);
-        kombi.GetComponent<MovimentoKombi>().pauseJogo.perdendo = true;
         somVeiculo.SetActive(false);
+        PlayerPrefs.SetInt("Fase3Completa", 1);
 
         yield return new WaitForSeconds(3f);
         
         telaTransicao.SetActive(true);
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
+        cutsceneFinal.SetActive(true);
+        kombi.SetActive(false);
+        gameObject.SetActive(false);
+        musicaFundo.SetActive(false);
+    }
 
+    public void irFase4(){
+        SceneManager.LoadScene("Fase4");
     }
 
     IEnumerator inimigoEscapou(){

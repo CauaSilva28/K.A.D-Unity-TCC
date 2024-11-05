@@ -17,6 +17,16 @@ public class VerificarProgresso : MonoBehaviour
         {
             fasesTrancada[1].SetActive(false);
         }
+
+        if (PlayerPrefs.GetInt("Fase3Completa", 0) == 1)
+        {
+            fasesTrancada[2].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("Fase4Completa", 0) == 1)
+        {
+            fasesTrancada[3].SetActive(false);
+        }
     }
 
     // Update is called once per frame

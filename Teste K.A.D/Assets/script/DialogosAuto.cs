@@ -62,7 +62,7 @@ public class DialogosAuto : MonoBehaviour
             nomePersonagem.text = nomePersonagemStr[i];
             imagemPersonagem.sprite = imgPersonagens[i];
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             elementosDialogo.GetComponent<Animator>().SetInteger("transicao", 1);
 
