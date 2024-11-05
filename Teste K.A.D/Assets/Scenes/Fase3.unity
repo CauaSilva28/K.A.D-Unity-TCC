@@ -8131,9 +8131,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.8
-  m_Text: "\u201CW\u201D - Mover para frente\n\u201CA\u201D - Mover para esquerda\n\u201CS\u201D
-    - Mover para tr\xE1s\n\u201CD\u201D - Mover para direita\n\u201CShift esquerdo\u201D
-    - Correr\n"
+  m_Text: "\u201CW\u201D - Mover para frente\n\u201CA\u201D - Virar para esquerda\n\u201CS\u201D
+    - Mover para tr\xE1s\n\u201CD\u201D - Virar para direita\n\u201CShift esquerdo\u201D
+    - Turbo\n"
 --- !u!222 &307621566
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43538,9 +43538,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.8
-  m_Text: "\u201CMouse esquerdo\u201D - Atacar\n\u201CMouse direito\u201D - Zoom
-    c\xE2mera\n\u201CF\u201D - Coletar itens e iniciar miss\xF5es\n\u201CE\u201D
-    - Ataque especial\n\u201CQ\u201D - Dash/empurr\xE3o\n"
+  m_Text: "\u201CMouse direito\u201D - Zoom c\xE2mera\n"
 --- !u!222 &1749921274
 CanvasRenderer:
   m_ObjectHideFlags: 0
