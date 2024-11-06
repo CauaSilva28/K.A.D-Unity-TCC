@@ -73062,7 +73062,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.9333334
+  - time: 2.5
     functionName: FimEspecial
     data: 
     objectReferenceParameter: {fileID: 0}
