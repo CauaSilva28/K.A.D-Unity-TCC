@@ -9,9 +9,12 @@ public class Atacar : MonoBehaviour
     public float danoFerramenta;
     public float danoEspecial;
 
+    public float danoObjetoFerramenta;
+    public float danoObjetoSoco;
+
     public bool atacando = false;
     private bool EmAreaEspecial = false;
-    private bool naAreaObjeto = false;
+    public bool naAreaObjeto = false;
     public float anguloDeVisao;
 
     public AudioSource[] sonsPerso;
@@ -21,17 +24,13 @@ public class Atacar : MonoBehaviour
 
     public Slider barraEspecial;
     public Slider vidaFerramenta;
+    public Slider vidaObjeto;
     public GameObject ferramenta;
     public GameObject quebrandoFerramenta;
 
     public GameObject areaEspecial;
 
     private List<GameObject> inimigos = new List<GameObject>();
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -99,9 +98,11 @@ public class Atacar : MonoBehaviour
         else if(naAreaObjeto){
             if(ferramenta.activeSelf){
                 sonsPerso[1].Play();
+                vidaObjeto.value -= danoObjetoFerramenta * Time.deltaTime;
             }
             else{
                 sonsPerso[1].Play();
+                vidaObjeto.value -= danoObjetoSoco * Time.deltaTime;
             }
         }
         else{
@@ -134,9 +135,11 @@ public class Atacar : MonoBehaviour
         else if(naAreaObjeto){
             if(ferramenta.activeSelf){
                 sonsPerso[1].Play();
+                vidaObjeto.value -= danoObjetoFerramenta * Time.deltaTime;
             }
             else{
                 sonsPerso[1].Play();
+                vidaObjeto.value -= danoObjetoSoco * Time.deltaTime;
             }
         }
         else{

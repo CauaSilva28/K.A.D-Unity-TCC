@@ -10503,7 +10503,10 @@ MonoBehaviour:
   danoSoco: 1
   danoFerramenta: 2
   danoEspecial: 6
+  danoObjetoFerramenta: 0.8
+  danoObjetoSoco: 0.7
   atacando: 0
+  naAreaObjeto: 0
   anguloDeVisao: 45
   sonsPerso:
   - {fileID: 1818814794}
@@ -10513,6 +10516,7 @@ MonoBehaviour:
   movePerso: {fileID: 339511426}
   barraEspecial: {fileID: 1672355152}
   vidaFerramenta: {fileID: 1839686680}
+  vidaObjeto: {fileID: 1142757002}
   ferramenta: {fileID: 1713368395}
   quebrandoFerramenta: {fileID: 186609004}
   areaEspecial: {fileID: 1328145817}
@@ -27059,7 +27063,10 @@ MonoBehaviour:
   danoSoco: 1
   danoFerramenta: 2
   danoEspecial: 6
+  danoObjetoFerramenta: 0.8
+  danoObjetoSoco: 0.7
   atacando: 0
+  naAreaObjeto: 0
   anguloDeVisao: 45
   sonsPerso:
   - {fileID: 1598959649}
@@ -27069,6 +27076,7 @@ MonoBehaviour:
   movePerso: {fileID: 910883135}
   barraEspecial: {fileID: 1672355152}
   vidaFerramenta: {fileID: 1839686680}
+  vidaObjeto: {fileID: 1142757002}
   ferramenta: {fileID: 850873897}
   quebrandoFerramenta: {fileID: 1181526643}
   areaEspecial: {fileID: 565518719}
@@ -45271,8 +45279,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588422788}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0007130271, y: -0.9991522, z: 0.023985848, w: -0.033452608}
-  m_LocalPosition: {x: -5628.1885, y: 2048.668, z: 1021.80005}
+  m_LocalRotation: {x: 0.030586388, y: -0.96814346, z: 0.1477878, w: 0.19980355}
+  m_LocalPosition: {x: -5335, y: 2174.5, z: 505.99997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58236,7 +58244,10 @@ MonoBehaviour:
   danoSoco: 0.8
   danoFerramenta: 1.8
   danoEspecial: 6
+  danoObjetoFerramenta: 0.8
+  danoObjetoSoco: 0.7
   atacando: 0
+  naAreaObjeto: 0
   anguloDeVisao: 45
   sonsPerso:
   - {fileID: 276141560}
@@ -58246,6 +58257,7 @@ MonoBehaviour:
   movePerso: {fileID: 2008074580}
   barraEspecial: {fileID: 1672355152}
   vidaFerramenta: {fileID: 1839686680}
+  vidaObjeto: {fileID: 1142757002}
   ferramenta: {fileID: 1305997533}
   quebrandoFerramenta: {fileID: 471184133}
   areaEspecial: {fileID: 1706553636}
