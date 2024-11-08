@@ -11,9 +11,10 @@ public class Atacar : MonoBehaviour
 
     public bool atacando = false;
     private bool EmAreaEspecial = false;
+    private bool naAreaObjeto = false;
     public float anguloDeVisao;
 
-    public AudioSource sonsPerso;
+    public AudioSource[] sonsPerso;
     public AudioSource somSoco;
     public AudioSource somVulto;
     public Movimento movePerso;
@@ -84,13 +85,23 @@ public class Atacar : MonoBehaviour
 
                 if(ferramenta.activeSelf){
                     scriptInimigo.vidaInimigo -= danoFerramenta;
+                    scriptInimigo.efeitoDano.Play();
                     vidaFerramenta.value -= 0.05f;
-                    sonsPerso.Play();
+                    sonsPerso[0].Play();
                 }
                 else{
                     scriptInimigo.vidaInimigo -= danoSoco;
+                    scriptInimigo.efeitoDano.Play();
                     somSoco.Play();
                 }
+            }
+        }
+        else if(naAreaObjeto){
+            if(ferramenta.activeSelf){
+                sonsPerso[1].Play();
+            }
+            else{
+                sonsPerso[1].Play();
             }
         }
         else{
@@ -109,13 +120,23 @@ public class Atacar : MonoBehaviour
 
                 if(ferramenta.activeSelf){
                     scriptInimigo.vidaInimigo -= danoFerramenta * 2;
+                    scriptInimigo.efeitoDano.Play();
                     vidaFerramenta.value -= 0.05f;
-                    sonsPerso.Play();
+                    sonsPerso[0].Play();
                 }
                 else{
                     scriptInimigo.vidaInimigo -= danoSoco * 2;
+                    scriptInimigo.efeitoDano.Play();
                     somSoco.Play();
                 }
+            }
+        }
+        else if(naAreaObjeto){
+            if(ferramenta.activeSelf){
+                sonsPerso[1].Play();
+            }
+            else{
+                sonsPerso[1].Play();
             }
         }
         else{
@@ -178,6 +199,10 @@ public class Atacar : MonoBehaviour
             inimigos.Add(collision.gameObject);
             atacando = true;
         }
+
+        if(collision.gameObject.CompareTag("objetosAtacaveis")){
+            naAreaObjeto = true;
+        }
     }
     void OnCollisionExit(Collision collision)
     {
@@ -188,6 +213,10 @@ public class Atacar : MonoBehaviour
             {
                 atacando = false;
             }
+        }
+
+        if(collision.gameObject.CompareTag("objetosAtacaveis")){
+            naAreaObjeto = false;
         }
     }
 

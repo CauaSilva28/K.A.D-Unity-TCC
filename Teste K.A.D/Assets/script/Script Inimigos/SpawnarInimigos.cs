@@ -20,11 +20,10 @@ public class SpawnarInimigos : MonoBehaviour
 
     public AudioSource[] SomDanoPlayer;
 
-    public Movimento movePerso;
-
     private List<GameObject> inimigos = new List<GameObject>();
 
     private bool perdendo = false;
+    public bool fase1;
 
     public TelaSelecionarPerso persoSelecionado;
 
@@ -57,8 +56,11 @@ public class SpawnarInimigos : MonoBehaviour
             scriptInimigo.ferramentaCena = ferramentaCena;
             scriptInimigo.persoSelecionado = persoSelecionado;
 
-            InimigoColidiKombi scriptInimigo2 = inimigoInstance.GetComponent<InimigoColidiKombi>();
-            scriptInimigo2.barraVidaKombi = barraVidaKombi;
+
+            if(fase1){
+                InimigoColidiKombi scriptInimigo2 = inimigoInstance.GetComponent<InimigoColidiKombi>();
+                scriptInimigo2.barraVidaKombi = barraVidaKombi;
+            }
 
             inimigos.Add(inimigoInstance);
         }

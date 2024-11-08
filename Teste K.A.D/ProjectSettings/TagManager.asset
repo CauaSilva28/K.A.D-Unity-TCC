@@ -16,6 +16,7 @@ TagManager:
   - costasInimigo
   - concreto
   - grama
+  - objetosAtacaveis
   layers:
   - Default
   - TransparentFX

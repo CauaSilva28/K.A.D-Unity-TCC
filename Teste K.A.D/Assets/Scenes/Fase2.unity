@@ -359,7 +359,8 @@ MonoBehaviour:
   danoEspecial: 6
   atacando: 0
   anguloDeVisao: 45
-  sonsPerso: {fileID: 413282981}
+  sonsPerso:
+  - {fileID: 413282981}
   somSoco: {fileID: 1719330718}
   somVulto: {fileID: 1253130542}
   movePerso: {fileID: 15560657}
@@ -42893,6 +42894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 605246726}
     m_Modifications:
+    - target: {fileID: 791278640179693233, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9756d9775ee845641991a3feacf02a14, type: 2}
     - target: {fileID: 491522186265930462, guid: 480badecccfe65241bdc327354c2404a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -43029,10 +43034,6 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 1479372276
       objectReference: {fileID: 0}
-    - target: {fileID: 791278640179693233, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 9756d9775ee845641991a3feacf02a14, type: 2}
     m_RemovedComponents:
     - {fileID: 1890105929744123463, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
     m_RemovedGameObjects: []
@@ -43268,6 +43269,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 605246726}
     m_Modifications:
+    - target: {fileID: 791278640179693233, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ee022dab46a4b2c47acaebf6af334421, type: 2}
     - target: {fileID: 491522186265930462, guid: 480badecccfe65241bdc327354c2404a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -43404,10 +43409,6 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 1479372276
       objectReference: {fileID: 0}
-    - target: {fileID: 791278640179693233, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: ee022dab46a4b2c47acaebf6af334421, type: 2}
     m_RemovedComponents:
     - {fileID: 1890105929744123463, guid: 0dae13cf3b1a87744a965ddb0197434f, type: 3}
     m_RemovedGameObjects: []
@@ -61676,7 +61677,8 @@ MonoBehaviour:
   danoEspecial: 6
   atacando: 0
   anguloDeVisao: 45
-  sonsPerso: {fileID: 930790101}
+  sonsPerso:
+  - {fileID: 930790101}
   somSoco: {fileID: 1386975910}
   somVulto: {fileID: 1828027449}
   movePerso: {fileID: 1452463012}

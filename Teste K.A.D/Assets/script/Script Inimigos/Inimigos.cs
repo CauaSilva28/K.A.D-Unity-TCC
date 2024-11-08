@@ -37,6 +37,7 @@ public class Inimigos : MonoBehaviour
     public GameObject retopoInimigo;
 
     [Header("Elementos objetos")]
+    public ParticleSystem efeitoDano;
     public Transform notPersonagem;
     public Transform rotacionarInimigo;
 

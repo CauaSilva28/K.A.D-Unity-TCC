@@ -18328,7 +18328,7 @@ MonoBehaviour:
   barraVidaKombi: {fileID: 1131396993}
   SomDanoPlayer:
   - {fileID: 2134844606}
-  movePerso: {fileID: 1443295079}
+  fase1: 1
   persoSelecionado: {fileID: 1751190707}
 --- !u!4 &990167950
 Transform:
@@ -27886,7 +27886,8 @@ MonoBehaviour:
   danoEspecial: 6
   atacando: 0
   anguloDeVisao: 45
-  sonsPerso: {fileID: 1688168943}
+  sonsPerso:
+  - {fileID: 1688168943}
   somSoco: {fileID: 1827352865}
   somVulto: {fileID: 1780173787}
   movePerso: {fileID: 1443295079}
