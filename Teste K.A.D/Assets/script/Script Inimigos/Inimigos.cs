@@ -135,7 +135,13 @@ public class Inimigos : MonoBehaviour
 
     void AtacarPlayer(){
         if(vidaInimigo > 0 && !recuando && !foraColisao && EstaOlhandoParaPersonagem()){
-            vidaPerso.value -= dano;
+            if(persoSelecionado.numPerso == 1){
+                vidaPerso.value -= dano - 0.05f;
+            }
+            else{
+                vidaPerso.value -= dano;
+            }
+
             SomDanoPlayer[persoSelecionado.numPerso].Play();
         }
     }

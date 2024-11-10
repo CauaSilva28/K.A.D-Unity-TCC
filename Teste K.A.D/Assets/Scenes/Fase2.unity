@@ -356,8 +356,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danoSoco: 0.8
   danoFerramenta: 1.8
-  danoEspecial: 6
+  danoEspecial: 7
+  danoObjetoFerramenta: 0
+  danoObjetoSoco: 0
   atacando: 0
+  naAreaObjeto: 0
   anguloDeVisao: 45
   sonsPerso:
   - {fileID: 413282981}
@@ -366,6 +369,7 @@ MonoBehaviour:
   movePerso: {fileID: 15560657}
   barraEspecial: {fileID: 676718700}
   vidaFerramenta: {fileID: 1000506334}
+  vidaObjeto: {fileID: 0}
   ferramenta: {fileID: 1871524386}
   quebrandoFerramenta: {fileID: 331805922}
   areaEspecial: {fileID: 1439788099}
@@ -438,7 +442,7 @@ MonoBehaviour:
   velocidadeAndando: 25
   valorDesgaste: 0.04
   valorDesgasteDash: 0.1
-  valorRecuperacao: 0.1
+  valorRecuperacao: 0.15
   velocidade: 0
   staminaPerso: {fileID: 427707117}
   pauseJogo: {fileID: 1307492695}
@@ -61675,7 +61679,10 @@ MonoBehaviour:
   danoSoco: 1
   danoFerramenta: 2
   danoEspecial: 6
+  danoObjetoFerramenta: 0
+  danoObjetoSoco: 0
   atacando: 0
+  naAreaObjeto: 0
   anguloDeVisao: 45
   sonsPerso:
   - {fileID: 930790101}
@@ -61684,6 +61691,7 @@ MonoBehaviour:
   movePerso: {fileID: 1452463012}
   barraEspecial: {fileID: 676718700}
   vidaFerramenta: {fileID: 1000506334}
+  vidaObjeto: {fileID: 0}
   ferramenta: {fileID: 823710219}
   quebrandoFerramenta: {fileID: 331805922}
   areaEspecial: {fileID: 260966376}

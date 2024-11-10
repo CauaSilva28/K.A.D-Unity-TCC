@@ -18310,6 +18310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e761793e84e84334b8bc5085e2e3c4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tempoSpawn: 6
   spawnpoints:
   - {fileID: 752495853}
   - {fileID: 1045066908}
@@ -27884,7 +27885,10 @@ MonoBehaviour:
   danoSoco: 1
   danoFerramenta: 2
   danoEspecial: 6
+  danoObjetoFerramenta: 0
+  danoObjetoSoco: 0
   atacando: 0
+  naAreaObjeto: 0
   anguloDeVisao: 45
   sonsPerso:
   - {fileID: 1688168943}
@@ -27893,6 +27897,7 @@ MonoBehaviour:
   movePerso: {fileID: 1443295079}
   barraEspecial: {fileID: 897414326}
   vidaFerramenta: {fileID: 668399711}
+  vidaObjeto: {fileID: 0}
   ferramenta: {fileID: 1046733079}
   quebrandoFerramenta: {fileID: 437014639}
   areaEspecial: {fileID: 1630748755}

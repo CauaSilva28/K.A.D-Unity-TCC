@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class SpawnarInimigos : MonoBehaviour
 {
+    public float tempoSpawn;
     public Transform[] spawnpoints;
 
     public GameObject dinoPrefab;
@@ -27,8 +28,10 @@ public class SpawnarInimigos : MonoBehaviour
 
     public TelaSelecionarPerso persoSelecionado;
 
+    private GameObject inimigoPrefab;
+
     private void Start() {
-        InvokeRepeating("SpawnInimigo", 1, 6);
+        InvokeRepeating("SpawnInimigo", 1, tempoSpawn);
     }
 
     void Update(){
@@ -43,8 +46,13 @@ public class SpawnarInimigos : MonoBehaviour
             int r = Random.Range(0, spawnpoints.Length);
 
             // Seleciona aleatoriamente entre dinoPrefab e punkPrefab
-            GameObject inimigoPrefab = Random.Range(0, 4) == 0 ? dinoPrefab : punkPrefab;
-            
+            if(fase1){
+                inimigoPrefab = Random.Range(0, 4) == 0 ? dinoPrefab : punkPrefab;
+            }
+            else{
+                inimigoPrefab = punkPrefab;
+            }
+
             GameObject inimigoInstance = Instantiate(inimigoPrefab, spawnpoints[r].position, valorRotacao);
             inimigoInstance.tag = "inimigo";
             
