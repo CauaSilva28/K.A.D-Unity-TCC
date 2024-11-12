@@ -27,7 +27,6 @@ public class Inimigos : MonoBehaviour
     public bool andandoDeCostas;
     private bool sofrendoAcao = false;
     private bool atacando = false;
-    private bool tirouVidaPerso = false;
 
     [Header("Objetos")]
     public GameObject[] ferramentaCena;

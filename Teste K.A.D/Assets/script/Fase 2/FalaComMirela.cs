@@ -20,8 +20,6 @@ public class FalaComMirela : MonoBehaviour
 
     public GameObject dialogoMirela;
 
-    private bool conversar = false;
-
     private bool saiuArea = false;
 
     // Start is called before the first frame update
