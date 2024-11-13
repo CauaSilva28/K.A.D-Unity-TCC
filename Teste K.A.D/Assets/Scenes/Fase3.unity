@@ -24186,7 +24186,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: fa098ef29cf19b44bba55b5780684cf5, type: 3}
   m_Resource: {fileID: 8300000, guid: fa098ef29cf19b44bba55b5780684cf5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -26733,6 +26733,7 @@ MonoBehaviour:
   telaControles: {fileID: 0}
   telaMenu: {fileID: 0}
   telaFases: {fileID: 0}
+  telaCreditos: {fileID: 0}
 --- !u!4 &921507128
 Transform:
   m_ObjectHideFlags: 0

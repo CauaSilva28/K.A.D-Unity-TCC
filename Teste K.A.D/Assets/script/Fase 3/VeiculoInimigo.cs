@@ -96,7 +96,7 @@ public class VeiculoInimigo : MonoBehaviour
             objDialogos[0].SetActive(true);
         }
 
-        if(vidaInimigo.value <= 0.3 && vidaInimigo.value >= 0.2){
+        if(vidaInimigo.value <= 0.2 && vidaInimigo.value >= 0.1){
             objDialogos[1].SetActive(true);
         }
     }
