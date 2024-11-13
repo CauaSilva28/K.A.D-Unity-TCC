@@ -16,6 +16,7 @@ public class Atacar : MonoBehaviour
     private bool EmAreaEspecial = false;
     public bool naAreaObjeto = false;
     public float anguloDeVisao;
+    public float anguloDeVisaoObjetos;
 
     public AudioSource[] sonsPerso;
     public AudioSource somSoco;
@@ -27,6 +28,8 @@ public class Atacar : MonoBehaviour
     public Slider vidaObjeto;
     public GameObject ferramenta;
     public GameObject quebrandoFerramenta;
+
+    private GameObject objeto;
 
     public GameObject areaEspecial;
 
@@ -94,15 +97,23 @@ public class Atacar : MonoBehaviour
                     somSoco.Play();
                 }
             }
+            else{
+                somVulto.Play();
+            }
         }
         else if(naAreaObjeto){
-            if(ferramenta.activeSelf){
-                sonsPerso[1].Play();
-                vidaObjeto.value -= danoObjetoFerramenta * Time.deltaTime;
+            if(EstaOlhandoParaInimigo(objeto, anguloDeVisaoObjetos)){
+                if(ferramenta.activeSelf){
+                    sonsPerso[1].Play();
+                    vidaObjeto.value -= danoObjetoFerramenta * Time.deltaTime;
+                }
+                else{
+                    sonsPerso[1].Play();
+                    vidaObjeto.value -= danoObjetoSoco * Time.deltaTime;
+                }
             }
             else{
-                sonsPerso[1].Play();
-                vidaObjeto.value -= danoObjetoSoco * Time.deltaTime;
+                somVulto.Play();
             }
         }
         else{
@@ -131,15 +142,23 @@ public class Atacar : MonoBehaviour
                     somSoco.Play();
                 }
             }
+            else{
+                somVulto.Play();
+            }
         }
         else if(naAreaObjeto){
-            if(ferramenta.activeSelf){
-                sonsPerso[1].Play();
-                vidaObjeto.value -= danoObjetoFerramenta * Time.deltaTime;
+            if(EstaOlhandoParaInimigo(objeto, anguloDeVisaoObjetos)){
+                if(ferramenta.activeSelf){
+                    sonsPerso[1].Play();
+                    vidaObjeto.value -= danoObjetoFerramenta * Time.deltaTime;
+                }
+                else{
+                    sonsPerso[1].Play();
+                    vidaObjeto.value -= danoObjetoSoco * Time.deltaTime;
+                }
             }
             else{
-                sonsPerso[1].Play();
-                vidaObjeto.value -= danoObjetoSoco * Time.deltaTime;
+                somVulto.Play();
             }
         }
         else{
@@ -202,9 +221,12 @@ public class Atacar : MonoBehaviour
             inimigos.Add(collision.gameObject);
             atacando = true;
         }
-
+    }
+    void OnCollisionStay(Collision collision)
+    {
         if(collision.gameObject.CompareTag("objetosAtacaveis")){
             naAreaObjeto = true;
+            objeto = collision.gameObject;
         }
     }
     void OnCollisionExit(Collision collision)
@@ -220,6 +242,7 @@ public class Atacar : MonoBehaviour
 
         if(collision.gameObject.CompareTag("objetosAtacaveis")){
             naAreaObjeto = false;
+            objeto = null;
         }
     }
 
@@ -227,7 +250,7 @@ public class Atacar : MonoBehaviour
     {
         foreach (GameObject inimigo in inimigos)
         {
-            if (EstaOlhandoParaInimigo(inimigo))
+            if (EstaOlhandoParaInimigo(inimigo, anguloDeVisao))
             {
                 return inimigo;
             }
@@ -244,14 +267,14 @@ public class Atacar : MonoBehaviour
         }
     }
 
-    bool EstaOlhandoParaInimigo(GameObject inimigo)
+    bool EstaOlhandoParaInimigo(GameObject _inimigo, float visao)
     {
-        if (inimigo == null)
+        if (_inimigo == null)
             return false;
 
-        Vector3 direcaoParaInimigo = (inimigo.transform.position - transform.position).normalized;
+        Vector3 direcaoParaInimigo = (_inimigo.transform.position - transform.position).normalized;
         float angulo = Vector3.Angle(transform.forward, direcaoParaInimigo);
 
-        return angulo < anguloDeVisao;
+        return angulo < visao;
     }
 }

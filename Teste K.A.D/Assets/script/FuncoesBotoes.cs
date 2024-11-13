@@ -11,6 +11,7 @@ public class FuncoesBotoes : MonoBehaviour
     public GameObject telaControles;
     public GameObject telaMenu;
     public GameObject telaFases;
+    public GameObject telaCreditos;
 
     private string textoFase;
 
@@ -58,11 +59,18 @@ public class FuncoesBotoes : MonoBehaviour
         telaMenu.SetActive(false);
     }
 
+    public void AbrirCreditos(){
+        somSelectMenu.Play();
+        telaCreditos.SetActive(true);
+        telaMenu.SetActive(false);
+    }
+
     public void botaoVoltar()
     {
         telaMenu.SetActive(true);
         telaControles.SetActive(false);
         telaFases.SetActive(false);
+        telaCreditos.SetActive(false);
     }
 
     public void SairDoJogo()

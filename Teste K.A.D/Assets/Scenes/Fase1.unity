@@ -27786,8 +27786,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.08
-  m_Height: 2.59
+  m_Radius: 0.95
+  m_Height: 2.83
   m_Direction: 1
   m_Center: {x: 0, y: 1.31, z: 0.13}
 --- !u!54 &1443295081
@@ -27890,6 +27890,7 @@ MonoBehaviour:
   atacando: 0
   naAreaObjeto: 0
   anguloDeVisao: 45
+  anguloDeVisaoObjetos: 0
   sonsPerso:
   - {fileID: 1688168943}
   somSoco: {fileID: 1827352865}

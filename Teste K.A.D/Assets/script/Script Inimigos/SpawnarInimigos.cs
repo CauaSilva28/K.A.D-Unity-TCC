@@ -84,7 +84,7 @@ public class SpawnarInimigos : MonoBehaviour
             }
 
             Inimigos scriptInimigo = inimigos[i].GetComponent<Inimigos>();
-            if (scriptInimigo != null) {
+            if (scriptInimigo != null && scriptInimigo.vidaInimigo > 0) {
                 scriptInimigo.anim.SetInteger("transition", 0);
                 scriptInimigo.navMeshAgent.speed = 0;
             }
