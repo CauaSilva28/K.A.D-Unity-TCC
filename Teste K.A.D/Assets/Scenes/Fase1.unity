@@ -18330,6 +18330,7 @@ MonoBehaviour:
   barraVidaKombi: {fileID: 1131396993}
   SomDanoPlayer:
   - {fileID: 2134844606}
+  doisInimigos: 1
   fase1: 1
   persoSelecionado: {fileID: 1751190707}
 --- !u!4 &990167950

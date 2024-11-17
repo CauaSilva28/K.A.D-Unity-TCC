@@ -24,6 +24,7 @@ public class SpawnarInimigos : MonoBehaviour
     private List<GameObject> inimigos = new List<GameObject>();
 
     private bool perdendo = false;
+    public bool doisInimigos;
     public bool fase1;
 
     public TelaSelecionarPerso persoSelecionado;
@@ -46,7 +47,7 @@ public class SpawnarInimigos : MonoBehaviour
             int r = Random.Range(0, spawnpoints.Length);
 
             // Seleciona aleatoriamente entre dinoPrefab e punkPrefab
-            if(fase1){
+            if(doisInimigos){
                 inimigoPrefab = Random.Range(0, 4) == 0 ? dinoPrefab : punkPrefab;
             }
             else{

@@ -11,7 +11,7 @@ public class AreaFrenteBase : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             fumacaPortao.SetActive(true);
-            portaoBase.GetComponent<Animator>().SetBool("AbrirPortao", true);
+            portaoBase.GetComponent<Animator>().SetInteger("transicao", 1);
             somPortaoAbrindo.Play();
             Destroy(gameObject);
         }

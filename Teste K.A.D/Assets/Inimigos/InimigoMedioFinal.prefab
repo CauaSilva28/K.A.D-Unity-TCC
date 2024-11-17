@@ -4990,15 +4990,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a929aca3db789184c8e4b830ff42ff1d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.387602
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a929aca3db789184c8e4b830ff42ff1d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.387602
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a929aca3db789184c8e4b830ff42ff1d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.387602
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a929aca3db789184c8e4b830ff42ff1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5046,7 +5046,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 61eb0d8617ada1d44ac804f7ffe4a2ad, type: 2}
     - target: {fileID: 919132149155446097, guid: a929aca3db789184c8e4b830ff42ff1d, type: 3}
       propertyPath: m_Name
-      value: InimigoMedio
+      value: InimigoMedioFinal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a929aca3db789184c8e4b830ff42ff1d, type: 3}
       propertyPath: m_TagString
@@ -5143,7 +5143,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6965392386661985781}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1923039037
   m_Radius: 0.5
   m_Speed: 40
   m_Acceleration: 80
@@ -5321,7 +5321,7 @@ MonoBehaviour:
   velocidadeRotacao: 1.2
   recuoDistancia: 50
   recuoTempo: 0.5
-  vidaInimigo: 11
+  vidaInimigo: 10
   dano: 0.3
   velocidadeInimigo: 40
   tempoRosnar: 8
