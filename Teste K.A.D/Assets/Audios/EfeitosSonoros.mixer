@@ -65,6 +65,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 5e727a0ab6abc614897bbcb643e95c92
     name: efeitoSonoro
+  - guid: 918c0df102860ca42bb7657ca36842a1
+    name: musica
   m_AudioMixerGroupViews:
   - guids:
     - 024bf65362c442e47932ce0f71a75f5e

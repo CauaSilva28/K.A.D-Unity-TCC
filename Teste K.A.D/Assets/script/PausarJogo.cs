@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,8 @@ public class PausarJogo : MonoBehaviour
 
     public GameObject telaControles;
 
+    public Slider barraVolumeMusica;
+
     public bool pausado = false;
     public bool perdendo = false;
 
@@ -26,9 +29,14 @@ public class PausarJogo : MonoBehaviour
         allAudioSources = GetComponentsInChildren<AudioSource>();
     }
 
+    public void volumeMusica(){
+        float volume = barraVolumeMusica.value;
+        mixer.SetFloat("musica", Mathf.Log10(volume)*20);
+    }
+
     // Update is called once per frame
     void Update()
-    {
+    {   
         if(!perdendo){
             if(pausado){
                 if(Input.GetKeyDown(KeyCode.Escape)){
