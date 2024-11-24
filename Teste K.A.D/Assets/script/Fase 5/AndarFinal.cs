@@ -7,9 +7,9 @@ public class AndarFinal : MonoBehaviour
     public GameObject barreira;
     public GameObject telaTransicao;
 
-    public GameObject personagens;
-
-    public GameObject[] playerCutscene;
+    public GameObject[] player;
+    public GameObject[] cameraPlayer;
+    public Transform posicaoPlayer;
 
     public GameObject cutsceneBoss;
 
@@ -17,11 +17,6 @@ public class AndarFinal : MonoBehaviour
 
     private bool aconteceu;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
@@ -39,8 +34,20 @@ public class AndarFinal : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        personagens.SetActive(false);
-        playerCutscene[selecaoPerso.numPerso].SetActive(true);
+        player[selecaoPerso.numPerso].GetComponent<Rigidbody>().isKinematic = true;
+        player[selecaoPerso.numPerso].GetComponent<Transform>().transform.position = posicaoPlayer.position;
+        player[selecaoPerso.numPerso].GetComponent<Transform>().transform.rotation = posicaoPlayer.rotation;
+        player[selecaoPerso.numPerso].GetComponent<Movimento>().perdendo = true;
+        player[selecaoPerso.numPerso].GetComponent<AnimacoesPerso>().morrendo = true;
+        player[selecaoPerso.numPerso].GetComponent<Animator>().SetInteger("transition", 0);
+        cameraPlayer[selecaoPerso.numPerso].SetActive(false);
         cutsceneBoss.SetActive(true);
+    }
+
+    public void RetornarPlayer(){
+        player[selecaoPerso.numPerso].GetComponent<Rigidbody>().isKinematic = false;
+        player[selecaoPerso.numPerso].GetComponent<Movimento>().perdendo = false;
+        player[selecaoPerso.numPerso].GetComponent<AnimacoesPerso>().morrendo = false;
+        cameraPlayer[selecaoPerso.numPerso].SetActive(true);
     }
 }

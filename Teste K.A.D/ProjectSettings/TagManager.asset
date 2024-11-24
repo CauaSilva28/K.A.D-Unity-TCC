@@ -17,6 +17,8 @@ TagManager:
   - concreto
   - grama
   - objetosAtacaveis
+  - parede
+  - pilar
   layers:
   - Default
   - TransparentFX
