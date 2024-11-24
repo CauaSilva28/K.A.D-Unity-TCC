@@ -9,6 +9,7 @@ public class AndarFinal : MonoBehaviour
 
     public GameObject[] player;
     public GameObject[] cameraPlayer;
+    public GameObject[] musicasFundo;
     public Transform posicaoPlayer;
 
     public GameObject cutsceneBoss;
@@ -41,6 +42,8 @@ public class AndarFinal : MonoBehaviour
         player[selecaoPerso.numPerso].GetComponent<AnimacoesPerso>().morrendo = true;
         player[selecaoPerso.numPerso].GetComponent<Animator>().SetInteger("transition", 0);
         cameraPlayer[selecaoPerso.numPerso].SetActive(false);
+        musicasFundo[0].SetActive(false);
+        musicasFundo[1].SetActive(true);
         cutsceneBoss.SetActive(true);
     }
 

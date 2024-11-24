@@ -22,12 +22,6 @@ public class PausarJogo : MonoBehaviour
     public bool pausado = false;
     public bool perdendo = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Obtém todos os AudioSource no objeto (e seus filhos)
-        allAudioSources = GetComponentsInChildren<AudioSource>();
-    }
 
     public void volumeMusica(){
         float volume = barraVolumeMusica.value;
@@ -37,6 +31,9 @@ public class PausarJogo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        // Obtém todos os AudioSource no objeto (e seus filhos)
+        allAudioSources = GetComponentsInChildren<AudioSource>();
+        
         if(!perdendo){
             if(pausado){
                 if(Input.GetKeyDown(KeyCode.Escape)){

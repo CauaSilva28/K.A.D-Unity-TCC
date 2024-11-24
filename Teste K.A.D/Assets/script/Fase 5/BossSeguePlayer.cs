@@ -17,7 +17,9 @@ public class BossSeguePlayer : MonoBehaviour
     [Header("Referências")]
     public Transform[] player;
     public GameObject particulaPrefab;
+    public GameObject particulaInimigoPrefab;
     public AudioSource somColisao;
+    public AudioSource somColisaoInimigo;
     public Slider vidaPerso;
     public TelaSelecionarPerso selecaoPerso;
     public Slider vidaSlideBoss;
@@ -27,7 +29,10 @@ public class BossSeguePlayer : MonoBehaviour
     private bool isWaiting = false;
     private Vector3 targetPosition;
 
+    private Animator animBoss;
+
     void Start(){
+        animBoss = GetComponent<Animator>();
         calculoVida = 1f / vidaBoss;
     }
 
@@ -54,12 +59,16 @@ public class BossSeguePlayer : MonoBehaviour
                 PararImpulso();
             }
         }
+        else{
+            animBoss.SetBool("correu", false);
+        }
     }
 
     public void IniciarImpulso()
     {
         if (player[selecaoPerso.numPerso] != null && !isWaiting)
         {
+            animBoss.SetBool("correu", true);
             // Define o alvo como a posição atual do jogador
             targetPosition = player[selecaoPerso.numPerso].position;
 
@@ -73,6 +82,7 @@ public class BossSeguePlayer : MonoBehaviour
 
     private void PararImpulso()
     {
+        animBoss.SetBool("correu", false);
         isCharging = false;
         StartCoroutine(WaitBeforeNextCharge());
     }
@@ -93,9 +103,9 @@ public class BossSeguePlayer : MonoBehaviour
 
     private void PararMoverLado()
     {
-        // Gera um pequeno movimento lateral aleatório
+        // Gera um pequeno movimento lateral
         Vector3 lateralMove = transform.right * 30f;
-        transform.position += lateralMove;
+        transform.position += lateralMove * 20f * Time.deltaTime;
 
         // Pausa antes de tentar novamente
         PararImpulso();
@@ -135,6 +145,14 @@ public class BossSeguePlayer : MonoBehaviour
 
                 // Para a investida ao colidir com obstáculos
                 PararMoverLado();
+            }
+
+            if(other.gameObject.CompareTag("inimigo")){
+                Destroy(other.gameObject);
+
+                Instantiate(particulaInimigoPrefab, transform.position, Quaternion.identity);
+
+                somColisaoInimigo.Play();
             }
         }
     }
