@@ -13,6 +13,7 @@ public class AndarFinal : MonoBehaviour
     public Transform posicaoPlayer;
 
     public GameObject cutsceneBoss;
+    public GameObject boss;
 
     public TelaSelecionarPerso selecaoPerso;
 
@@ -45,6 +46,7 @@ public class AndarFinal : MonoBehaviour
         musicasFundo[0].SetActive(false);
         musicasFundo[1].SetActive(true);
         cutsceneBoss.SetActive(true);
+        boss.SetActive(true);
     }
 
     public void RetornarPlayer(){

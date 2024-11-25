@@ -14,9 +14,9 @@ public class BossVisao : MonoBehaviour
 
     void Update()
     {
-        if(bossSeguePlayer.vidaPerso.value > 0){
+        if(bossSeguePlayer.vidaPerso.value > 0 && bossSeguePlayer.vidaBoss > 0){
             // Calcula a distância entre o vilão e o jogador
-            float distanceToPlayer = Vector3.Distance(transform.position, bossSeguePlayer.player[bossSeguePlayer.selecaoPerso.numPerso].position);
+            float distanceToPlayer = Vector3.Distance(transform.position, bossSeguePlayer.player[bossSeguePlayer.selecaoPerso.numPerso].GetComponent<Transform>().position);
 
             // Verifica se o jogador está dentro do alcance de detecção, se o vilão não está carregando uma investida e se o vilão ainda tem vida
             if (distanceToPlayer < detectionRange && !bossSeguePlayer.isCharging && bossSeguePlayer.vidaBoss > 0)

@@ -5227,7 +5227,7 @@ MonoBehaviour:
   vidaInimigo: 6
   dano: 0.1
   velocidadeInimigo: 40
-  tempoRosnar: 8
+  tempoRosnar: 12
   perseguindoPlayer: 0
   parado: 0
   andandoDeCostas: 0

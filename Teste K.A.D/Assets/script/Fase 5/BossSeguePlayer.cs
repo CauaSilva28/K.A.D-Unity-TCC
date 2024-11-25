@@ -15,7 +15,7 @@ public class BossSeguePlayer : MonoBehaviour
     private float calculoVida;
 
     [Header("Referências")]
-    public Transform[] player;
+    public GameObject[] player;
     public GameObject particulaPrefab;
     public GameObject particulaInimigoPrefab;
     public AudioSource somColisao;
@@ -31,6 +31,12 @@ public class BossSeguePlayer : MonoBehaviour
 
     private Animator animBoss;
 
+    [Header("Referências vitória")]
+    public AudioSource gritoBoss;
+    public GameObject spawnInimigo;
+    public GameObject telaTransicao;
+    private bool aconteceuVitoria;
+
     void Start(){
         animBoss = GetComponent<Animator>();
         calculoVida = 1f / vidaBoss;
@@ -40,7 +46,9 @@ public class BossSeguePlayer : MonoBehaviour
     {
         vidaSlideBoss.value = vidaBoss * calculoVida;
 
-        if (isCharging && vidaPerso.value > 0)
+        Vitoria();
+
+        if (isCharging && vidaPerso.value > 0 && vidaBoss > 0)
         {
             // Move o Boss diretamente na direção do alvo
             transform.position += chargeDirection * chargeForce * Time.deltaTime;
@@ -66,11 +74,11 @@ public class BossSeguePlayer : MonoBehaviour
 
     public void IniciarImpulso()
     {
-        if (player[selecaoPerso.numPerso] != null && !isWaiting)
+        if (player[selecaoPerso.numPerso].GetComponent<Transform>() != null && !isWaiting)
         {
             animBoss.SetBool("correu", true);
             // Define o alvo como a posição atual do jogador
-            targetPosition = player[selecaoPerso.numPerso].position;
+            targetPosition = player[selecaoPerso.numPerso].GetComponent<Transform>().position;
 
             // Define a direção da investida
             chargeDirection = (targetPosition - transform.position).normalized;
@@ -111,6 +119,38 @@ public class BossSeguePlayer : MonoBehaviour
         PararImpulso();
     }
 
+    private void Vitoria(){
+        if(vidaBoss <= 0 && !aconteceuVitoria){
+            StartCoroutine(vitoria());
+            aconteceuVitoria = true;
+        }
+    }
+
+    IEnumerator vitoria(){
+        gritoBoss.Play();
+        animBoss.SetBool("morreu", true);
+        animBoss.SetBool("correu", false);
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+
+        yield return new WaitForSeconds(4f);
+
+        player[selecaoPerso.numPerso].GetComponent<Movimento>().perdendo = true;
+        player[selecaoPerso.numPerso].GetComponent<AnimacoesPerso>().enabled = false;
+        player[selecaoPerso.numPerso].GetComponent<Atacar>().enabled = false;
+        player[selecaoPerso.numPerso].GetComponent<Rigidbody>().isKinematic = true;
+        player[selecaoPerso.numPerso].GetComponent<Animator>().SetInteger("transition", 0);
+        spawnInimigo.GetComponent<SpawnarInimigos>().DesabilitarScriptsInimigos();
+        telaTransicao.SetActive(true);
+        telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(spawnInimigo);
+
+        yield return new WaitForSeconds(2f);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (isCharging)
@@ -136,6 +176,7 @@ public class BossSeguePlayer : MonoBehaviour
             }
             else if(other.gameObject.CompareTag("pilar")){
                 vidaBoss -= 1;
+                other.gameObject.GetComponent<VidaPilar>().vidaPilar--;
 
                 // Instancia a partícula ao chegar no destino
                 Instantiate(particulaPrefab, transform.position, Quaternion.identity);
