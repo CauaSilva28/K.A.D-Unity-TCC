@@ -172,15 +172,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.13207549, g: 0.08067819, b: 0.029280886, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0f8ce855dad539a44abf138ad46928dc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -245,10 +245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -300,52 +300,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &400907013
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 400907015}
-  - component: {fileID: 400907014}
-  m_Layer: 0
-  m_Name: transicaoCena
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &400907014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400907013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a88ca159e60f7c44815889ea3b6d180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telaTransicao: {fileID: 1287333986}
-  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
---- !u!4 &400907015
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400907013}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1165.1675, y: 46.513428, z: 92.05765}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849897350
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +386,7 @@ GameObject:
   - component: {fileID: 931414111}
   - component: {fileID: 931414113}
   - component: {fileID: 931414112}
+  - component: {fileID: 931414114}
   m_Layer: 5
   m_Name: textoHistoria
   m_TagString: Untagged
@@ -471,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -491,9 +446,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tudo era lindo, paz e harmonia, at\xE9 uma guerra devastar a cidade que
-    ja foi feliz um dia. Bunkers foram projetados antes do incidente, e l\xE1, sobreviventes
-    se acomodaram por anos."
+  m_Text: 
 --- !u!222 &931414113
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -502,6 +455,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931414110}
   m_CullTransparentMesh: 1
+--- !u!95 &931414114
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931414110}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de0e5c1d846cbef418687170260c6e15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1046249503
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1287333987
 Animator:
   serializedVersion: 7
@@ -691,7 +666,7 @@ Animator:
   m_GameObject: {fileID: 1287333986}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83df81f6dd80520489b8c1b43c84f699, type: 2}
+  m_Controller: {fileID: 9100000, guid: c14f8d8b4659f58488fe08a9030efdea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -760,6 +735,66 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1546415611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546415613}
+  - component: {fileID: 1546415612}
+  m_Layer: 0
+  m_Name: scriptHistoria
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1546415612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546415611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0fd5ee09aa9f4c9437cece30340ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textoHistoria: {fileID: 931414110}
+  telaTransicao: {fileID: 1287333986}
+  frases: {fileID: 931414112}
+  imgFase: {fileID: 849897352}
+  textosFrases:
+  - "Tudo era lindo, paz e harmonia, at\xE9 uma guerra devastar a cidade que ja foi
+    feliz um dia. Bunkers foram projetados antes do incidente, e l\xE1, sobreviventes
+    se acomodaram por anos."
+  - Eu vive aodjsadjasd jasdnmsa das
+  - nosndosand sajd isaj ias dh asidsa das das
+  - ' as dnas dsaqo dna oiudsahb saiuk dsab sa '
+  spritImgHistoria:
+  - {fileID: 21300000, guid: caeadab8253d4f945850ab3c1b407f69, type: 3}
+  - {fileID: 21300000, guid: 86b8f7cee4b461a49bd160e33ff0456f, type: 3}
+  - {fileID: 21300000, guid: 42a76ed05a590f7469f49d84e9d5df00, type: 3}
+  - {fileID: 21300000, guid: ebb85be4e3abf4f45b65cf8779b0c2ee, type: 3}
+--- !u!4 &1546415613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546415611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 792.47156, y: 36.448666, z: 1900.4232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1902300566
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +806,7 @@ GameObject:
   - component: {fileID: 1902300567}
   - component: {fileID: 1902300569}
   - component: {fileID: 1902300568}
+  - component: {fileID: 1902300570}
   m_Layer: 5
   m_Name: setaPassar
   m_TagString: Untagged
@@ -795,7 +831,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 694.92, y: -379.9}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 60, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902300568
 MonoBehaviour:
@@ -835,6 +871,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902300566}
   m_CullTransparentMesh: 1
+--- !u!95 &1902300570
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902300566}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2507718d7249a5e4abfb98600840f600, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -842,4 +900,4 @@ SceneRoots:
   - {fileID: 1046249506}
   - {fileID: 158794249}
   - {fileID: 1164445731}
-  - {fileID: 400907015}
+  - {fileID: 1546415613}
