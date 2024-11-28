@@ -8,9 +8,9 @@ public class BossSeguePlayer : MonoBehaviour
     [Header("Atributos")]
     public int vidaBoss;
     public float danoBoss;
-    public float chargeForce = 10f;
-    public float rotationSpeed = 5f;
-    public float stopDuration = 5f;
+    public float chargeForce;
+    public float rotationSpeed;
+    public float stopDuration;
 
     private float calculoVida;
 
@@ -20,6 +20,7 @@ public class BossSeguePlayer : MonoBehaviour
     public GameObject particulaInimigoPrefab;
     public AudioSource somColisao;
     public AudioSource somColisaoInimigo;
+    public AudioSource gritoBossAtaque;
     public Slider vidaPerso;
     public TelaSelecionarPerso selecaoPerso;
     public Slider vidaSlideBoss;
@@ -35,7 +36,10 @@ public class BossSeguePlayer : MonoBehaviour
     public AudioSource gritoBoss;
     public GameObject spawnInimigo;
     public GameObject telaTransicao;
+    public GameObject cutsceneFim;
+    public GameObject personagens;
     private bool aconteceuVitoria;
+    private bool ficouMaisForte;
 
     void Start(){
         animBoss = GetComponent<Animator>();
@@ -47,6 +51,12 @@ public class BossSeguePlayer : MonoBehaviour
         vidaSlideBoss.value = vidaBoss * calculoVida;
 
         Vitoria();
+
+        if(vidaBoss < 5 && !ficouMaisForte){
+            stopDuration /= 2;
+            chargeForce += 20;
+            ficouMaisForte = true;
+        }
 
         if (isCharging && vidaPerso.value > 0 && vidaBoss > 0)
         {
@@ -74,8 +84,9 @@ public class BossSeguePlayer : MonoBehaviour
 
     public void IniciarImpulso()
     {
-        if (player[selecaoPerso.numPerso].GetComponent<Transform>() != null && !isWaiting)
+        if (player[selecaoPerso.numPerso].GetComponent<Transform>() != null && !isWaiting && vidaPerso.value > 0 && vidaBoss > 0)
         {
+            gritoBossAtaque.Play();
             animBoss.SetBool("correu", true);
             // Define o alvo como a posição atual do jogador
             targetPosition = player[selecaoPerso.numPerso].GetComponent<Transform>().position;
@@ -111,12 +122,25 @@ public class BossSeguePlayer : MonoBehaviour
 
     private void PararMoverLado()
     {
-        // Gera um pequeno movimento lateral
-        Vector3 lateralMove = transform.right * 30f;
-        transform.position += lateralMove * 20f * Time.deltaTime;
+        StartCoroutine(recuarLado());
 
         // Pausa antes de tentar novamente
         PararImpulso();
+    }
+
+    IEnumerator recuarLado(){
+        Vector3 direcaoRecuo = (transform.position - transform.right).normalized;
+        Vector3 posicaoInicial = transform.position;
+        Vector3 posicaoFinalRecuo = posicaoInicial + direcaoRecuo * 40f;
+
+        float tempoInicio = Time.time;
+        while (Time.time < tempoInicio + 1f)
+        {
+            Vector3 novaPosicao = Vector3.Lerp(posicaoInicial, posicaoFinalRecuo, (Time.time - tempoInicio) / 1f);
+            novaPosicao.y = posicaoInicial.y;
+            transform.position = novaPosicao;
+            yield return null;
+        }
     }
 
     private void Vitoria(){
@@ -149,6 +173,10 @@ public class BossSeguePlayer : MonoBehaviour
         Destroy(spawnInimigo);
 
         yield return new WaitForSeconds(2f);
+
+        gameObject.SetActive(false);
+        personagens.SetActive(false);
+        cutsceneFim.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision other)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using UnityEngine.SceneManagement;
 
 public class PassarHistoria : MonoBehaviour
 {
@@ -34,6 +34,8 @@ public class PassarHistoria : MonoBehaviour
 
     IEnumerator Passar()
     {
+        yield return new WaitForSeconds(2f);
+        
         for (int i = 0; i < textosFrases.Length; i++)
         {
             frases.text = textosFrases[i];
@@ -52,8 +54,11 @@ public class PassarHistoria : MonoBehaviour
             textoHistoria.GetComponent<Animator>().SetInteger("transition", 2);
             telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
 
-
             yield return new WaitForSeconds(2f);
         }
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene("Fase1");
     }
 }

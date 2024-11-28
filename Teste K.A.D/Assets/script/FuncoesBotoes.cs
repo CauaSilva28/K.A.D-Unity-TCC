@@ -19,6 +19,11 @@ public class FuncoesBotoes : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void IniciarHistoria(){
+        textoFase = "Historia";
+        somSelectMenu.Play();
+        StartCoroutine(inicioJogo());
+    }
     public void IniciarJogo(){
         textoFase = "Fase1";
         somSelectMenu.Play();
@@ -76,6 +81,14 @@ public class FuncoesBotoes : MonoBehaviour
     public void SairDoJogo()
     {
         Application.Quit();
+    }
+
+    public void IrCreditosFim(){
+        SceneManager.LoadScene("CreditosFim");
+    }
+
+    public void voltarParaMenu(){
+        SceneManager.LoadScene("Menu");
     }
 
     IEnumerator inicioJogo(){

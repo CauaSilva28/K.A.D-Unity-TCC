@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 8ee6a02d79910904aba56a523993484f
   - enabled: 1
+    path: Assets/Scenes/Historia.unity
+    guid: b00b733605cf4854ab29e83f1b3df93f
+  - enabled: 1
     path: Assets/Scenes/Fase1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -23,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fase5.unity
     guid: 6c073c4080b70c24b9597b6ad8d655ae
+  - enabled: 1
+    path: Assets/Scenes/CreditosFim.unity
+    guid: 981e014bcdd7e0940aec02c18b6ff6aa
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

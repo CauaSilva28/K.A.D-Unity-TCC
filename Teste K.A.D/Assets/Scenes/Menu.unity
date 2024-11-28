@@ -4248,7 +4248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telaTransicao: {fileID: 1639640543}
-  mixer: {fileID: 24100000, guid: c88d200c93837714bbe87c1803cb7ed7, type: 2}
 --- !u!4 &1560935414
 Transform:
   m_ObjectHideFlags: 0
@@ -5578,7 +5577,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1881847362}
         m_TargetAssemblyTypeName: FuncoesBotoes, Assembly-CSharp
-        m_MethodName: IniciarJogo
+        m_MethodName: IniciarHistoria
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
