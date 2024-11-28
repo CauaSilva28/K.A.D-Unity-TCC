@@ -164,7 +164,7 @@ public class BossSeguePlayer : MonoBehaviour
         player[selecaoPerso.numPerso].GetComponent<Atacar>().enabled = false;
         player[selecaoPerso.numPerso].GetComponent<Rigidbody>().isKinematic = true;
         player[selecaoPerso.numPerso].GetComponent<Animator>().SetInteger("transition", 0);
-        spawnInimigo.GetComponent<SpawnarInimigos>().DesabilitarScriptsInimigos();
+        spawnInimigo.GetComponent<SpawnarInimigos>().DestruirTodosInimigos();
         telaTransicao.SetActive(true);
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
 

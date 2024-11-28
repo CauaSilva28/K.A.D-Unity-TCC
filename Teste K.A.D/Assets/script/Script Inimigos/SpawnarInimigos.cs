@@ -91,4 +91,16 @@ public class SpawnarInimigos : MonoBehaviour
             }
         }
     }
+
+    public void DestruirTodosInimigos()
+    {
+        for (int i = inimigos.Count - 1; i >= 0; i--)
+        {
+            if (inimigos[i] != null)
+            {
+                Destroy(inimigos[i]);
+            }
+            inimigos.RemoveAt(i);
+        }
+    }
 }
