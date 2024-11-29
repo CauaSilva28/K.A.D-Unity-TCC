@@ -13,6 +13,7 @@ Em um mundo pós-apocalíptico devastado por uma guerra nuclear, onde criaturas 
 
 ## Acesso a WIKIS
 
+- [Scripts gerais](https://github.com/CauaSilva28/K.A.D-Unity-TCC/wiki/Scripts-gerais)
 - [Script inimigos](https://github.com/CauaSilva28/K.A.D-Unity-TCC/wiki/Scripts-principais-dos-inimigos)
 - [Script personagens](https://github.com/CauaSilva28/K.A.D-Unity-TCC/wiki/Scripts-principais-dos-personagens)
 - [Script fase 1](https://github.com/CauaSilva28/K.A.D-Unity-TCC/wiki/Scripts-principais-fase-1)
