@@ -12913,7 +12913,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "Obrigado por jogar\nKombi And Dinossaurs\n\nEmpresa:\nG.U.B (Games Unit
+  m_Text: "Obrigado por jogar\nKombi And Dinosaurs\n\nEmpresa:\nG.U.B (Games Unit
     Brazilian)\n\nMembros:\nCau\xE3 Silva Moreira Santos\nDavi dos Santos Nascimento\nFernanda
     Viana Marcelino\nGabriel Faria\nPedro Ferraz Rom\xE3o\nRuan Pablo Fernandes Silva\n\nOrientadores:\nAline
     Firmino Brito\nEnildo Candido Alves Junior\nLuiz Carlos Ribeiro da Silva\nNivia
@@ -12922,8 +12922,8 @@ MonoBehaviour:
     Silva Moreira Santos\nDavi dos Santos Nascimento\nFernanda Viana Marcelino\nGabriel
     Faria\nPedro Ferraz Rom\xE3o\nRuan Pablo Fernandes Silva\n\nModelagem 3D:\nCau\xE3
     Silva Moreira Santos\nDavi dos Santos Nascimento\n\nArte geral:\nFernanda Viana
-    Marcelino\nPedro Ferraz Rom\xE3o\n\n\xC1udio Designer:\nRuan Pablo\n\nDesenvolvedor
-    Web:\nCau\xE3 Silva Moreira Santos\nDavi dos Santos Nascimento\n\nDesenvolvedor
+    Marcelino\nPedro Ferraz Rom\xE3o\n\n\xC1udio Designer:\nRuan Pablo Fernandes
+    Silva\n\nDesenvolvedor Web:\nCau\xE3 Silva Moreira Santos\nDavi dos Santos Nascimento\n\nDesenvolvedor
     Mobile:\nPedro Ferraz Rom\xE3o\n\nRedes Sociais:\nFernanda Viana Marcelino"
 --- !u!222 &1444292644
 CanvasRenderer:
