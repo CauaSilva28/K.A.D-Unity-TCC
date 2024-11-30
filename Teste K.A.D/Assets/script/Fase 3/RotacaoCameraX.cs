@@ -7,11 +7,6 @@ public class RotacaoCameraX : MonoBehaviour
     private float rotacaoX = -90f;
     
     public PausarJogo pauseJogo;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

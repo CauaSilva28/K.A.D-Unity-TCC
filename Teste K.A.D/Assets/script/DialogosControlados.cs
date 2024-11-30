@@ -45,10 +45,6 @@ public class DialogosControlados : MonoBehaviour
     public string[] nomePersoJogaveis;
     public Animator[] animacoesPersoJogaveis;
 
-    void Start(){ 
-
-    }
-
     void Update()
     {
         adicionandoElementosPersosJogaveis();

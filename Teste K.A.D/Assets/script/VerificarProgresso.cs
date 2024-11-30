@@ -28,10 +28,4 @@ public class VerificarProgresso : MonoBehaviour
             fasesTrancada[3].SetActive(false);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

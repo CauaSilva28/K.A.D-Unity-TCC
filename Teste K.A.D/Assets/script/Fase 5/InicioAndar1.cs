@@ -14,12 +14,6 @@ public class InicioAndar1 : MonoBehaviour
 
     private bool aconteceu;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             if(!aconteceu){

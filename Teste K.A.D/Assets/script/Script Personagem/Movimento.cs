@@ -99,7 +99,7 @@ public class Movimento : MonoBehaviour
         if (podeDash){
             podeDash = false;
             yield return StartCoroutine(Dash());
-            yield return new WaitForSeconds(0.4f); // Espera adicional de 1.5 segundos após o dash para completar os 2 segundos
+            yield return new WaitForSeconds(0.4f);
             podeDash = true;
         }
     }

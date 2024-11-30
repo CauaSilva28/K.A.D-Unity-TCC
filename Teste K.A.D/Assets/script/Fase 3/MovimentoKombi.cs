@@ -25,11 +25,6 @@ public class MovimentoKombi : MonoBehaviour
 
     public PausarJogo pauseJogo;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if(!pauseJogo.pausado){

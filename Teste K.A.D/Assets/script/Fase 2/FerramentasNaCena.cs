@@ -12,10 +12,4 @@ public class FerramentasNaCena : MonoBehaviour
     {
         Instantiate(ferramentas[selecaoPerso.numPerso], transform.position, Quaternion.identity);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

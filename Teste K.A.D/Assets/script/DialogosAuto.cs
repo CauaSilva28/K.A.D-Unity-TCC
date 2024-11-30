@@ -36,10 +36,6 @@ public class DialogosAuto : MonoBehaviour
     public AudioSource[] audioPersoJogaveis;
     public string[] nomePersoJogaveis;
 
-    void Start(){ 
-
-    }
-
     void Update()
     {
         adicionandoElementosPersosJogaveis();
