@@ -17844,9 +17844,9 @@ GameObject:
   m_Component:
   - component: {fileID: 565518720}
   - component: {fileID: 565518721}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AreaEspecial
-  m_TagString: Untagged
+  m_TagString: AreaEspecial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23113,9 +23113,9 @@ GameObject:
   m_Component:
   - component: {fileID: 785523093}
   - component: {fileID: 785523094}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AreaEspecial
-  m_TagString: Untagged
+  m_TagString: AreaEspecial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33695,7 +33695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9490196}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -40165,9 +40165,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1328145818}
   - component: {fileID: 1328145819}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AreaEspecial
-  m_TagString: Untagged
+  m_TagString: AreaEspecial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41074,6 +41074,7 @@ MonoBehaviour:
   - {fileID: 420768720}
   - {fileID: 1068528337}
   - {fileID: 2096262407}
+  perdendo: 0
   doisInimigos: 0
   fase1: 0
   persoSelecionado: {fileID: 1428976166}
@@ -53008,9 +53009,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1706553637}
   - component: {fileID: 1706553638}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AreaEspecial
-  m_TagString: Untagged
+  m_TagString: AreaEspecial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
