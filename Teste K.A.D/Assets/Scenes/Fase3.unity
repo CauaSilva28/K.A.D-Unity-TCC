@@ -22744,7 +22744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogo:
-  - "Vai mais r\xE1pido! Vc t\xE1 acelerando essa jo\xE7a !?"
+  - "Vai mais r\xE1pido! Vc t\xE1 acelerando essa jo\xE7a!?"
   - "Vam bora, falta mais um pouco pra bagun\xE7ar esse trem!"
   telaDialogo: {fileID: 870479774}
   elementosDialogo: {fileID: 1677795543}

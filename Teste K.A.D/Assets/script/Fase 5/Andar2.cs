@@ -10,6 +10,8 @@ public class Andar2 : MonoBehaviour
 
     public GameObject areaMensagemFim;
 
+    public GameObject spawnarInimigo;
+
     private bool aconteceu;
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class Andar2 : MonoBehaviour
         if(other.gameObject.CompareTag("Player")){
             if(!aconteceu){
                 barreiras[0].SetActive(true);
+                spawnarInimigo.GetComponent<SpawnarInimigos>().DestruirTodosInimigos();
                 aconteceu = true;
             }
         }

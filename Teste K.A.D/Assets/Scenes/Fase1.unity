@@ -18750,6 +18750,7 @@ MonoBehaviour:
   barraVidaKombi: {fileID: 1131396993}
   SomDanoPlayer:
   - {fileID: 2134844606}
+  perdendo: 0
   doisInimigos: 1
   fase1: 1
   persoSelecionado: {fileID: 1751190707}
@@ -33209,7 +33210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogo:
-  - "R\xE1pido os cornos est\xE3o vindo!"
+  - "R\xE1pido! Eles est\xE3o vindo! Dinossauros e aqueles malditos capangas!"
   - Deixa que eu cuido disso!
   telaDialogo: {fileID: 1279090766}
   elementosDialogo: {fileID: 1352902477}

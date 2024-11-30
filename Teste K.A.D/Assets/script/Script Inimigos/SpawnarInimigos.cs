@@ -23,7 +23,7 @@ public class SpawnarInimigos : MonoBehaviour
 
     private List<GameObject> inimigos = new List<GameObject>();
 
-    private bool perdendo = false;
+    public bool perdendo = false;
     public bool doisInimigos;
     public bool fase1;
 

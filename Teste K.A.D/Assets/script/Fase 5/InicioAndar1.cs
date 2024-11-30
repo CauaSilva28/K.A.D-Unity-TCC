@@ -38,7 +38,8 @@ public class InicioAndar1 : MonoBehaviour
 
         barreiras[1].SetActive(false);
         areaMensagemFim.SetActive(true);
-        Destroy(spawnarInimigo);
+        spawnarInimigo.GetComponent<SpawnarInimigos>().perdendo = true;
+        spawnarInimigo.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
