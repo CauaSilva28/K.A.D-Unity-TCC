@@ -426,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 15560661}
   morrendo: 0
+  pauseJogo: {fileID: 1307492695}
   ferramenta: {fileID: 1871524386}
 --- !u!114 &15560657
 MonoBehaviour:
@@ -62468,6 +62469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1452463016}
   morrendo: 0
+  pauseJogo: {fileID: 1307492695}
   ferramenta: {fileID: 823710219}
 --- !u!114 &1452463012
 MonoBehaviour:

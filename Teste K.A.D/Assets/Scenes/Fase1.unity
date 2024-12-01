@@ -18731,7 +18731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e761793e84e84334b8bc5085e2e3c4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempoSpawn: 6
+  tempoSpawn: 8
   spawnpoints:
   - {fileID: 752495853}
   - {fileID: 1045066908}
@@ -28403,6 +28403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1443295083}
   morrendo: 0
+  pauseJogo: {fileID: 866459365}
   ferramenta: {fileID: 1046733079}
 --- !u!114 &1443295078
 MonoBehaviour:
@@ -28569,7 +28570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danoSoco: 1
   danoFerramenta: 2
-  danoEspecial: 6
+  danoEspecial: 10
   danoObjetoFerramenta: 0
   danoObjetoSoco: 0
   atacando: 0
@@ -29085,7 +29086,7 @@ Transform:
   m_GameObject: {fileID: 1479103859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 628, y: 11.3, z: 781}
+  m_LocalPosition: {x: 1107.2524, y: 11.3, z: 188.24701}
   m_LocalScale: {x: 6.7101, y: 6.7101, z: 6.7101}
   m_ConstrainProportionsScale: 0
   m_Children: []

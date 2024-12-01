@@ -10,6 +10,8 @@ public class AnimacoesPerso : MonoBehaviour
 
     private Movimento movePerso;
 
+    public PausarJogo pauseJogo;
+
     public GameObject ferramenta;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,7 @@ public class AnimacoesPerso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!morrendo){
+        if(!morrendo && !pauseJogo.pausado){
             anim.SetInteger("transition", 0);
 
             if(Input.GetKey(KeyCode.W)){

@@ -7099,6 +7099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 263091425}
   morrendo: 0
+  pauseJogo: {fileID: 1304457518}
   ferramenta: {fileID: 1649214203}
 --- !u!114 &263091421
 MonoBehaviour:
@@ -32592,6 +32593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1112003179}
   morrendo: 0
+  pauseJogo: {fileID: 1304457518}
   ferramenta: {fileID: 506356738}
 --- !u!114 &1112003175
 MonoBehaviour:
@@ -36773,6 +36775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1253813828}
   morrendo: 0
+  pauseJogo: {fileID: 1304457518}
   ferramenta: {fileID: 1080763915}
 --- !u!114 &1253813824
 MonoBehaviour:
@@ -59723,6 +59726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2079167112}
   morrendo: 0
+  pauseJogo: {fileID: 1304457518}
   ferramenta: {fileID: 1564071159}
 --- !u!114 &2079167108
 MonoBehaviour:
