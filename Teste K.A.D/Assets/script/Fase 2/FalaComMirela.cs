@@ -16,6 +16,8 @@ public class FalaComMirela : MonoBehaviour
     public GameObject[] PlayerConversa;
     public GameObject MirelaConversa;
 
+    public GameObject inimigosMerc;
+
     public TelaSelecionarPerso selecaoPerso;
 
     public GameObject dialogoMirela;
@@ -33,6 +35,7 @@ public class FalaComMirela : MonoBehaviour
 
                 if(dialogoMirela.GetComponent<DialogosControlados>().iniciarDialogo){
                     cameraConversa.SetActive(true);
+                    inimigosMerc.SetActive(false);
                     PlayerConversa[selecaoPerso.numPerso].SetActive(true);
                     Player[selecaoPerso.numPerso].SetActive(false);
                     scriptAparecerTeclas.aparecer = false;
@@ -55,6 +58,7 @@ public class FalaComMirela : MonoBehaviour
     }
 
     void fimDialogoMirela(){
+        inimigosMerc.SetActive(true);
         cameraConversa.SetActive(false);
         PlayerConversa[selecaoPerso.numPerso].SetActive(false);
         Player[selecaoPerso.numPerso].SetActive(true);

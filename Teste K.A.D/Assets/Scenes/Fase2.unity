@@ -89361,6 +89361,7 @@ MonoBehaviour:
   - {fileID: 1267687904}
   - {fileID: 378428162}
   MirelaConversa: {fileID: 350870111}
+  inimigosMerc: {fileID: 612457552}
   selecaoPerso: {fileID: 522485486}
   dialogoMirela: {fileID: 661711461}
 --- !u!65 &2140790570

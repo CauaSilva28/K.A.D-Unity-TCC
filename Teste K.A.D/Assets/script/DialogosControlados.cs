@@ -155,7 +155,7 @@ public class DialogosControlados : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             if(!apareceu){
                 aparecerFalas = true; 
@@ -167,7 +167,7 @@ public class DialogosControlados : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             if(!apareceu){
                 aparecerFalas = false; 

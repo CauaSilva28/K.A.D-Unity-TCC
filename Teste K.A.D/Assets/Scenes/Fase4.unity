@@ -11005,8 +11005,8 @@ MonoBehaviour:
   danoSoco: 0.8
   danoFerramenta: 1.8
   danoEspecial: 11
-  danoObjetoFerramenta: 2.6
-  danoObjetoSoco: 2.4
+  danoObjetoFerramenta: 2.9
+  danoObjetoSoco: 2.6
   atacando: 0
   naAreaObjeto: 0
   anguloDeVisao: 45
@@ -11124,10 +11124,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.82
+  m_Radius: 0.8773453
   m_Height: 2.59
   m_Direction: 1
-  m_Center: {x: -0.04, y: 1.31, z: 0.13}
+  m_Center: {x: -0.040000018, y: 1.3100001, z: 0.22}
 --- !u!54 &339511428
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28260,8 +28260,8 @@ MonoBehaviour:
   danoSoco: 1
   danoFerramenta: 2
   danoEspecial: 13
-  danoObjetoFerramenta: 2.6
-  danoObjetoSoco: 2.4
+  danoObjetoFerramenta: 2.9
+  danoObjetoSoco: 2.6
   atacando: 0
   naAreaObjeto: 0
   anguloDeVisao: 45
@@ -62118,8 +62118,8 @@ MonoBehaviour:
   danoSoco: 0.8
   danoFerramenta: 1.7
   danoEspecial: 12
-  danoObjetoFerramenta: 2.6
-  danoObjetoSoco: 2.4
+  danoObjetoFerramenta: 2.9
+  danoObjetoSoco: 2.6
   atacando: 0
   naAreaObjeto: 0
   anguloDeVisao: 45
@@ -63893,8 +63893,8 @@ MonoBehaviour:
   danoSoco: 0.9
   danoFerramenta: 1.6
   danoEspecial: 11
-  danoObjetoFerramenta: 2.6
-  danoObjetoSoco: 2.4
+  danoObjetoFerramenta: 2.9
+  danoObjetoSoco: 2.6
   atacando: 0
   naAreaObjeto: 0
   anguloDeVisao: 50
