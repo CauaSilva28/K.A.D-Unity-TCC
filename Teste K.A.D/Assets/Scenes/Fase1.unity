@@ -18731,7 +18731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e761793e84e84334b8bc5085e2e3c4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempoSpawn: 8
+  tempoSpawn: 7
   spawnpoints:
   - {fileID: 752495853}
   - {fileID: 1045066908}
@@ -27733,7 +27733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogo:
-  - "Ela est\xE1 kapenga ein, vai pegar umas ferramentas para mim."
+  - "Ela est\xE1 capenga ein, vai pegar umas ferramentas para mim."
   telaDialogo: {fileID: 1279090766}
   elementosDialogo: {fileID: 1352902477}
   dialogoTexto: {fileID: 1001859567}

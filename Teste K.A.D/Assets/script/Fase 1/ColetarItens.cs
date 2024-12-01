@@ -39,7 +39,7 @@ public class ColetarItens : MonoBehaviour
             barraConserto.SetActive(true);
 
             if(!perdendo){
-                barraConserto.GetComponent<Slider>().value += 0.006f * Time.deltaTime;
+                barraConserto.GetComponent<Slider>().value += 0.007f * Time.deltaTime;
             }
 
             if(!aconteceuEnumerator){

@@ -232,14 +232,14 @@ public class Inimigos : MonoBehaviour
             int curaAleatoria = Random.Range(0, curaPrefab.Length);
 
             if(ferramentaCena[persoSelecionado.numPerso].activeSelf){
-                if (numeroAleatorio > 7)
+                if (numeroAleatorio >= 7)
                 {
                     GameObject curaInstance = Instantiate(curaPrefab[curaAleatoria], transform.position, Quaternion.identity);
                     curaInstance.tag = "Cura";
                 }
             }
             else{
-                if (numeroAleatorio > 5 && numeroAleatorio < 9)
+                if (numeroAleatorio >= 5 && numeroAleatorio < 9)
                 {
                     GameObject curaInstance = Instantiate(curaPrefab[curaAleatoria], transform.position, Quaternion.identity);
                     curaInstance.tag = "Cura";
