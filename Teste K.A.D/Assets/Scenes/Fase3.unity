@@ -22776,7 +22776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogo:
-  - "Vai mais r\xE1pido! Vc t\xE1 acelerando essa jo\xE7a!?"
+  - "Vai mais r\xE1pido! Voc\xEA t\xE1 acelerando essa jo\xE7a!?"
   - "Vam bora, falta mais um pouco pra bagun\xE7ar esse trem!"
   telaDialogo: {fileID: 870479774}
   elementosDialogo: {fileID: 1677795543}
@@ -35108,7 +35108,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 2000
+  far clip plane: 5000
   field of view: 67
   orthographic: 0
   orthographic size: 5
